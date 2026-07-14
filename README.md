@@ -6,9 +6,9 @@ _Estación Acuario es un relato interactivo escrito mediante Inform 6._
 
 ![Estación Acuario](res/estacionAcuario.png)
 
-## Construccion
+## Construcción
 
-Este relato interactive ha sido escrito en [Inform 6](https://github.com/DavidKinder/Inform6). Será necesario utilizar `bresc` y las herramientas `blorb`. El proyecto [Scinf](http://github.com/baltasarq/Scinf) será de gran ayuda.
+Este relato interactivo ha sido escrito en [Inform 6](https://github.com/DavidKinder/Inform6). Será necesario utilizar `bresc` y las herramientas `blorb`. El proyecto [Scinf](http://github.com/baltasarq/Scinf) será de gran ayuda.
 
 ## Ejecución
 
