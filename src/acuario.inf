@@ -1,0 +1,2167 @@
+!% +language_name=Spanish
+!% -~S
+!% -~D
+
+Constant Story "Acuario";
+Constant Headline "^Muerte en la estación minera.^^^";
+
+! Colors & others
+Constant SMW_SCBACK SMW_CLR_BLACK;
+Constant SMW_SCTEXT SMW_CLR_CYAN;
+Constant SMW_SCEMPH SMW_CLR_WHITE;
+Constant SMW_SCHEAD SMW_CLR_YELLOW;
+Constant SMW_SCINPU SMW_CLR_GREEN;
+Constant SMW_SCPREF SMW_CLR_GREY;
+Constant SMW_SCNOTE SMW_CLR_GREY;
+
+Constant SMW_PROPORTIONAL;
+Constant NO_SCORE;
+Constant ADMITIR_COMANDO_SALIDAS;
+!Constant SMW_NOGRAPHICS;
+
+Release 2;
+
+Constant AMUSING_PROVIDED;
+[ amusing;
+    print "Esta aventura está basada en ";
+     print (s_note) "~Estación Acuario~";
+     print ", creada por Jesús Palacios en 1992, usando el ",
+          (s_emph) "PAWS", " en un ",
+          (s_note) "Spectrum.^^";
+     print "Fue presentada a la ",
+            (s_bold) "II FIComp";
+     print ", que terminó en Octubre de 2011.^^";
+     print "La razón por la que decidí hacer un remake de esta
+             aventura fue por el sabor a moderno que tenía, muy lejos
+             de las aventuras para ", (s_note) "Speccy", " más típicas.^";
+     print "Por poner un ejemplo, existe un marcado desarrollo de los
+             personajes, de entre los que destaca Samil, el científico
+             traumatizado que te dará la clave para poder encontrar
+             el famoso ~conmutador~.^";
+     print "En fin, aquí está, y espero que divierta y entretenga.^";
+     print "Como siempre, debo agradecer la estrecha colaboración de mi
+             betatester favorita, Jenesis. Cualquier error es sólo atribuible
+             a mi persona, claro está.^";
+     print "En este caso, además tengo que agradecerle ciertos retoques gráficos
+             que hacen que este relato luzca mucho mejor. Todos los demás,
+             que se ~ven feos~, son míos.^";
+];
+
+replace restartSub;
+
+Include "parser";
+Include "infglk";
+Include "smw";
+Include ">acuario.bli";
+Include "verbLib";
+Include "SpanishG";
+
+Include "character.h";
+Include "util.h";
+
+class aPlace
+with
+    cant_go [;
+        print "No puedes ir por ahí. ";
+
+        if ( isThereLight() ) {
+            <<salidas>>;
+        }
+
+        "";
+    ],
+;
+
+class Place
+class aPlace
+has light;
+
+class Swamp
+class Place
+has light;
+
+class Cave
+class aPlace
+with
+     short_name "Galería",
+     description [;
+               drawImage( picCueva, SMW_POS_CENTER );
+               print "La mina se compone de múltiples galerías con la
+               piedra al desnudo. Notas algunos grados menos
+               aquí. Varias luces artificiales cuelgan
+               del techo de la bóveda, de sus propios cables
+               de energía, que también funcionan como sujecciones.^";
+               <<salidas>>;
+     ],
+     before [;
+          Examine:
+               if ( noun == d_obj ) {
+                    "Gravilla y más gravilla.";
+               }
+               else
+               if ( noun == u_obj ) {
+                    "El techo de la caverna, con las luces colgando.";
+               }
+     ],
+has light;
+
+class aRoom
+class aPlace;
+
+class Room
+class aRoom
+with
+     before [;
+          Examine:
+               if ( noun == d_obj ) {
+                    player.think( "Todo metálico por abajo." );
+                    rtrue;
+               }
+               else
+               if ( noun == u_obj ) {
+                    player.think( "Todo metálico por arriba." );
+                    rtrue;
+               }
+     ],
+has light;
+
+class Thing;
+
+class SceneryThing
+class Thing
+has scenery;
+
+class Estanteria
+class SceneryThing
+with
+     name 'estanteria',
+     description "Básica y funcional.",
+     short_name "estanteria",
+has female supporter transparent;
+
+class Cajas
+class SceneryThing
+with
+     name_fp 'cajas',
+     name_f 'caja',
+     short_name "cajas",
+     description "Contienen materiales básicos que no te
+               interesan en absoluto.",
+     before [;
+          Attack, Open:
+               "El material que hay dentro no te interesa.";
+     ],
+has pluralname female;
+
+Place Limbo
+with
+     description "Vaya... qué sitio tan raro...",
+;
+
+SceneryThing objParedesBase "paredes"
+with
+     name_fp 'paredes',
+     name_f 'pared',
+     description [;
+          print "Paredes metálicas, como todas las de la base.";
+
+          if ( objSangre in location ) {
+               " Las paredes están manchadas de sangre.";
+          }
+     ],
+     found_in [;
+          return ( location ofclass Room );
+     ],
+has female pluralname;
+
+SceneryThing objParedesCueva "paredes"
+with
+     name_fp 'paredes',
+     name_f 'pared',
+     description "De pura roca, ligeramente húmeda.",
+     found_in [;
+          return ( location ofclass Cave );
+     ],
+has female pluralname;
+
+SceneryThing objLucesCueva "luces"
+with
+     name_f 'luz',
+     name_fp 'luces',
+     description "Las luces cuelgan del techo de la cueva.",
+     found_in [;
+          return ( location ofclass Cave );
+     ],
+has female pluralname;
+
+Include ">personajesAcuario.inf";
+Include ">swamp.inf";
+
+Thing objPiezaRepuesto "conmutador de presión" limbo
+with
+     name_m 'conmutador' 'presion' 'repuesto',
+     name_f 'pieza',
+     description "Una pieza de repuesto. Tú no entiendes
+                     demasiado de esto, normalmente se encarga Farmer.",
+     before [;
+          Give:
+               if ( second == Farmer
+                 && location == locNaveCarga )
+               {
+                    doEnd();
+                    rtrue;
+               }
+     ],
+;
+
+! Los lleva Samil todo el tiempo
+Thing objGuantes "guantes" Samil
+with
+     name_mp 'guantes',
+     name_m 'guante',
+     description "Son unos guantes de goma reforzada, aislantes.",
+has clothing pluralname;
+
+Room  locNaveCarga "Nave de carga"
+  with  description [;
+         drawImage( picPuenteNave, SMW_POS_CENTER );
+          print "El interior de vuestra nave espacial.
+                  Múltiples monitores y mandos se presentan ante vosotros,
+                  proveyendo información en tiempo real. Un pequeño silbido
+                  indica que los motores de la nave se están apagando, pero que
+                  se mantienen activos, a la vez que un apagado zumbido anuncia
+                  que los sistemas de mantenimiento vital están trabajando.
+                  Al sur, la puerta de salida te separa del exterior.^";
+
+          if ( self hasnt visited ) {
+               print "^Farmer se afana comprobando los instrumentos.^";
+               Farmer.say( "El conmutador de presión está roto. ¡Necesitamos uno
+                               nuevo para que los dos motores trabajen juntos!"
+               );
+               Farmer.conversation();
+          }
+
+         rtrue;
+     ],
+     s_to locValle,
+     out_to locValle,
+;
+
+Thing ->  objCajaHermetica "armería"
+with
+     name_f 'armeria' 'portezuela' 'cerradura' 'zona' 'carga',
+     name_m 'armario' 'mamparo' 'popa',
+     when_open "La armería de la nave se aprecia forzada y entreabierta.",
+     when_closed "La armería de la nave se sitúa contra el mamparo de popa,
+               la zona de carga.",
+     description [;
+          print "A popa se encuentra la armería de la nave.
+                    Se trata de un armario metálico con
+                    una portezuela con cerradura. No es que contenga
+                    demasiadas armas, pero aún así Farmer guarda la llave con celo.";
+
+          if ( objFusil in self ) {
+               print "^Dentro puedes ver: ";
+               listChildrenOf( self );
+          }
+
+          "^";
+     ],
+     before [;
+          Open:
+               "Para eso necesitas la llave, que Farmer guarda
+                celosamente. Aunque por otra parte, la tapa de la
+                armería tiene un rebaje por el que se podría hacer
+                palanca.";
+          Unlock:
+               if ( second == objDestornillador ) {
+                    if ( Farmer notin location ) {
+                         give self open;
+
+                         "Forcejeas, intentando hacer palanca con el destornillador
+                          entre el rebaje y la puerta metálica de seguridad. Tras un rato
+                          haciendo palanca, la cerradura salta, y la puerta, forzada,
+                          queda entreabierta.";
+                    } else {
+                         print "Aproximas el destornillador a la puerta del armario,
+                          pero en ese momento te das cuenta de que Farmer se te ha quedado
+                          mirando...^";
+                         Farmer.say( "¿Pero qué haces?" );
+                         print "Farmer parece sorprendido, como si no se lo creyera.^";
+                         player.say( "Necesito el arma..." );
+                         print "Cogido ", (s_note) "in fraganti", ", intentas formar una
+                              frase coherente, pero Farmer te ataja, impaciente.";
+                         Farmer.say( "De eso nada. Y busca el maldito conmutador de una vez." );
+                         player.think( "Mejor esperar a que no esté él." );
+                         player.say( "Este... entendido." );
+                         rtrue;
+                    }
+               } else {
+                    player.think( "No creo que con eso lo vaya a conseguir." );
+                    rtrue;
+               }
+     ],
+has static female openable container transparent;
+
+SceneryThing -> objCerraduraArmeria "cerradura"
+with
+     name 'cerrojo' 'rebaje',
+     name_f 'cerradura',
+     description "El cerrojo de la armería precisa de una llave
+               que guarda Farmer. Tiene un rebaje, de tal manera
+               que se podría hacer palanca para abrirlo.",
+     before [;
+          Open, Close:
+               <<Open objCajaHermetica>>;
+     ],
+has female concealed;
+
+SceneryThing objInstrumentos "instrumentos" locNaveCarga
+with
+     name_mp 'instrumentos' 'mandos' 'monitores' 'controles' 'paneles',
+     name_m 'instrumento' 'mando' 'monitor',
+     name_f 'palanca' 'pantalla',
+     name_fp 'palancas' 'pantallas',
+     description "Tú te encargas más de pilotar, el tema de los controles
+                     es más cosa de Farmer. Falta el conmutador, en cualquier
+                     caso.",
+has pluralname;
+
+Thing objFusil "fusil" objCajaHermetica
+with
+     name 'fusil' 'combate',
+     description [;
+          "Un IL-20/86 estándar de combate.";
+     ],
+     before [;
+          Dispara:
+               if ( second == Nothing ) {
+                    second = Monstruo;
+               }
+
+               if ( second ~= Monstruo
+                 || monstruo notin location )
+               {
+                    player.think( "Eso sería excesivo." );
+                    rtrue;
+               }
+
+               if ( ~~Monstruo.estaMojado() ) {
+                    SMW.play( SMW.chan2, sndFusil );
+                    print "Disparas varias ráfagas, pero, aparte de enfurecer
+                         al monstruo, no parece que le afecten lo más
+                         mínimo.^";
+                    locCave4.time_left = 0;
+               } else {
+                    stopTimer( locCave4 );
+                    locColinaHoradada.s_to = "Ya no queda nada del ascensor. Ha desaparecido.";
+                    move objCD to player;
+                    Farmer.ponModoIrse();
+
+                    print "Disparas varias ráfagas, que aparentemente, no tienen
+                         un gran efecto sobre el monstruo, pero que inflaman
+                         el líquido que recubre su piel, haciéndolo estallar
+                         en una bola de fuego.^";
+                    SMW.play( SMW.chan2, sndFusil );
+                    wait();
+                    print "Brevemente, Samil y tú os mirais. Él ha perdido su
+                         mirada febril, y algún tipo de calma le invade.
+                         El monstruo sigue ardiendo, y parece que en breve
+                         morirá.^";
+                    wait();
+                    print "Relajado, bajas el arma; y es justo entonces cuando
+                         la bola de fuego que antes era la bestia,
+                         salta hacia vosotros dos, que emprendéis una carrera
+                         frenética, seguidos a corta distancia por la bestia,
+                         esta vez más allá de su guarida.
+                         Por primera vez desde que os conocisteis, ves
+                         verdadero pánico en el rostro de Samil, enmarcado
+                         por los relámpagos de luz de las llamas de la bola
+                         de fuego que os persigue.^";
+                    SMW.play( SMW.chan2, sndMonstruo );
+                    wait();
+                    print "Como buenamente podéis, entráis en el ascensor, y
+                         mientras apuntas a la bestia, Samil pulsa el botón
+                         de subida, consiguiendo desaparecer de su vista
+                         en el último momento.^";
+                    playerTo( locAscensor, 2 );
+                    wait();
+                    <go u_obj>;
+                    wait();
+                    playerTo( locColinaHoradada, 2 );
+                    print "Salís de nuevo a la luz, casi sin poder creerlo, sintiéndoos
+                         a salvo al fin,
+                         cuando, repentinamente, el rostro ennegrecido de la bestia
+                         surge de la oscuridad para llevarse a Samil.^";
+                    wait();
+
+                    drawImage( picMina2, SMW_POS_CENTER );
+                    SMW.play( SMW.chan1, sndMonstruo );
+
+                    print "Demudado de terror, con la mandíbula desencajada, intentas
+                         convencerte de que Samil ya no está. No puedes creerlo.^";
+                    wait();
+                    print "Y entonces... Samil reaparece, arrastrándose, de nuevo,
+                         desde el hueco del ascensor, para morir a tus pies.
+                         Es terrible.^";
+                    Samil.say( "Aquí tienes... ve por el pantano... " );
+                    print "Samil te entrega lo que parece un CD...^";
+                    Samil.say( "Camina hacia el oeste, siempre hacia el oeste...
+                              desde la valla...
+                              hacia el sur, al pasar una gran roca...
+                              gira al norte cuando te encuentres con unas lianas...
+                              al oeste de un campo de nenúfares, en medio de un
+                              gran lago, está la nave..." );
+                    Samil.say( "... donde... empezó..." );
+                    Samil.say( "... todo..." );
+                    print "Ha muerto.^";
+                    wait();
+                    print "Cierras sus ojos.^";
+                    wait();
+                    print "Farmer, alarmado por el ruido, ha venido corriendo desde la nave.^";
+                    Farmer.say( "No puedo creerlo." );
+                    Farmer.say( "No puedo creerlo..." );
+                    player.say( "Ve a la nave, yo iré a buscar el maldito conmutador." );
+                    Farmer.say( "Os lo dije, no deberías haber jugado a los marines, yo..." );
+                    player.say( "Farmer..." );
+                    Farmer.say( "... os lo dije..." );
+                    player.say( "... vuelve a la nave..." );
+                    Farmer.say( "... pero..." );
+                    player.say( "... y déjame en paz." );
+                    print "Tras mirarte un buen rato, Farmer emprende la marcha hacia la nave.^";
+                    player.think( "Sé que en el fondo, tiene razón." );
+                    print "La vista de Samil parece hacer que tus pensamientos pierdan
+                           toda su importancia.^";
+                    player.think( "Recuperaré el conmutador, y nos marcharemos de aquí." );
+
+                    Samil.ponMuerto();
+                    move Samil to locColinaHoradada;
+               }
+
+               rtrue;
+     ],
+;
+
+Thing objCD "CD" Samil
+with
+     name 'cd',
+     description "Es un CD encerrado en un sobre especial. Tienes una idea bastante
+               aproximada de cómo usarlo: podría abrir el panel de mantenimiento
+               de una nave, donde se pueden encontrar conmutadores.",
+
+;
+
+SceneryThing objPuertaNaveCarga "puerta" locNaveCarga
+with
+     name 'puerta' 'compuerta' 'estanca',
+     description [;
+          print "La puerta estanca de la nave.
+                 Hay una panel a su lado.";
+          if ( self hasnt open ) {
+               print " Está cerrada.";
+          } else {
+               print " Está abierta.";
+          }
+
+          "^";
+     ],
+     ruido [;
+          print "La compuerta se desliza tras igualar la presión
+                              con un silbido sordo...^"
+          ;
+          SMW.play( SMW.chan2, sndDescompr );
+     ],
+     react_before [;
+          Go:
+               if ( ( location == locNaveCarga && noun == out_obj )
+                 || ( location == locNaveCarga && noun == s_obj )
+                 || ( location == locValle && noun == in_obj )
+                 || ( location == locValle && noun == n_obj ) )
+               {
+                    if ( self hasnt open ) {
+                         "La compuerta estanca está cerrada.";
+                    }
+               }
+     ],
+     time_left 1,
+     time_out [;
+          give self ~open;
+          "La puerta estanca se cierra y un sordo silbido surge de su interior.";
+     ],
+     after [;
+          Open:
+               self.ruido();
+               startTimer( self, 1 );
+               rtrue;
+          Close:      self.ruido();
+               stopTimer( self );
+               rtrue;
+     ],
+     found_in [;
+          return ( location == locNaveCarga or locValle );
+     ],
+has female openable;
+
+Place  locValle "Valle"
+  with  description [;
+         drawImage( picNave, SMW_POS_CENTER );
+            print "Tras una red metálica rota de la que cuelga un cartel, hacia el oeste,
+         ves un cenagoso pantano. Al norte ves tu nave espacial.
+         Al sur, un camino en dirección a una colina horadada.^";
+         rtrue;
+     ],
+     n_to locNaveCarga,
+     in_to locNaveCarga,
+     s_to [;
+          silenceAll();
+          playerTo( locColinaHoradada, 2 );
+          rtrue;
+     ],
+     e_to [;
+          silenceAll();
+          playerTo( locPuertaEntrada, 2 );
+          rtrue;
+     ],
+     w_to [;
+          silenceAll();
+          playerTo( locPantano, 2 );
+          rtrue;
+     ],
+;
+
+SceneryThing -> objVallaMetalica "valla"
+with
+     name_f 'valla' 'red' 'metalica',
+     name 'agujero',
+     description [;
+          "Una valla fabricada con red metálica separa el pantano
+           del resto del valle. De los restos de un gran agujero
+           cuelga un cartel.";
+     ],
+     found_in [;
+          return ( location == locValle or locPantano );
+     ],
+     before [;
+          JumpOver, Enter:
+               print "Te metes por el agujero...^";
+               <<Go w_obj>>;
+     ],
+has female;
+
+SceneryThing -> objCartel "cartel"
+with
+     name 'cartel' 'aviso',
+     found_in [;
+          return ( location == locValle or locPantano );
+     ],
+     description
+          "El cartel prohibe el paso. A estas alturas,
+           ya no tiene demasiado sentido.",
+;
+
+SceneryThing objPanel "panel" locNaveCarga
+with
+     name 'panel',
+     description "Una panel con forma de mano se sitúa al lado de la compuerta de la nave.",
+     found_in [;
+          return ( location == locValle or locNaveCarga );
+     ],
+     before [;
+          Push: <<open objPuertaNaveCarga>>;
+          PutOn: <<open objPuertaNaveCarga>>;
+     ],
+;
+
+Place locNaveAbandonada "Nave abandonada"
+with
+     description [;
+          drawImage( picPuenteNaveAbandonada, SMW_POS_CENTER );
+          print "Te encuentras en el interior de una accidentada nave espacial. Múltiples monitores y
+              mandos se presentan ante ti, además de la caja
+              de mantenimiento, donde hay una ranura.
+              Al este, la puerta de salida te separa del exterior.^";
+          rtrue;
+     ],
+     e_to Pantano10,
+     out_to Pantano10,
+;
+
+SceneryThing objCajaMantenimiento "caja de mantenimiento" locNaveAbandonada
+with
+     name 'caja' 'ranura' 'mantenimiento',
+     description [;
+          print "La caja de mantenimiento da acceso a las entrañas
+               de los instrumentos de la nave. Se abre con un CD
+               de mantenimiento estándar, que llevan los capitanes
+               de las naves. ";
+
+          if ( self has open )
+                    "La has abierto.";
+          else      "Está cerrada.";
+     ],
+     react_before [;
+          PutOn:
+               if ( second == self ) {
+                    <<Open self noun>>;
+               }
+     ],
+     before [;
+          Attack:
+               player.think( "Así no es posible..." );
+               rtrue;
+
+          Open, Unlock:
+               if ( second == Nothing ) {
+                    second = objCD;
+               }
+
+               if ( second ~= objCD ) {
+                    player.think(
+                         "No encajará en la ranura.
+                         Necesito el CD de mantenimiento."
+                    );
+                    rtrue;
+               }
+
+               if ( objCD in player ) {
+                    print "El CD encaja en la ranura. La puerta
+                         bajo los instrumentos se abre,
+                         y de entre los paneles de circuitos,
+                         rescatas el conmutador que os hace
+                         falta.^";
+                    give self open;
+                    move objPiezaRepuesto to player;
+               } else player.think( "Necesito el CD de mantenimiento." );
+
+               rtrue;
+     ],
+has female openable;
+
+Swamp  locPantano "Pantano"
+with  description [;
+          drawImage( picPantano, SMW_POS_CENTER );
+
+          "El pantano, al oeste, es brumoso y húmedo. Al este, una valla separa el terreno
+           cenagoso, que curiosamente, se seca y se transforma en un valle más bien árido.";
+     ],
+     e_to locValle,
+     w_to Pantano,
+     se_to locColinaHoradada,
+;
+
+Place  locColinaHoradada "Colina horadada"
+with  description [;
+               if ( Samil in location
+                 && Samil.estaMuerto() )
+               {
+                    drawImage( picMina2, SMW_POS_CENTER );
+               } else {
+                    drawImage( picMina, SMW_POS_CENTER );
+               }
+
+               silenceAll();
+            print "Al sur, excavado en la roca de la pétrea colina
+                         ves un ascensor. A ambos lados sendas redes metálicas te separan
+                         de la maquinaria propia de una mina. Un montón de rocas se sitúan a
+                         un lado de la abertura.^";
+     ],
+     n_to locValle,
+     s_to locAscensor,
+     ne_to locPuertaEntrada,
+     nw_to locPantano,
+     in_to [;
+          <<Go s_obj>>;
+     ],
+;
+
+SceneryThing objMinaFalsa "mina" locColinaHoradada
+with
+     name_f 'mina' 'entrada' 'abertura',
+     name_m 'ascensor',
+     description "Por lo que se ve desde aquí,
+                     la entrada en la mina parece dar paso a un ascensor.",
+     before [;
+          Enter:
+               playerTo( locAscensor, 2 );
+               rtrue;
+     ]
+has female enterable;
+
+Thing objPiedra "piedra" limbo
+with
+     name 'roca' 'piedra' 'negra',
+     description "Una pesada piedra negra de un mineral que desconoces.",
+has female;
+
+SceneryThing objVerja "verja" locColinaHoradada
+with
+     name 'verja' 'reja' 'red' 'metalica',
+     description "Una reja muy fuerte, separa el camino de la maquinaria,
+               ordenadamente aparcada del otro lado.",
+has female;
+
+SceneryThing objMontonDeRocas "montón de rocas" locColinaHoradada
+with
+     name 'piedras' 'rocas' 'monton',
+     name_f 'roca' 'piedra',
+     description "Un montón de rocas de mineral, probablemente extraídas de la mina.",
+     react_before [;
+          Take:
+               if ( noun == self ) {
+                    if ( objPiedra in limbo ) {
+                         print "Rebuscas entre las piedras de mineral, una que puedas llevar
+                                cómodamente.^";
+                         move objPiedra to locColinaHoradada;
+                         <<Take objPiedra>>;
+                    }
+                    else "No le ves interés a sacar otra piedra de ahí.";
+               }
+          Search:
+               <<Take self>>;
+     ],
+has pluralname;
+
+SceneryThing objMaquinaria "maquinaria" locColinaHoradada
+with
+     name 'maquinaria' 'maquina',
+     name_fp 'maquinas',
+     description "Maquinaria de minería de todas clases, que desconoces.",
+has female;
+
+Place  locPuertaEntrada "Puerta de Entrada"
+with  description [;
+         drawImage( picEntradaBase, SMW_POS_CENTER );
+
+          if ( self hasnt visited ) {
+               print "La base está inquietantemente silenciosa, lo cual te intranquiliza
+                    profundamente. Además, hay otras cuestiones que no encajan y que te ponen
+                    los pelos de punta, como ciertos rastros de sangre y lodo.^";
+          } else {
+               print "La puerta de entrada al gran edificio.
+                         Al sureste puedes ver otra puerta a algún tipo de almacén.
+                         Puedes ver rastros de sangre y lodo.^";
+          }
+     ],
+     e_to locPasillo,
+     w_to locValle,
+     in_to locPasillo,
+     se_to locSotanoAlmacen,
+     sw_to locColinaHoradada,
+     d_to locSotanoAlmacen,
+;
+
+SceneryThing -> objEdificio "estación"
+with
+     name_f 'estacion' 'acuario' 'base' 'fachada',
+     name_m 'edificio',
+     description "La Estación Acuario permanece anormalmente aodormecida, y
+                         con alarmantes restos de sangre y barro en su fachada.",
+has female;
+
+SceneryThing -> objPuertaEntradaEdificio "puerta"
+with
+     name_f 'puerta' 'entrada' 'automatica' 'corredera',
+     name_fp 'puertas' 'automaticaa' 'correderas',
+     description "Las puertas son automáticas, de las que se deslizan a tu paso.",
+has female;
+
+SceneryThing ->  objCieno "cieno"
+with
+     name 'cieno' 'lodo' 'barro' 'fango',
+     article "",
+     description [;
+          print "Restos de lodo, por todas partes.^";
+          if ( self hasnt visited ) {
+               print "El lodo parece de alguna forma mezclado con
+                    la sangre, de una manera que es difícil de
+                    concebir. ¿Qué está pasando?";
+          }
+
+          give self visited;
+          "^";
+     ],
+     found_in [;
+          return ( location == locPuertaEntrada
+                    or locPasillo
+                    or locPasillo2
+                    or locCocina
+                    or locAlmacen2
+                    or locFrigo )
+          ;
+     ],
+;
+
+SceneryThing ->  objSangre "sangre"
+with
+     name_f 'sangre' 'mancha',
+     name_fp 'manchas',
+     article "",
+     description [;
+          print "La visión de la sangre turba tu mente...";
+
+          if ( self hasnt visited ) {
+               print " parece que algún tipo de crimen se hubiera cometido aquí, pero
+                    no puedes imaginar qué podría haber hecho algo así...";
+          }
+
+          give self visited;
+          "^";
+     ],
+     found_in [;
+          return ( location == locPuertaEntrada
+                    or locPasillo
+                    or locPasillo2
+                    or locCocina
+                    or locLaboratorio
+                    or locAlmacen2
+                    or locFrigo
+                    or locServicios )
+          ;
+     ],
+has female;
+
+Room locSotanoAlmacen "Almacén"
+with
+     description [;
+         drawImage( picAlmacen, SMW_POS_CENTER );
+          print "Un sombrío sótano bajo el nivel del
+             suelo, en el que interminables estanterías corren
+             a lo largo de todas las paredes,
+             e incluso tiene varias filas más en el medio. No parece
+             un lugar interesante para buscar nada, a no ser que se conozca
+             exactamente dónde está.^";
+     ],
+     nw_to locPuertaEntrada,
+     u_to locPuertaEntrada,
+     out_to locPuertaEntrada,
+;
+
+Estanteria objEstanteriasAlmacenSub locSotanoAlmacen
+;
+
+Cajas objCajasAlmacenSub locSotanoAlmacen
+;
+
+Room  locPasillo "Pasillo"
+with
+     description [;
+         drawImage( picPasilloBase, SMW_POS_CENTER );
+          print "Ante ti, hacia el este, se abre un pasillo.
+               La extensión del pasillo se encuentra en semipenumbra;
+               mirando hacia arriba, encuentras que el problema son las luces
+               violentamente rotas, cuyas pantallas se encuentran ahora
+               esparcidas en la forma de afilados cristales por el suelo.
+               Al norte ves la puerta de un almacén, al sur la de los servicios.
+               Esparcidos por el suelo hay cristales rotos.^";
+     ],
+     n_to [;
+          if ( ~~objPuertaAlmacen.isBroken() ) {
+               "No puedes, la puerta te lo impide.
+               Es una puerta vieja y extraña, no se abrirá a tu paso.
+               Tiene una cerradura, también antigua.";
+          } else {
+               playerTo( locAlmacen, 2 );
+               rtrue;
+          }
+     ],
+     s_to locServicios,
+     e_to locPasillo2,
+     w_to locPuertaEntrada,
+     in_to [;
+          <<Go n_obj>>;
+     ],
+     out_to locPuertaEntrada,
+     each_turn [;
+          if ( objFlotFeets in player
+            && objFlotFeets has worn )
+          {
+               give objFlotFeets ~worn;
+               player.think( "Al pasar por encima de los cristales, los flootfeets
+                         se pincharían, quedándose sin aire." );
+               "Te quitas los Flotfeets, y te los guardas.";
+          }
+     ],
+     before [;
+          Examine:
+               if ( noun == d_obj ) {
+                    <<Examine objCristales>>;
+               }
+               else
+               if ( noun == u_obj ) {
+                    <<Examine objLuces>>;
+               }
+     ],
+;
+
+SceneryThing ->  objLuces "luces"
+with
+     name_f 'luz',
+     name_fp 'luces',
+     description "Las luces aparecen rotas, sus cristales por el suelo.",
+     found_in [;
+          return ( location == locPasillo or locPasillo2 );
+     ],
+has female pluralname;
+
+SceneryThing ->  objCristales "cristales"
+with
+     name_mp 'cristales',
+     name 'cristal',
+     description [;
+          if ( self has visited ) {
+               print "Trozos de cristal de varios tamaños, parece que algo se hubiera roto,
+                      aunque no puedes identificar la fuente. Esto es realmente inquietante...
+                      ¿qué ha pasado aquí?";
+          } else {
+               print "Los trozos de cristal que ya viste antes, crujiendo bajo tus pies.";
+          }
+
+          print "^";
+          rtrue;
+     ],
+     before [;
+          Take:
+               player.think( "¡No! ¡Podría cortarme!" );
+               wait();
+               player.think( "Además, ¿para qué podría quererlos?" );
+               rtrue;
+     ],
+has pluralname;
+
+SceneryThing objServiciosFalso "servicios" locPasillo
+with
+     name 'servicios',
+     description "Los servicios se encuentran al sur.",
+     before [;
+          Enter: <<Go s_obj>>;
+     ],
+has pluralname;
+
+Room  locAlmacen "Almacén"
+with  description [;
+         drawImage( picAlmacenBase, SMW_POS_CENTER );
+          print "Un gran almacén cuyas polvorientas estanterías
+         están medio vacias. Un bidón se sitúa contra una de las
+         paredes. Puedes salir hacia el sur.^";
+     ],
+     s_to locPasillo,
+     out_to locPasillo,
+;
+
+Estanteria objEstanteriaAlmacen locAlmacen
+;
+
+Cajas objCajas locAlmacen
+;
+
+SceneryThing objPuertaAlmacen "puerta" locAlmacen
+with
+     name 'puerta' 'norte' 'almacen',
+     description [;
+          print "La puerta del almacén es de madera, endeble y gastada,
+                 con cerradura.";
+
+          if ( self hasnt locked ) {
+               print " Desquebrajada, cuelga hacia un lado del marco.";
+          } else {
+               print " Está cerrada.";
+          }
+
+          "^";
+     ],
+     isBroken [;
+          return ~~( self has locked );
+     ],
+     before [;
+          Enter:
+               <<Go n_obj>>;
+          Pull:
+               if ( self has locked ) {
+                    "La puerta se comba hacia ti, pero no
+                     consigues gran cosa.";
+               } else {
+                    "Ya no molesta, cuelga de sus goznes...";
+               }
+          Close, Open:
+               if ( self has locked ) {
+                    "Lo intentas, pero... es imposible.";
+               } else {
+                    "Ya no molesta, cuelga de sus goznes...";
+               }
+          Push, Attack:
+               if ( self has locked ) {
+                    give self ~locked;
+                    SMW.play( SMW.chan1, sndPatadaPuerta );
+                    "La puerta cede ante tu empuje, y queda colgando
+                     hacia un lado, en el interior del almacén.";
+               } else {
+                    "Tu impetuosa presencia física ya se encargó de ella
+                     hace un momento.";
+               }
+
+     ],
+     found_in [;
+          return ( location == locAlmacen or locPasillo );
+     ],
+has female locked transparent;
+
+SceneryThing objCerraduraPuertaAlmacen "cerradura" objPuertaAlmacen
+with
+     name_f 'cerradura',
+     name 'cerrojo',
+     description "Extraña y vieja cerradura.",
+     before [;
+          Open: <<Open objPuertaAlmacen>>;
+          Push, Attack: <<Push objPuertaAlmacen>>;
+     ],
+has locked;
+
+Thing objFlotfeets "flotfeets" objEstanteriaAlmacen
+private
+     mostrados false,
+with
+     name_mp 'flotfeets' 'globos' 'autohinchables' 'patucos',
+     name 'flotfeet' 'globo' 'autohinchable',
+     description [;
+          print "Una especie de globos autohinchables de plástico.";
+
+          if ( self hasnt open ) {
+               print " Están deshinchados";
+
+               if ( objFlotfeetsRing in self ) {
+                    print "; una anilla
+                         cuelga de un lateral.";
+               } else {
+                    print ".";
+               }
+          } else {
+               print " Están hinchados.";
+          }
+
+          "^";
+     ],
+     before [;
+          Show:
+               if ( second == Samil ) {
+                    if ( ~~self.mostrados ) {
+                         Samil.say( "Ah, sí, unos flotfeets... son para poder
+                                   caminar por el pantano, sin hundirse."
+                         );
+                         self.mostrados = true;
+                    } else {
+                         Samil.say( "Ya te he dicho que son para poder
+                                   caminar por el pantano."
+                         );
+                    }
+
+                    rtrue;
+               }
+     ],
+has pluralname clothing transparent;
+
+Thing  objFlotfeetsRing "anilla" objFlotfeets
+with
+     name 'anillo' 'rojo',
+     name_f 'anilla' 'roja',
+     description "Una pequeña anilla roja de metal.",
+     isFilled [;
+          return ( objFlotfeets has open );
+     ],
+     before [;
+          Pull:
+               if ( self.isFilled() ) {
+                    "Ya no tiene sentido...";
+               } else {
+                    move self to limbo;
+                    give objFlotfeets open;
+
+                    print "Los flotfeets se hinchan...";
+                    if ( objFlotfeets has worn ) {
+                         print " Notas como te elevas unos centímetros.";
+                    }
+
+                    "^";
+               }
+
+     ],
+has female;
+
+Thing  objDestornillador "destornillador" objEstanteriaAlmacen
+with
+     name 'destornillador',
+     description [;
+          "Uno de esos viejos destornilladores philips.";
+     ],
+;
+
+SceneryThing  objSumidero "sumidero"
+with
+     name 'sumidero',
+     name_f 'rejilla',
+     description [;
+          print "Hay un agujero en el suelo, con una pequeña rejilla,
+               por el que se cuelan los restos de ";
+
+          if ( location == locFrigo ) {
+               print "sangre. Es terrible.";
+          } else {
+               print "un líquido negruzco.";
+          }
+
+          "^";
+     ],
+     found_in [;
+          return ( location == locAlmacen or locFrigo );
+     ],
+;
+
+SceneryThing objBidonCombustible "bidón de combustible" locAlmacen
+with
+     name 'bidon' 'de' 'combustible',
+     name_f 'llave',
+     description [;
+          print "El bidón tiene una llave en su parte inferior, presumiblemente
+                  para verter su contenido.^";
+
+          rtrue;
+     ],
+     before [;
+          Open:
+               print "Giras la llave, y el combustible empieza a caer, corriendo
+                    por unas estrías del suelo hasta un sumidero...";
+
+               if ( objBotella in player or location ) {
+                    objBotella.setFilled( true );
+
+                    if ( objBotella in player ) {
+                         print " Dejas la botella en el suelo.";
+                    }
+
+                    move objBotella to location;
+                    print " Aproximas la botella a la llave del bidón,
+                           y esperas unos segundos hasta que se llena.";
+               }
+
+               print " Cierras la llave, y el líquido deja de fluir.^";
+               rtrue;
+     ],
+has openable;
+
+Room  locServicios "Servicios"
+with  description [;
+         drawImage( picServiciosBase, SMW_POS_CENTER );
+            print "Te encuentras en los servicios. Ves manchas de sangre en el suelo
+         y las paredes. Puedes ir al norte y al este.^";
+     ],
+     n_to locPasillo,
+     out_to locPasillo,
+     e_to locDormitorios,
+;
+
+Room  locCocina "Cocina"
+with  description [;
+         drawImage( picCocinaBase, SMW_POS_CENTER );
+            print "La sucia y desordenada cocina es testigo del drama vivido por sus habitantes.
+         Al norte hay un pequeño almacén.^";
+     ],
+     n_to locAlmacen2,
+     w_to locPasillo2,
+     out_to locPasillo2,
+;
+
+Room  locLaboratorio "Laboratorio"
+with  description [;
+         drawImage( picLaboBase, SMW_POS_CENTER );
+
+          print "Parece estar en orden y recogido. En muy buen estado, por cierto,
+          al menos en comparación con el resto de compartimentos de la estación minera.
+          Varias estanterías sostienen libros de consulta,
+          mientras en una mesa se asientan
+          matraces y tubos de ensayo. Una solitaria silla, como olvidada
+          apresuradamente, llena el vacío del resto de la estancia.
+           Hay un botiquín de emergencia fijado contra una de las paredes.^";
+
+         if ( self hasnt visited ) {
+          <<Tell Samil>>;
+         }
+
+         rtrue;
+     ],
+     s_to locPasillo2,
+     out_to locPasillo2,
+;
+
+SceneryThing objBotiquin "botiquín" locLaboratorio
+with
+     name 'botiquin',
+     description [;
+          print "Botiquín de emergencia.";
+
+          if ( Samil.getStatus() > 1 ) {
+               print " Está vacío.";
+          }
+
+          "^";
+     ],
+     before [;
+          Open:
+               if ( self hasnt open ) {
+                    "No tiene sentido abrirlo ahora.";
+               }
+     ],
+has container openable;
+
+SceneryThing objVarios "útiles de laboratorio" locLaboratorio
+with
+     name_mp 'tubos' 'matraces' 'libros' 'utiles',
+     name_m 'tubo' 'matraz' 'libro' 'ensayo' 'util',
+     name_f 'estanteria',
+     name_fp 'estanterias',
+     description
+          "Estanterías llenas de libros, tubos de ensayo, útiles de laboratorio
+           que se revelan totalmente inútiles para un lego como tú.",
+     before [;
+          player.think(
+               "Apenas sé pronunciar sus nombres, mucho menos puedo intuir
+                para qué sirven. No, no sabría qué hacer con ellos."
+          );
+          rtrue;
+     ],
+has pluralname;
+
+SceneryThing objMesa "mesa del laboratorio" locLaboratorio
+with
+     name 'mesa',
+     description
+          "La mesa sostiene varios útiles de laboratorio que no entiendes.",
+has female supporter;
+
+SceneryThing objSilla "silla del laboratorio" locLaboratorio
+with
+     name 'silla',
+     description
+          "Pues sí, una silla.",
+has female supporter;
+
+Room  locFrigo "Cámara frigorífica"
+with  description [;
+         drawImage( picFrigoBase, SMW_POS_CENTER );
+            print "¡Es horrible, tirados en el suelo, al pie de altas estanterías,
+         ves cadáveres destrozados! Sientes inevitables deseos de salir.^";
+     ],
+
+     w_to locAlmacen2,
+     out_to locAlmacen2,
+;
+
+SceneryThing ->  objCadaveres "cadáveres"
+with
+     name_mp 'cadaveres',
+     name_m 'cadaver',
+     estanTapados [;
+          return ( objManta in parent( self ) );
+     ],
+     description [;
+          if ( self hasnt visited ) {
+               give self visited;
+               print "Una dantesca escena se despliega ante tus ojos. ";
+
+               if ( self.estanTapados() ) {
+                    print "Aún tapados parcialmente por la manta, lo sabes. ";
+               }
+
+               print "Docenas de cadáveres ocupan toda la extensión de la cámara
+                    frigorífica. La sangre todavía mana de algunos cuerpos, y se
+                    une a los goterones que se cuelan, gota a gota,
+                    por los desagües. Es una escena que sabes que no
+                    olvidarás.^";
+          } else {
+               "Al cabo de un momento fijando la mirada, sólo
+                puedes ver la sangre. Es terrible.";
+          }
+     ],
+     taparlos [;
+          move objManta to location;
+
+          player.think( "Es lo poco que puedo hacer." );
+          print "Dejas caer la manta sobre los cadáveres, tapando
+               la terrible destrucción efectuada sobre ellos.^";
+
+          if ( Samil in location ) {
+               print "Samil te observa con ojos de alivio.";
+               Samil.say( "Gracias... yo... muchas gracias." );
+          }
+
+          rtrue;
+     ],
+     react_before [;
+          Drop, PutOn:
+               if ( noun == objManta ) {
+                    self.taparlos();
+                    rtrue;
+               }
+          Close:
+               if ( noun == self ) {
+                    if ( second == Nothing ) {
+                         second = objManta;
+                    }
+
+                    if ( second ~= objManta ) {
+                         player.think( "No creo que pueda hacerlo con eso." );
+                         rtrue;
+                    }
+
+                    if ( objManta notin player or location ) {
+                         player.think( "No tengo con qué hacerlo." );
+                         rtrue;
+                    }
+
+                    self.taparlos();
+                    rtrue;
+               }
+     ],
+has pluralname;
+
+SceneryThing objBotellaFalsa "botella"
+with
+     name 'botella',
+     description "Es una botella de cristal.",
+     before [;
+          Examine:
+               rfalse;
+          default:
+               "La botella está fuera de tu alcance.";
+     ],
+has female;
+
+Estanteria objEstanteriasFrigo locFrigo
+with
+     description [;
+          print "Una alta estantería llega casi hasta el techo.
+                 Sus fríos estantes de acero gris reflejan las
+                 deformadas figuras de los cadáveres, en una macabra
+                 estampa.";
+
+          if ( objBotella in limbo ) {
+               print " Una botella se sitúa en el último estante, fuera
+                      de tu alcance.";
+               move objBotellaFalsa to parent( self );
+          }
+
+          "^";
+     ],
+     before [;
+          Push, Pull, Attack:
+               print "La estantería se bambolea violentamente...";
+
+               if ( ~~objBotella.wasTaken() ) {
+                    print " la botella salta indecisa encima de la estantería,
+                              de tal forma que se acerca al precipicio
+                              pareciendo trastabillar... ";
+                    if ( Samil in location ) {
+                         print "Samil acude al punto, poniéndose debajo y atrapando
+                                la botella con gesto rápido.";
+                         Samil.say( "Aquí está..." );
+                         print "Tomas la botella para ti.";
+
+                         move objBotella to player;
+                         move objBotellaFalsa to limbo;
+                    }
+                    else {
+                         print " dejas de empujar
+                              la estantería cuando te das cuenta de que nunca
+                              llegarías a cogerla a tiempo, estando tú solo.";
+                    }
+               }
+
+               print "^";
+               rtrue;
+     ],
+;
+
+Thing  objBotella "botella" limbo
+private
+     filled false,
+with
+     name 'botella',
+     isFilled [;
+          return self.filled;
+     ],
+     setFilled [x;
+          self.filled = x;
+     ],
+     wasTaken [;
+          return ~~( self in limbo );
+     ],
+     description [;
+          if ( ~~self.wasTaken() ) {
+               "Hay una botella en lo alto de la estantería.
+               No puedes alcanzarla.^";
+          } else {
+               print "Pues sí, es una botella.";
+               if ( self.isFilled() ) {
+                    print " Está llena.^";
+               } else {
+                    print " Está vacía.^";
+               }
+          }
+     ],
+     before [;
+          ThrowAt:
+               if ( second == Monstruo ) {
+                    player.think( "No tengo ~suficientes manos~ como para
+                                        manejar el fusil, y también lanzar la
+                                        botella. Necesito ayuda." );
+               }
+               rtrue;
+          Empty:
+               if ( location == locCave4 ) {
+                    player.think( "A esta distancia, es mejor tirársela.
+                                        Y no me acerco ni borracho."
+                    );
+                    rtrue;
+               }
+          Fill:
+               if ( location == locAlmacen ) {
+                    player.think( "Sí, pero... ¿cómo?" );
+                    rtrue;
+               }
+          Give:
+               if ( second == Samil ) {
+                    if ( location == locCave4 ) {
+                         Samil.tirarBotella();
+                         rtrue;
+                    }
+                    else {
+                         player.think( "Todavía no. Frente al monstruo." );
+                         rtrue;
+                    }
+               }
+          Take:
+               if ( ~~self.wasTaken() ) {
+                    print "Te pones de puntillas, agarrado a la estantería...^";
+                    player.think( "Demasiado alta..." );
+                    print "Vuelves al centro de la habitación.^";
+                    rtrue;
+               }
+     ],
+has female;
+
+Room  locDormitorios "Dormitorios"
+with  description [;
+         drawImage( picDormitorioBase, SMW_POS_CENTER );
+            print "Todo es desolación este lugar.
+                Las camas y taquillas aparecen desordenadas.^";
+     ],
+        n_to locPasillo2,
+        e_to locSalaRecreo,
+     w_to locServicios,
+        out_to locPasillo2,
+;
+
+SceneryThing ->  objCamas "camas"
+with
+     name 'camas',
+     name_f 'cama' 'lenceria',
+     description [;
+          print "Camas alineadas contra la pared, algunas (las menos) hechas, otras
+               con la lencería revuelta. ";
+
+          if ( objManta in limbo ) {
+               move objManta to location;
+               print "Sobre una de las camas se ve una manta, aún doblada.";
+          }
+
+          print "^";
+          rtrue;
+     ],
+has female pluralname;
+
+SceneryThing ->  objTaquillas "taquillas"
+private
+     cabinClosed true,
+with
+     name_fp 'taquillas',
+     name_f 'taquilla',
+     name 'candado' 'cierre',
+     description [;
+          print "Las taquillas se intercalan entre las camas. Todas ellas
+                 están ahora vacías, y entornadas, como puedes comprobar fácilmente.^";
+
+          if ( self.isCabinClosed() ) {
+               print "...Todas excepto una de ellas, que se mantiene cerrada
+                      de manera segura mediante un gran candado. Lo cierto es que
+                      es un elemento un tanto anacrónico, pero definitivamente
+                      seguro, algo que ha salvado justo a esta de ser saqueada como
+                      el resto. Este aspecto hace saltar una alarma en tu cabeza: o
+                      bien alguien ha sobrevivido y se ha pertrechado, o bien
+                      los atacantes lo han arrasado todo.";
+          }
+
+          rtrue;
+     ],
+     isCabinClosed [;
+          return self.cabinClosed;
+     ],
+     setCabinClosed [ x;
+          self.cabinClosed = x;
+     ],
+     react_before [;
+          Open:
+               if ( noun == self ) {
+                    "El candado no se abre.";
+               }
+          Close:
+               if ( noun == self ) {
+                    "Fútil intento.";
+               }
+          Attack, Unlock:
+               if ( noun == self ) {
+                    if ( second == Nothing ) {
+                         second = objPiedra;
+                    }
+
+                    if ( self.isCabinClosed() ) {
+                         if ( second ~= objPiedra ) {
+                              player.think( "No, realmente necesito algo pesado y contundente." );
+                              rtrue;
+                         }
+
+                         if ( objPiedra in Player ) {
+                              self.setCabinClosed();
+                              SMW.play( SMW.chan1, sndCandado );
+                              move objTarjetaLabo to player;
+                              "Alzas ", (the) second, " por encima de tu cabeza.
+                               Tras el certero golpe, el candado queda colgando del
+                               cierre, y la puerta de la cabina se abre para mostrar
+                               su contenido: básicamente ropa, y otros objetos sin interés;
+                               a excepción de una
+                               tarjeta de acceso, que tomas para ti.";
+                         }
+                         else {
+                              player.think( "Necesito algo pesado y contundente." );
+                              rtrue;
+                         }
+                    } else "Ahora ya están todas abiertas.";
+               }
+     ],
+has female pluralname;
+
+Thing objTarjetaLabo "tarjeta de acceso" limbo
+with
+     name 'tarjeta' 'acceso',
+     description "La típica pieza rectangular de plástico con una banda magnética
+               corriendo de un lado a otro por la parte más alargada.",
+has female;
+
+Thing objManta "manta" limbo
+with
+     name 'Manta',
+     description "Es fuerte, y la verdad, bastante rasposa.",
+has female;
+
+Room  locSalaRecreo "Sala de Recreo"
+with
+     description [;
+         drawImage( picRecreoBase, SMW_POS_CENTER );
+
+            "La sala de recreo aparece desordenada y triste.
+          Puedes dirigirte al oeste.";
+     ],
+        w_to locDormitorios,
+;
+
+Place  locAscensor "Ascensor"
+private
+     level 1,
+with  description [;
+          drawImage( picAscensorMina, SMW_POS_CENTER );
+          "La caja del ascensor está hecha de fuerte acero,
+          si bien las paredes y el suelo son de una débil rejilla metálica. Una
+          botonera se sitúa en uno de los pocos espacios de la pared de
+          metal sólido.";
+     ],
+     n_to [;
+          <<go out_obj>>;
+     ],
+     out_to [;
+          if ( self.level == 1 ) {
+               playerTo( locColinaHoradada, 2 );
+          } else {
+               playerTo( locGaleria, 2 );
+          }
+
+          rtrue;
+     ],
+     seMueve [;
+          print "Pulsas el botón correspondiente... ";
+          SMW.play( SMW.chan1, sndAscensor );
+          print "El ascensor baquetea varias veces, y se producen varias
+                 sacudidas, hasta que un agudo silbido prevalece por
+                 encima de la algarabía, y el ascensor, entre crujidos,
+                 comienza a moverse.^";
+          wait();
+          print "El ascensor se para, con un ronco suspiro.^";
+          rtrue;
+     ],
+     d_to [;
+          if ( ~~objChapa.estaRota() ) {
+               if ( self.level == 1 ) {
+                    self.seMueve();
+                    self.level = 0;
+                    rtrue;
+               } else {
+                    print "No sucede nada.^";
+                    player.think( "Mmm... ya estoy abajo." );
+                    rtrue;
+               }
+          } else {
+               print "Pulsas el botón cero, pero no sucede nada.^";
+               player.think( "¡Maldita sea!... no funciona." );
+               rtrue;
+          }
+     ],
+     u_to [;
+          if ( ~~objChapa.estaRota() ) {
+               if ( self.level == 0 ) {
+                    self.seMueve();
+                    self.level = 1;
+                    rtrue;
+               } else {
+                    print "No sucede nada.^";
+                    player.think( "Mmm... ya estoy arriba." );
+                    rtrue;
+               }
+          } else {
+               print "Pulsas el botón uno, pero no sucede nada.^";
+               player.think( "¡Maldita sea!... no funciona." );
+               rtrue;
+          }
+     ],
+;
+
+SceneryThing  objChapa "botonera" locAscensor
+private
+     rota true,
+     desatornillada false,
+with
+     name_f 'chapa' 'botonera' 'placa',
+     name_m 'hueco' 'cable' 'boton' 'contacto',
+     name_mp 'cables' 'botones' 'contactos',
+     estaRota [;
+          return self.rota;
+     ],
+     estaDesatornillada [;
+          return self.desatornillada;
+     ],
+     description [;
+          print "La botonera del ascensor sólo contiene dos botones, en realidad:
+               el uno o primer nivel, y el nivel cero.";
+
+          if ( ~~self.estaDesatornillada() ) {
+               print " La chapa de la botonera se mantiene adherida
+                    a la pared del ascensor mediante un sencillo tornillo.
+                    De su interior salen cables, pero no puedes deducir nada de ellos
+                    debido al reducido espacio.";
+          } else {
+               print " La chapa con los botones cuelga de sus cables, que salen de un hueco
+                      en la pared del ascensor.";
+          }
+
+          if ( self.estaRota() ) {
+               print " De detrás de la chapa salen chispas, de vez en cuando. Parece que
+                    se trata de algún tipo de falso contacto.";
+          }
+
+          print "^";
+          rtrue;
+     ],
+     before [;
+          Push:
+               print (s_note) "Debes pulsar uno de los botones, o simplemente
+                                   moverte con ";
+               print "arriba";
+               print (s_note) " o ";
+               print "abajo";
+               print (s_note) ".";
+               rtrue;
+          Turn:
+               if ( second == Nothing ) {
+                    second = objDestornillador;
+               }
+
+               if ( second notin player or location ) {
+                    player.think( "Mmm... no tengo con qué." );
+                    rtrue;
+               }
+
+               if ( second ~= objDestornillador ) {
+                    player.think( "Mmm... eso no servirá." );
+                    rtrue;
+               }
+
+               if ( self.estaDesatornillada() ) {
+                    player.think( "Desatornillada, y bien desatornillada está. No la toco más." );
+                    rtrue;
+               }
+
+               self.desatornillada = true;
+               "Desatornillas la placa de la botonera, dejándola definitivamente
+                colgando de los cables que conectan los botones.";
+
+          SwitchOn, Tie:
+               if ( ~~self.estaRota() ) {
+                    player.think( "Pero... ¡eso ya lo hice!" );
+                    rtrue;
+               }
+
+               if ( ~~self.estaDesatornillada() ) {
+                    player.think(
+                         "No hay suficiente espacio para manejarme...
+                         Necesitaría desatornillar la placa de la pared
+                         del ascensor."
+                    );
+
+                    rtrue;
+               }
+
+               if ( objGuantes notin player
+                 || objGuantes hasnt worn )
+               {
+                    print "Intentas tomar los cables por sus coberturas
+                         aislantes, pero un nuevo chispazo te hace
+                         pegar un salto hacia atrás.^";
+
+                    player.think( "¡Estuvo cerca! No voy a poder hacerlo con
+                              las manos desnudas."
+                    );
+
+                    rtrue;
+               }
+
+               print "Ya sin miedo, tomas los cables por las puntas, y los retuerces
+                    uno junto al otro. Los chispazos cesan al momento.^";
+               player.think( "Espero que ahora funcione." );
+               self.rota = false;
+               rtrue;
+     ],
+has female transparent;
+
+SceneryThing objBoton1 "botonera" objChapa
+with
+     name 'boton' 'uno' 'primer',
+     description "Pues sí, un botón.",
+     before [;
+          Push:
+               <<go u_obj>>;
+     ],
+;
+
+SceneryThing objBoton0 "botonera" objChapa
+with
+     name 'boton' 'cero',
+     description "Pues sí, un botón.",
+     before [;
+          Push:
+               <<go d_obj>>;
+     ],
+;
+
+Room  locPasillo2 "Pasillo"
+with  description [;
+         drawImage( picPasillo2Base, SMW_POS_CENTER );
+          print "Al norte ves una puerta con un panel, mientras
+                  el sur se abre a unos dormitorios.
+                  Ves el rastro de sangre continuando en dirección
+                  al este, hacia lo que parece una cocina.^";
+
+         rtrue;
+     ],
+     n_to [;
+          if ( objPuertaLabo has open ) {
+                    SMW.play( SMW.chan1, sndDoor );
+                    playerTo( locLaboratorio, 2 );
+          } else      print "La puerta del laboratorio está cerrada.^";
+
+          rtrue;
+     ],
+     s_to locDormitorios,
+     e_to locCocina,
+     w_to locPasillo,
+     in_to locCocina,
+;
+
+SceneryThing objPuertaLabo "puerta del laboratorio" locPasillo2
+with
+     name_f 'puerta' 'ranura' 'luz' 'lucecita',
+     name_m 'panel' 'laboratorio',
+     description [;
+          print "La puerta del laboratorio está herméticamente cerrada,
+          probablemente en previsión de que algún experimento pueda no salir bien.
+          A la derecha de la misma se puede ver una ranura para tarjetas, con
+          una luz indicativa parpadeante. ";
+
+          if ( self has open )
+                    "La luz está verde.";
+          else      "La luz está roja.";
+     ],
+     react_before [;
+          PutOn:
+               if ( second == self ) {
+                    <<Open self noun>>;
+               }
+     ],
+     before [;
+          Enter:
+               <<Go n_obj>>;
+          Attack:
+               player.think( "Es demasiado fuerte..." );
+               rtrue;
+
+          Open, Unlock:
+               if ( second == Nothing ) {
+                    second = objTarjetaLabo;
+               }
+
+               if ( second ~= objTarjetaLabo ) {
+                    player.think(
+                         "No encajará en la ranura.
+                         Necesito la tarjeta de acceso."
+                    );
+                    rtrue;
+               }
+
+               if ( objTarjetaLabo in player ) {
+                    print "La tarjeta encaja en la ranura.
+                           Se enciende una pequeña lucecita verde.^";
+                    give self open;
+               } else player.think( "Necesito la tarjeta de acceso." );
+
+               rtrue;
+     ],
+has female openable;
+
+Room  locAlmacen2 "Almacén"
+with  description [;
+         drawImage( picAlmacen2Base, SMW_POS_CENTER );
+            print "Grandes cajas de alimentos se apilan junto a las paredes.
+         Al este ves la puerta de una cámara frigorífica.^";
+     ],
+        s_to locCocina,
+        e_to locFrigo,
+        in_to locFrigo,
+     out_to locCocina,
+;
+
+Estanteria -> objEstanteriaAlmacen2;
+
+Cajas ->  objCajasAlmacen2;
+
+Cave  locGaleria "Galería"
+with  description [;
+          silenceAll();
+         print "En el interior de la mina las galerías se pierden tras la penumbra.
+         A tu espalda se sitúa el ascensor. ";
+         self.Cave::description();
+     ],
+        s_to locAscensor,
+     in_to locAscensor,
+        e_to locCave,
+;
+
+Cave  locCave "Cave"
+with
+     description [;
+            self.Cave::description();
+     ],
+        n_to locCave2,
+        w_to locGaleria,
+;
+
+Cave  locCave2 "Cave"
+with
+     description [;
+            self.Cave::description();
+     ],
+        s_to locCave,
+        e_to locCave3,
+;
+
+Cave  locCave3 "Cave"
+with
+     description [;
+            self.Cave::description();
+     ],
+        n_to [;
+          startTimer( locCave4, 3 );
+          playerTo( locCave4, 2 );
+          rtrue;
+     ],
+        w_to locCave2,
+;
+
+Cave  locCave4 "Cave"
+with
+     time_left 3,
+     time_out [;
+          print "Los ojos de la bestia brillan momentáneamente... ¡justo antes
+               de que se lance en pos de ";
+
+          SMW.play( SMW.chan2, sndMonstruo );
+
+          if ( Samil in location ) {
+               print "vosotros!^";
+               Samil.say( "¡Ahhhh!" );
+               print "Samil parece clavado en el suelo, hasta que tu grito le saca
+                       de su parálisis mental.^";
+               player.say( "¡Corre, corre, Samil!" );
+               print "El monstruo ya casi está a vuestra altura cuando os dáis la vuelta
+                    y echáis a correr. Al pasar por la siguiente galería, echas la
+                    vista atrás, para comprobar que no os sigue, pero no dices nada
+                    hasta tener el ascensor a la vista, por si acaso.^";
+          } else {
+               print "ti!^";
+               print "^El monstruo ya casi a tu altura cuando te das la vuelta
+                    y echas a correr. Al pasar por la siguiente galería, echas la
+                    vista atrás, para comprobar que no te sigue, pero sigues
+                    corriendo hasta el ascensor, por si acaso.^";
+          }
+
+          playerTo( locGaleria, 2 );
+          rtrue;
+     ],
+     description [;
+          self.Cave::description();
+          drawImage( picCuevaDragon, SMW_POS_CENTER );
+         "Aparentemente, la bestia se ha construido su guarida aquí. Varios
+          restos alfombran la estancia.";
+     ],
+        s_to [;
+          stopTimer( self );
+          playerTo( locCave3, 2 );
+          rtrue;
+     ],
+     before [;
+          Examine:
+               if ( noun == d_obj ) {
+                    print "Sabes que debajo, sólo hay gravilla y más
+                         gravilla, pero... ";
+                    <<Examine objHuesos>>;
+               }
+     ],
+;
+
+SceneryThing objHuesos "huesos" locCave4
+with
+     name_m 'hueso' 'resto' 'humano' 'despojo' 'cadaver' 'carne' 'calavera',
+     name_mp 'huesos' 'restos' 'humanos' 'despojo' 'cadaveres' 'calaveras',
+     name_f 'guarida',
+     description "La escena es realmente macabra y asquerosa. Varios despojos humanos
+               atestiguan cómo se ha alimentado la bestia en este tiempo. Huesos,
+               calaveras y restos de todo tipo se esparcen por toda la estancia.
+               Aparentando reinar sobre esta colina de macabro escombro,
+               se encuentra la bestia.",
+has pluralname;
+
+[ doPresentation;
+     drawImage( picEstacionAcuario, SMW_POS_CENTER );
+
+     print (s_bold) "Estación Acuario^";
+     print (s_underline) "    Muerte en la estación minera...^^";
+     print (s_underline) "Un relato interactivo de Baltasar el arquero con gráficos de Jenesis.^^^";
+
+     print (s_underline) "Basado en el relato interacivo Estación Acuario, de Jesús Palacios.^^";
+
+     wait();
+     clearMainWindow();
+     drawImage( picEspacio, SMW_POS_CENTER );
+
+     print "Un fuerte viraje te despierta.^";
+     Farmer.say( "Pero... ¿qué?" );
+     print "Las alarmas de la nave empiezan a sonar... compruebas los instrumentos...^";
+     Farmer.say( "Hemos perdido el control de los motores...
+               ¡el de estribor funciona a plena potencia, sin control!...
+               el de babor aún parece responder...
+               apenas podremos usarlos para aterrizar." );
+     Mason.say( "¿Aterrizar?¿Dónde?" );
+     Farmer.say( "Hay una colonia minera cerca... lo consulté por casualidad mientras
+               dormías."
+     );
+     print "Compruebas los instrumentos... efectivamente... podríais intentarlo, o
+          de otra forma, si tardáis mucho más vagaréis por el espacio, sin
+          esperanza de poder dar con una colonia o nave conocida.^";
+     Mason.say( "Derivando hacia el planeta..." );
+     print "Sujetas los controles con fuerza...^";
+     Mason.say( "¡Entrando en la órbita!" );
+     Mason.say( "Preparo la nave para el aterrizaje..." );
+     print "Farmer toma la radio de onda corta.^";
+     Farmer.say( "Estación Acuario... Estación Acuario... ¡SOS, SOS!
+               ¡Respondan, por favor!"
+     );
+     print "Tratas de utilizar los frenos aerodinámicos, y los repulsores, para
+          evitar que el motor de estribor os estampe contra el suelo.^";
+     Farmer.say( "¡SOS, SOS!¡Respondan, por favor!¡SOS, SOS!
+               Estación Acuario... Estación Acuario..."
+     );
+     Mason.say( "Creo. Que. Casi. Lo. Tengo." );
+     print "Con mucho esfuerzo, aterrizas la nave en un valle, muy cerca de la Estación Acuario.^";
+     SMW.play( 0, sndLanding );
+     wait();
+     clearMainWindow();
+];
+
+[ doEnd;
+     ! I6, majete, baja el telón que nos vamos...
+     deadFlag = 2;
+
+     print "^Farmer toma el conmutador, que le ofreces sin llegar a decir nada.^";
+     Farmer.say( "Ya era hora, por fin podremos dejar esta bola de fango..." );
+     print "Te acomodas en tu asiento mientras Farmer instala la pieza. Echas
+          una última mirada a la mina, al valle.^";
+     player.say( "Vámonos." );
+     print "Casi no has terminado de decirlo cuando Farmer está activando
+          la secuencia de despegue. La nave se eleva sobre el árido terreno,
+          permitiendo la vista del pantano, la base y la colina de la mina.^";
+     Farmer.say( "Alcanzando velocidad de escape..." );
+     print "El ruido de los motores se transforma en un silbido molesto, mientras
+          el planeta se vuelve más y más pequeño.^";
+     Farmer.say( "Atravesando la atmósfera..." );
+
+     clearMainWindow();
+     drawImage( picEspacio, SMW_POS_CENTER );
+
+     print "El molesto silbido se transforma en un zumbido cuando alcanzáis la
+          órbita del planeta. Poco a poco, debido a las tensiones
+          y los dramas vividos, empiezas a derivar en un pesado sueño,
+          mientras Farmer, diligentemente, se hace cargo de tus tareas
+          de copilotaje.^";
+     player.say( "Por fin a casa..." );
+     print "Musitas entre sueños. Farmer vuelve la mirada a ti. Con ojos vidriosos,
+          observas su cara mientras parece que va a decir algo. Si ya antes no os
+          unía una gran amistad, un gran abismo se sitúa ahora entre ambos.^";
+     Farmer.say( "Descansa." );
+     print "...^";
+     wait();
+     clearMainWindow();
+     drawImage( picEstacionAcuario, SMW_POS_CENTER );
+
+
+     print (s_bold) "Estación Acuario^";
+     print (s_underline) "    Muerte en la estación minera...^^";
+     print (s_underline) "Un relato interactivo de Baltasar el arquero.^^^";
+
+     print (s_underline) "Basado en el relato interacivo Estación Acuario, de Jesús Palacios.^^";
+
+     wait();
+];
+
+[ Initialise;
+     ! Conf.
+     lookmode = 2;           ! Siempre redescribir
+
+     ! Characters
+     changePlayer( Mason );
+     location = locNaveCarga;
+     player.prepareAllCharacters();
+     move Farmer   to locNaveCarga;
+     move Samil    to locLaboratorio;
+     move Monstruo to locCave4;
+
+     ! Grfs
+     initializeSMW( 50 );
+     doPresentation();
+
+     rtrue;
+];
+
+! Grammar ---------------------------------------------------------------------
+[ ayudaSub;
+    print "^Las siguientes órdenes son básicas y pueden encontrarse en cualquier otro
+          relato interactivo. El jugador siempre puede probar otras órdenes.^^"
+    ;
+    s_fixed();
+    print "^
+     ayuda                   -   Esta ayuda.^
+      coge x                  -   Coges el objeto x^
+      deja x                  -   Dejas el objeto x^
+     examina y, ex y         -   Describe el objeto o personaje y.^
+     examiname               -   Describe tu aspecto y tu misión.^
+     hablar con y            -   Hablar con y, si está presente.^
+     ^^"
+    ;
+    s_normal();
+    print (s_underline) "Por Baltasar. Retoques gráficos por Jenesis.";
+     print (s_normal)
+    "^^
+      Mándame tus comentarios a: baltasarq@@64yahoo.es
+      ^^
+     ";
+];
+
+[ disparaSub;
+     if ( objFusil in player or location ) {
+          <<dispara objFusil>>;
+     } else {
+          "No tienes con qué disparar.";
+     }
+];
+
+[ apuntaSub;
+     if ( objFusil notin player or location ) {
+          <<Dispara>>;
+     }
+
+     print (s_note) "Es suficiente con ";
+     print "disparar";
+     print (s_note) ".^";
+
+     rtrue;
+];
+
+[ restartSub;
+    L__M( ##Restart,1 );
+    if ( YesOrNo() ) {
+        closeAllWindows();
+        @restart;
+        L__M( ##Restart, 2 );
+    }
+];
+
+Verb meta 'ayuda' 'pistas'
+     * -> ayuda
+;
+
+Extend 'rompe' last
+     * noun 'con' noun -> Attack
+;
+
+Extend 'desatornilla' last
+     * noun 'con' noun -> Turn
+;
+
+Verb 'empalma' = 'une';
+Verb 'arregla' = 'une';
+
+Extend 'une' last
+     * noun 'con' noun -> Tie
+;
+
+Verb 'dispara'
+     * -> Dispara
+     * noun -> Dispara
+     * 'contra'/'hacia'/'a//'/'al' noun -> Dispara
+     * noun 'contra'/'hacia' noun -> Dispara
+     * 'a//'/'al//'/'contra'/'hacia' noun 'con' noun -> Dispara reverse
+;
+
+Verb 'apunta'
+     * noun -> Apunta
+     * 'a//'/'al'/'contra'/'hacia' noun -> Apunta
+;
+
+Extend 'tapa' last
+     * noun 'con'/'usando'/'mediante' held -> Close
+;
+
+Verb 'muestrale' = 'muestra';
+VerboIrregular "muestrale" with infinitivo 'mostrarle';

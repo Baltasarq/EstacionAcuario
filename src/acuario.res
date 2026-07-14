@@ -1,0 +1,36 @@
+CODE acuario.ulx
+BIB res/estacionAcuario.ifiction
+COV res/coverEstacionAcuario.png
+
+PICT res/estacionAcuario.png
+PICT res/puenteNave.png
+PICT res/puenteNaveAbandonada.png
+PICT res/nave.png
+PICT res/mina.png
+PICT res/mina2.png
+PICT res/almacen.png
+PICT res/almacenBase.png
+PICT res/almacen2Base.png
+PICT res/frigoBase.png
+PICT res/laboBase.png
+PICT res/recreoBase.png
+PICT res/serviciosBase.png
+PICT res/cocinaBase.png
+PICT res/dormitorioBase.png
+PICT res/pasilloBase.png
+PICT res/pasillo2Base.png
+PICT res/entradaBase.png
+PICT res/ascensorMina.png
+PICT res/pantano.png
+PICT res/cueva.png
+PICT res/cuevaDragon.png
+PICT res/espacio.png
+
+SND res/landing.ogg
+SND res/door.ogg
+SND res/patadaPuerta.ogg
+SND res/ascensor.ogg
+SND res/monstruo.ogg
+SND res/descompr.ogg
+SND res/fusil.ogg
+SND res/candado.ogg

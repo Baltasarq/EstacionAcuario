@@ -1,0 +1,266 @@
+
+class SwampLabyrinth
+class Swamp
+with
+	description [;
+		drawImage( picPantano, SMW_POS_CENTER );
+
+		if ( self hasnt visited ) {
+		    "En medio del pantano, las direcciones parecen perder sentido, y de hecho,
+		     se podría avanzar en cualquiera de ellas.
+		     El lodo burbujeante alimenta la niebla que parecer querer engullirlo todo,
+		     mientras la humedad se pega a tu traje, empapándolo y haciéndolo más pesado.
+		     Árboles de varios tipos enredan sus ramas con otros árboles cercanos, así
+		     como con enredaderas, creando una tupida red que parece querer enmascarar
+		     el cielo.";
+		} else {
+		     "El pantano brumoso y húmedo se extiende en todas direcciones.";
+		}
+	],
+	warningSinking [;
+		if ( objFlotFeets notin player
+		  || objFlotFeets hasnt worn
+		  || objFlotFeets hasnt open )
+		{
+			print "Tus pies se hunden cada vez más en el cieno, no tiene sentido
+			       seguir a riesgo de hundirte.^";
+		}
+	],
+	cant_go [;
+		print "Desorientado, vagas durante varios minutos por el pantano... ";
+		self.warningSinking();
+		print "^";
+		wait();
+
+		playerTo( locPantano, 2 );
+		rtrue;
+
+	],
+	before [;
+		Examine:
+			if ( noun == d_obj ) {
+				player.think( "Agua tumefacta, y cieno bajo ella." );
+				rtrue;
+			}
+			else
+			if ( noun == u_obj ) {
+				player.think( "Es imposible ver el cielo, por lo espeso." );
+				rtrue;
+			}
+	],
+;
+
+SwampLabyrinth  Pantano "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Una gran roca, tan alta como tú, se sitúa a cierta distancia.";
+	],
+        s_to Pantano7,
+        e_to Pantano2,
+;
+
+SceneryThing ->  objRocaAlta "roca"
+with
+	name 'roca',
+	description "Dura, pétrea y musgosa.",
+has female;
+
+SwampLabyrinth  Pantano2 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Has ido a parar al medio de un gran pantano.";
+	],
+        e_to Pantano3,
+        w_to Pantano,
+;
+
+SceneryThing ->  objClaroEnPantano "claro"
+with
+	name 'claro',
+	description "Al contrario que en el resto del pantano, desde aquí se puede ver el cielo.",
+;
+
+SwampLabyrinth  Pantano3 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"El tronco vacío de un viejo árbol aparece ante ti.";
+	],
+        s_to Pantano4,
+        w_to Pantano2,
+;
+
+SceneryThing ->  objArbolVacioEnPantano "Ã¡rbol vacio"
+with
+	name 'arbol' 'vacio',
+	description "Aunque el árbol parece seguir creciendo con normalidad, su tronco está
+			completamente vacío. Parece claro que la parte exterior no está
+			compuesto exclusivamente de corteza.",
+	before [;
+		Enter:
+			player.think( "Uff, de eso nada, está muy sucio." );
+			rtrue;
+	],
+;
+
+SwampLabyrinth  Pantano4 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"El cadáver de un lagarto muerto yace boca arriba.";
+	],
+        n_to Pantano3,
+        e_to Pantano5,
+;
+
+SceneryThing ->  objLagartoMuerto "lagarto muerto"
+with
+	name 'cocodrilo' 'muerto',
+	description "Un lagarto grande, muy parecido a los cocodrilos de la Tierra.",
+;
+
+SwampLabyrinth  Pantano5 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Un inmenso árbol, con el tronco de un grosor que no puedes abarcar con los brazos
+			abiertos, se sitúa a unos pasos.";
+	],
+        e_to Pantano6,
+        w_to Pantano4,
+;
+
+SceneryThing ->  objArbolGigantePantano "Árbol gigante"
+with
+	name 'arbol' 'gigante',
+	description "Un árbol descomunal. Te preguntas qué edad tendrá.",
+;
+
+SwampLabyrinth  Pantano6 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Uno de los árboles aparece cruelmente mutilado por unas marcas en forma de garra.";
+	],
+        w_to Pantano5,
+;
+
+SceneryThing ->  objMarcasEnArbol "marcas en un árbol"
+with
+	name_fp 'marcas',
+	name_m 'marca' 'arbol',
+	description "Las marcas han destrozado totalmente la corteza de uno de los lados.",
+has female pluralname;
+
+SwampLabyrinth  Pantano7 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Semihundido en el fango, un tronco apenas asoma a unos metros.";
+	],
+        n_to Pantano,
+        w_to Pantano8,
+;
+
+SceneryThing ->  objTroncoPodrido "tronco podrido"
+with
+	name 'tronco' 'podrido' 'fango',
+	description "Un tronco se pudre semihundido en la fétida humedad del pantano.",
+;
+
+SwampLabyrinth  Pantano8 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Unas lianas cuelgan próximas a ti.";
+	],
+        n_to Pantano9,
+        e_to Pantano7,
+;
+
+SceneryThing ->  objLianas "lianas"
+with
+	name_fp 'lianas',
+	name_f 'liana',
+	description "Lo denso del follaje te impide ver de dónde cuelgan.",
+	before [;
+		Examine:
+			rfalse;
+		Taste:
+			player.think( "¡Ni muerto!" );
+			rtrue;
+		Touch:
+			player.think( "Tan podridas como aparentan." );
+			rtrue;
+		default:
+			"Eso no servirá de nada.";
+	],
+has female pluralname;
+
+SwampLabyrinth  Pantano9 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+		"Varios nenúfares flotan sobre un pequeño charco.";
+	],
+        s_to Pantano8,
+        w_to Pantano10,
+;
+
+SceneryThing ->  objNenufares "nenúfares"
+with
+	name_mp 'nenufares',
+	name_m 'nenufar' 'charco' 'agua',
+	description "Nenúfares blancos.",
+	before [;
+		Take:
+			player.think( "No quiero de eso para nada." );
+			rtrue;
+	],
+has pluralname;
+
+SwampLabyrinth  Pantano10 "Pantano"
+with
+	description [;
+		self.SwampLabyrinth::description();
+
+		if ( self hasnt visited ) {
+			print "Ante tu sorpresa, ";
+		} else {
+			print "El ";
+		}
+
+		print "follaje se retira y aparece una gran extensión de agua.
+		Al oeste, los restos de una nave emergen de entre el follaje.^";
+
+		if ( objPiezaRepuesto in player or location ) {
+			print "Te das la vuelta para reflexionar unos momentos...^";
+			player.think( "la nave
+				tiene las marcas de la compañía... ¿en qué tipo de experimento
+				andan metidos?¿O, cuando menos, qué transporte era aquél?"
+			);
+			print "Muchas preguntas, pero sólo una realidad: una colonia entera
+				de mineros ha perecido por aquel aterrizaje de emergencia, fuera
+				lo que fuera lo que había echado abajo la nave.
+				Un precio muy elevado. Demasiado.
+				Aunque nunca es demasiado para la compañía.^";
+			player.think( "Cualquier excusa les permitirá continuar con lo que quiera
+				que estén haciendo."
+			);
+			print "Meneas la cabeza, tristemente. Es necesario seguir adelante.^";
+		}
+
+		rtrue;
+	],
+        e_to Pantano9,
+	w_to locNaveAbandonada,
+	in_to locNaveAbandonada,
+;
+
+SceneryThing ->  objLago "lago"
+with
+	name 'lago' 'agua',
+	description "Agua verdosa y fétida.",
+;

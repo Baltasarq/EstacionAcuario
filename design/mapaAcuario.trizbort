@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trizbort>
+	<info />
+	<map>
+		<room id="1" name="Nave de carga" x="-192" y="-160" w="96" h="64" description="14. Te encuentras en el interior de tu nave espacial. M򬴩ples monitores y&#xD;&#xA;mandos se presentan ante ti. Al sur, la puerta de salida te separa del exterior.">
+			<objects>Farmer|Caja hermética|</objects>
+		</room>
+		<room id="2" name="Valle" x="-192" y="-32" w="96" h="64" description="13. Tras una red metálica rota de la que cuelga un cartel, hacia el oeste,&#xD;&#xA;ves un cenagoso pantano. Al norte ves tu nave espacial. Al sur, un camino&#xD;&#xA;en dirección a una colina oradada.">
+			<objects at="n">Cartel|</objects>
+		</room>
+		<room id="3" name="Pantano" x="-320" y="-32" w="96" h="64" description="" />
+		<room id="4" name="Colina horadada" x="-192" y="96" w="96" h="64" description="25. Al sur, excavado en la roca de la alta colina, tras una reja, ves el hueco&#xD;&#xA;de un ascensor. A ambos lados la red met⭩ca te separa de la mⲵinaria&#xD;&#xA;propia de una mina" />
+		<room id="5" name="Puerta de Entrada" x="-64" y="-32" w="96" h="64" description="La puerta de entrada a un gran edificio estᡤestrozada. Puedes ver rastros&#xD;&#xA;de sangre y cieno.">
+			<objects>Cieno|Sangre|</objects>
+		</room>
+		<room id="6" name="Pasillo" x="64" y="-32" w="96" h="64" description="Ante ti se presenta un sucio y desordenado pasillo. Al norte ves la puerta&#xD;&#xA;de un almacén al sur los servicios. Esparcidos por el suelo hay cristales&#xD;&#xA;rotos.">
+			<objects>Cristales</objects>
+		</room>
+		<room id="7" name="Almacén" x="64" y="-160" w="96" h="64" description="16. Estás en un gran almacén cuyas polvorientas estanterías están medio&#xD;&#xA;vacias. Puedes dirigirte al sur.">
+			<objects>Flotfeets|Destornillador|Bidón de combustible|</objects>
+		</room>
+		<room id="8" name="Servicios" x="64" y="96" w="96" h="64" description="23. Te encuentras en los servicios. Ves manchas de sangre en el suelo y las&#xD;&#xA;paredes. Puedes ir al norte y al este." />
+		<room id="9" name="Cocina" x="320" y="-32" w="96" h="64" description="22. La sucia y desordenada cocina es testigo del drama vivido por sus habitantes. Al norte hay un pequeño almacén.&#xD;&#xA;" />
+		<room id="10" name="Laboratorio" x="192" y="-160" w="96" h="64" description="" />
+		<room id="11" name="Cámara frigorífica" x="448" y="-160" w="96" h="64" description="19. ¡Es horrible, tirados en el suelo, al pie de altas estanterías, ves cadáveres&#xD;&#xA;destrozados! Sientes inevitables deseos de salir.">
+			<objects>Cadáveres|Botella|</objects>
+		</room>
+		<room id="12" name="Dormitorios" x="192" y="96" w="96" h="64" description="24. Todo es desolación este lugar. Las camas y taquillas aparecen desordenadas.">
+			<objects>Camas|Taquillas|Manta|</objects>
+		</room>
+		<room id="13" name="Sala de Recreo" x="320" y="96" w="96" h="64" description="44. La sala de recreo aparece desordenada y triste. Puedes dirigirte al oeste." />
+		<room id="14" name="Ascensor" x="-192" y="224" w="96" h="64" description="Estás dentro del ascensor. El suelo es una debil rejilla metálica.">
+			<objects>Chapa|</objects>
+		</room>
+		<room id="15" name="Pasillo" x="192" y="-32" w="96" h="64" description="21. Al norte ves una puerta, al sur quedan los dormitorios. Ves un rastro de&#xD;&#xA;sangre en dirección al este, hacia la cocina." />
+		<line id="16" startText="in" endText="out">
+			<dock index="0" id="1" port="s" />
+			<dock index="1" id="2" port="n" />
+		</line>
+		<line id="17">
+			<dock index="0" id="2" port="w" />
+			<dock index="1" id="3" port="e" />
+		</line>
+		<line id="18">
+			<dock index="0" id="2" port="e" />
+			<dock index="1" id="5" port="w" />
+		</line>
+		<line id="19">
+			<dock index="0" id="5" port="e" />
+			<dock index="1" id="6" port="w" />
+		</line>
+		<line id="20" startText="out" endText="in">
+			<dock index="0" id="6" port="n" />
+			<dock index="1" id="7" port="s" />
+		</line>
+		<line id="21" startText="out" endText="in">
+			<dock index="0" id="6" port="s" />
+			<dock index="1" id="8" port="n" />
+		</line>
+		<line id="22">
+			<dock index="0" id="4" port="n" />
+			<dock index="1" id="2" port="s" />
+		</line>
+		<line id="23">
+			<dock index="0" id="15" port="w" />
+			<dock index="1" id="15" port="w" />
+		</line>
+		<line id="24" startText="out" endText="in">
+			<dock index="0" id="15" port="e" />
+			<dock index="1" id="9" port="w" />
+		</line>
+		<line id="25" startText="out" endText="in">
+			<dock index="0" id="15" port="n" />
+			<dock index="1" id="10" port="s" />
+		</line>
+		<line id="26">
+			<dock index="0" id="12" port="w" />
+			<dock index="1" id="12" port="w" />
+		</line>
+		<line id="27">
+			<dock index="0" id="12" port="e" />
+			<dock index="1" id="13" port="w" />
+		</line>
+		<room id="28" name="Almacén" x="320" y="-160" w="96" h="64" description="Grandes cajas de alimentos se apilan junto a las paredes. Al este ves la puerta de una cámarra frigorífica.">
+			<objects>Cajas|</objects>
+		</room>
+		<line id="30">
+			<dock index="0" id="9" port="n" />
+			<dock index="1" id="28" port="s" />
+		</line>
+		<line id="31" startText="out" endText="in">
+			<dock index="0" id="28" port="e" />
+			<dock index="1" id="11" port="w" />
+		</line>
+		<line id="29">
+			<dock index="0" id="14" port="n" />
+			<dock index="1" id="4" port="s" />
+		</line>
+		<line id="32" startText="in" endText="out">
+			<dock index="0" id="12" port="n" />
+			<dock index="1" id="15" port="s" />
+		</line>
+		<room id="33" name="Ascensor" x="768" y="224" w="96" h="64" description="" />
+		<line id="34" style="dashed">
+			<dock index="0" id="14" port="e" />
+			<dock index="1" id="33" port="w" />
+		</line>
+		<room id="35" name="Galería" x="768" y="96" w="96" h="64" description="En el interior de la mina las galerías se pierden tras la penumbra. Al sur ves el ascensor.&#xD;&#xA;" />
+		<line id="36">
+			<dock index="0" id="35" port="s" />
+			<dock index="1" id="33" port="n" />
+		</line>
+		<room id="37" name="Cave" x="928" y="96" w="96" h="64" description="" />
+		<line id="38">
+			<dock index="0" id="37" port="w" />
+			<dock index="1" id="35" port="e" />
+		</line>
+		<room id="39" name="Cave" x="928" y="-32" w="96" h="64" description="" />
+		<room id="40" name="Cave" x="1088" y="-32" w="96" h="64" description="" />
+		<room id="41" name="Cave" x="1088" y="-160" w="96" h="64" description="" />
+		<line id="42">
+			<dock index="0" id="37" port="n" />
+			<dock index="1" id="39" port="s" />
+		</line>
+		<line id="43">
+			<dock index="0" id="39" port="e" />
+			<dock index="1" id="40" port="w" />
+		</line>
+		<line id="44">
+			<dock index="0" id="40" port="n" />
+			<dock index="1" id="41" port="s" />
+		</line>
+	</map>
+	<settings>
+		<colors>
+			<canvas>White</canvas>
+			<fill>White</fill>
+			<border>MidnightBlue</border>
+			<line>MidnightBlue</line>
+			<selectedLine>SteelBlue</selectedLine>
+			<hoverLine>DarkOrange</hoverLine>
+			<largeText>MidnightBlue</largeText>
+			<smallText>MidnightBlue</smallText>
+			<lineText>MidnightBlue</lineText>
+			<grid>#F5F5F5</grid>
+		</colors>
+		<fonts>
+			<room size="13">Comic Sans MS</room>
+			<object size="11">Comic Sans MS</object>
+			<line size="9">Comic Sans MS</line>
+		</fonts>
+		<grid>
+			<snapTo>yes</snapTo>
+			<visible>yes</visible>
+			<showOrigin>yes</showOrigin>
+			<size>32</size>
+		</grid>
+		<lines>
+			<width>2</width>
+			<handDrawn>yes</handDrawn>
+			<arrowSize>12</arrowSize>
+			<textOffset>4</textOffset>
+		</lines>
+		<rooms>
+			<darknessStripeSize>24</darknessStripeSize>
+			<objectListOffset>4</objectListOffset>
+			<connectionStalkLength>32</connectionStalkLength>
+			<preferredDistanceBetweenRooms>64</preferredDistanceBetweenRooms>
+		</rooms>
+		<ui>
+			<handleSize>12</handleSize>
+			<snapToElementSize>16</snapToElementSize>
+		</ui>
+		<keypadNavigation>
+			<creationModifier>control</creationModifier>
+			<unexploredModifier>alt</unexploredModifier>
+		</keypadNavigation>
+	</settings>
+</trizbort>

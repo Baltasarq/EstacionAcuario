@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>83d86441-7e5f-4965-a392-c19cc0c33155</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>Estación Acuario</title>
+            <author>baltasarq</author>
+            <language>ES</language>
+            <headline>Muerte en la estación minera</headline>
+            <genre>Fiction</genre>
+            <description>Mason y Farmer descienden con su nave de carga hacia la Estación Acuario: si bien precisan realizar reparaciones en la nave, la estación no responde.<br/><br/>Lo que parecía una parada de reparación rutinaria se transforma, repentinamente, en una pesadilla...</description>
+        </bibliographic>
+        <contacts>
+            <authoremail>baltasarq@gmail.com</authoremail>
+            <url>http://caad.es/baltasarq/</url>
+        </contacts>
+        <release>
+            <version>2</version>
+            <releasedate>2012/01/16</releasedate>
+        </release>
+        <colophon>
+            <generator>Babble</generator>
+            <originated>2012/01/16</originated>
+        </colophon>
+    </story>
+</ifindex>

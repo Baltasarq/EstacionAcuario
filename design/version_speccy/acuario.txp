@@ -1,0 +1,4281 @@
+; Def flags
+
+; Procesos utilizados
+
+/CTL
+
+/VOC
+S	2	NOUN
+SUR	2	NOUN
+E	3	NOUN
+ESTE	3	NOUN
+O	4	NOUN
+OESTE	4	NOUN
+SUBE	9	NOUN
+ARRIBA	9	NOUN
+SUBIR	9	NOUN
+SUBO	9	NOUN
+BAJA	10	NOUN
+BAJAR	10	NOUN
+ABAJO	10	NOUN
+BAJO	10	NOUN
+ENTRA	11	VERB
+ENTRO	11	VERB
+ENTRAR	11	VERB
+SAL	12	VERB
+SALIR	12	VERB
+FUERA	12	VERB
+SALGO	12	VERB
+N	13	NOUN
+NORTE	13	NOUN
+LLEVA	14	VERB
+LLEVAR	14	VERB
+LLEVO	14	VERB
+I	14	NOUN
+INVEN	14	NOUN
+INVENTARIO	14	NOUN
+SAVE	16	NOUN
+GUARDAR	16	NOUN
+LOAD	17	NOUN
+RECUPERAR	17	NOUN
+PATADA	18	NOUN
+PATEA	18	NOUN
+PATEAR	18	NOUN
+PATEO	18	NOUN
+AYUDA	20	NOUN
+HOMBRE	21	NOUN
+SAMIL	21	NOUN
+TODO	22	NOUN
+JEFE	23	NOUN
+FARME	23	NOUN
+ELEVA	24	VERB
+ELEVO	24	VERB
+ELEVAR	24	VERB
+LEVANTA	24	VERB
+LEVANTAR	24	VERB
+LEVANTO	24	VERB
+Y	35	CONJUNCTION
+ENTONCES	35	CONJUNCTION
+LUEGO	35	CONJUNCTION
+DESATA	50	VERB
+DESATO	50	VERB
+DESATAR	50	VERB
+NORMA	52	NOUN
+SACA	53	VERB
+SACO	53	VERB
+SACAR	53	VERB
+SOLO	54	VERB
+SOLAMENTE	54	VERB
+SI	56	NOUN
+VALE	56	NOUN
+ACUERDO	56	NOUN
+TAPAR	57	VERB
+TAPA	57	VERB
+TAPO	57	VERB
+CUBRE	57	VERB
+CUBRIR	57	VERB
+CUBRO	57	VERB
+ABRE	58	VERB
+ABRO	58	VERB
+ABRIR	58	VERB
+APALANCAR	58	VERB
+APALANCA	58	VERB
+APALANCO	58	VERB
+CIERRA	59	VERB
+CERRAR	59	VERB
+CIERRO	59	VERB
+COGE	60	VERB
+COGER	60	VERB
+COJO	60	VERB
+DEJA	61	VERB
+DEJAR	61	VERB
+DEJO	61	VERB
+SOLTAR	61	VERB
+SUELTA	61	VERB
+SUELTO	61	VERB
+GRABA	64	VERB
+CARGA	65	VERB
+RSAVE	66	VERB
+RAMSAVE	66	VERB
+RLOAD	67	VERB
+RAMLOAD	67	VERB
+X	68	VERB
+EX	68	VERB
+EXAMINA	68	VERB
+DESCRIBE	68	VERB
+DESCRIBIR	68	VERB
+CLS	69	VERB
+BORRA	69	VERB
+BORRAR	69	VERB
+LEE	70	VERB
+LEER	70	VERB
+LEEO	70	VERB
+M	72	VERB
+MIRA	72	VERB
+MIRAR	72	VERB
+MIRO	72	VERB
+IDIOTA	75	VERB
+IMBECIL	75	VERB
+CABRON	75	VERB
+CABRONA	75	VERB
+HIJOPUTA	75	VERB
+JOPUTA	75	VERB
+METE	76	VERB
+METER	76	VERB
+METRO	76	VERB
+INTRODUCIR	76	VERB
+INTRODUCE	76	VERB
+INTRODUZCO	76	VERB
+INSERTAR	76	VERB
+INSERTA	76	VERB
+INSERTO	76	VERB
+PEGA	77	VERB
+PEGAR	77	VERB
+PEGO	77	VERB
+ROMPE	77	VERB
+ROMPER	77	VERB
+ROMPO	77	VERB
+GOLPEA	77	VERB
+GOLPEAR	77	VERB
+GOLPEO	77	VERB
+ATACA	77	VERB
+ATACAR	77	VERB
+ATACO	77	VERB
+DISPARA	79	VERB
+DISPARAR	79	VERB
+DISPARO	79	VERB
+RAM	80	VERB
+USA	81	VERB
+USO	81	VERB
+USAR	81	VERB
+UTILIZAR	81	VERB
+UTILIZO	81	VERB
+UTILIZA	81	VERB
+PON	82	VERB
+PONER	82	VERB
+PONTE	82	VERB
+PONGO	82	VERB
+QUITA	83	VERB
+QUITAR	83	VERB
+QUITATE	83	VERB
+QUITO	83	VERB
+FIN	84	VERB
+FINAL	84	VERB
+ABANDONAR	84	VERB
+ABANDONO	84	VERB
+CHAPA	85	NOUN
+TORNILLO	85	NOUN
+RIFLE	86	NOUN
+FUSIL	86	NOUN
+DESTORNILL	87	NOUN
+FLOTADOR	88	NOUN
+FLOTF	88	NOUN
+TARJETA	89	NOUN
+GUANTE	90	NOUN
+CANDADO	91	NOUN
+CUCHILLO	92	NOUN
+BOTELLA	93	NOUN
+CAJA	94	NOUN
+CAJAS	94	NOUN
+PENDRIVE	96	NOUN
+MEMSTICK	96	NOUN
+LAPIZ	96	NOUN
+OBJETO	96	NOUN
+LLAVE	96	NOUN
+CONMUTADOR	97	NOUN
+MANTA	98	NOUN
+REJA	112	NOUN
+PUERTA	112	NOUN
+RANURA	113	NOUN
+TAQUILLA	114	NOUN
+MONSTRUO	115	NOUN
+BESTIA	115	NOUN
+ASCENSOR	116	NOUN
+CRISTAL	117	NOUN
+ARBOL	120	NOUN
+NAVE	121	NOUN
+CAJET	122	NOUN
+CABLE	123	NOUN
+BOTON	124	NOUN
+ROJO	125	NOUN
+AZUL	126	NOUN
+UNE	127	VERB
+UNIR	127	VERB
+UNO	127	VERB
+ARREGLA	127	VERB
+ARREGLAR	127	VERB
+ARREGLO	127	VERB
+CONECTA	127	VERB
+CONECTAR	127	VERB
+CONECTO	127	VERB
+JUNTA	127	VERB
+JUNTAR	127	VERB
+JUNTO	127	VERB
+PULSA	128	VERB
+PULSAR	128	VERB
+APRETAR	128	VERB
+APRIETA	128	VERB
+APRIETO	128	VERB
+DI	129	VERB
+DILE	129	VERB
+DECIR	129	VERB
+DIGO	129	VERB
+ESPERA	130	VERB
+ESPERAR	130	VERB
+ESPERO	130	VERB
+Z	130	VERB
+PAUSA	130	VERB
+PAUSAR	130	VERB
+PAUSO	130	VERB
+DOY	131	VERB
+DA	131	VERB
+DAR	131	VERB
+DALE	131	VERB
+DAME	131	VERB
+ENTREGA	131	VERB
+ENTREGAR	131	VERB
+ENTREGO	131	VERB
+NECESITAR	134	VERB
+NECESITA	134	VERB
+NECESITO	134	VERB
+BUSCO	134	VERB
+BUSCA	134	VERB
+BUSCAR	134	VERB
+ESTA	135	VERB
+ESTAR	135	VERB
+ENCUE	135	VERB
+ESCON	135	VERB
+VEN	136	VERB
+SIGUEME	136	VERB
+VE	137	VERB
+VETE	137	VERB
+DIRIGITE	137	VERB
+IR	137	VERB
+LLENA	138	VERB
+VACIA	140	VERB
+DERRAMADA	140	VERB
+TIRA	141	VERB
+TIRO	141	VERB
+LANZA	141	VERB
+LANZAR	141	VERB
+LANZO	141	VERB
+TIRAR	141	VERB
+TIRAS	141	VERB
+SUJETA	142	VERB
+SUJETAR	142	VERB
+SUJETO	142	VERB
+AGUANTA	142	VERB
+AGUANTAR	142	VERB
+AGUANTO	142	VERB
+MATA	143	VERB
+MATAR	143	VERB
+MUEVE	144	VERB
+MOVER	144	VERB
+EMPUJA	144	VERB
+EMPUJO	144	VERB
+EMPUJAR	144	VERB
+INTERIOR	146	NOUN
+DENTRO	146	NOUN
+BIDON	148	NOUN
+GRIFO	149	NOUN
+SUELO	151	NOUN
+REJILLA	151	NOUN
+MANO	152	NOUN
+PANEL	153	NOUN
+MANDO	153	NOUN
+ARO	154	NOUN
+ANILLA	154	NOUN
+ORDENADOR	155	NOUN
+MONITOR	155	NOUN
+COMPUTADOR	155	NOUN
+CARTEL	156	NOUN
+CADAVER	157	NOUN
+MUERTO	157	NOUN
+BIEN	158	ADJECTIVE
+MAL	159	ADJECTIVE
+RED	160	NOUN
+MAQUINA	160	NOUN
+NO	161	NOUN
+CAMA	162	NOUN
+CAMAS	162	NOUN
+ESTANQUE	163	NOUN
+SANGRE	164	NOUN
+CIENO	164	NOUN
+/STX
+/0
+ESTA MUY OSCURO PARA PODER VER
+/1
+Además ves¬
+/2
+Eso no funciona.\n
+/3
+\n
+/4
+No hay nada.\n
+/5
+No puedes ir _.\n
+/6
+No entiendo. Usa otras palabras.\n
+/7
+
+/8
+No puedes hacer eso.\n
+/9
+Tienes:
+/10
+Llevas puestos¬
+/11
+No tienes nada.
+/12
+¿Estás seguro?\n
+\n
+/13
+\n
+¿Quieres intentarlo otra vez?\n
+\n
+/14
+Hasta pronto...\n
+/15
+VALE.\n
+/16
+
+/17
+Has hecho¬
+/18
+ movida
+/19
+s
+/20
+.\n
+/21
+Has terminado el¬¬
+/22
+ del juego.\n
+/23
+No llevas eso puesto.\n
+/24
+No puedes. Llevas puesto _.\n
+/25
+Ya tienes _.\n
+/26
+No hay de eso por aquí­.\n
+/27
+No puedes llevar más cosas.\n
+/28
+No lo tienes. \n
+/29
+Ya llevas puesto _.\n
+/30
+S
+/31
+N
+/32
+
+/33
+¬
+/34
+.
+/35
+\n
+El tiempo pasa...\n
+/36
+Has cogido _.\n
+/37
+Te has puesto _.\n
+/38
+Te has quitado _.\n
+/39
+Has dejado _.\n
+/40
+No puedes ponerte _.\n
+/41
+No puedes quitarte _.\n
+/42
+No puedes quitarte _. Tienes las manos llenas.\n
+/43
+Pesa demasiado _.\n
+/44
+Dejas _ en¬
+/45
+No hay _ en¬
+/46
+,¬
+/47
+ y¬
+/48
+.¬
+/49
+No tienes _.\n
+/50
+No llevas puesto _.\n
+/51
+.\n
+/52
+No hay de eso en¬
+/53
+nada.¬
+/54
+Nombre:¬
+/55
+Estás muerto.\n
+/56
+Lleva¬
+/57
+y¬
+/58
+Dentro ves¬
+/59
+Al sur ves el ascensor.¬
+/60
+
+/61
+El ascensor sigue ardiendo.¬
+/62
+ Samil no tiene tiempo de seguirte y se queda fuera.\n
+/63
+Está encendido.¬
+/64
+
+/65
+Una fria brisa golpea tu rostro, helándote hasta los huesos.\n
+/66
+Fichero no encontrado.
+/67
+Fichero corrupto.
+/68
+Error de E/S. Fichero no grabado.
+/69
+Directorio lleno.
+/70
+Disco lleno.
+/71
+Nombre de fichero no válido.
+/72
+Nombre del fichero: ¬
+/73
+¿Disculpa?
+/74
+¿Perdón? Por favor prueba con otras palabras.
+/75
+Aquí­¬
+/76
+está¬
+/77
+están¬
+/MTX
+/0
+
+/1
+Farmer dice: "
+/2
+Ve a buscar ayuda, necesitamos un conmutador.'.
+/3
+No pierdas tiempo, tenemos cosas que hacer.'.¬
+/4
+No digas tonterías y busca el conmutador, tienen que tener alguno.'.¬
+/5
+Aquí no hemos venido a cazar monstruitos, estás comenzando a enfadarme.'.
+/6
+Voy a buscarlo yo mismo, pero esto no quedará así, te lo aseguro.'.¬
+/7
+No insultes...¬
+/8
+Te lo advertí.¬
+/9
+Los flotfeets son flotadores especiales para los pies. Los utilizábamos
+para caminar sobre el fango del pantano.'.¬
+/10
+Guarda el cuchillo y te dice: 'Yo también necesito ayuda. Me llamo Samil
+Estwald, trabajaba aquí como perforista. Ha ocurrido algo horrible.'.¬
+/11
+Es obvio para qué sirve _.'.¬
+/12
+Hablas demasiado.'.¬
+/13
+Pero tú quien te has creido, chaval.'.¬
+/14
+Ves que el cenagoso suelo se agita... ¡Un enorme monstruo surge ante ti
+y se te acerca amenazadoramente!¬
+/15
+Con un horrible gruíido la bestia se vuelve a sumergir desapareciendo de
+tu vista.¬
+/16
+Altos árboles hunden sus raices en el mal oliente cieno del pantano. La
+niebla te impide ver más allá de unos metros.¬
+/17
+Los pies se te hunden en el cieno.¬
+/18
+El lodo te cubre la cabeza y mueres ahogado.¬
+/19
+El lodo te cubre la cintura, y poco a poco te vas sumergiendo.¬
+/20
+El excesivo peso te hunde en el cieno.¬
+/21
+Dejas _ y se hunde en el cieno desapareciendo de tu vista.¬
+/22
+No tiene ningún interés.¬
+/23
+El ascensor no funciona.¬
+/24
+Son de plástico arrugado como una pasa. En una etiqueta dice: 'Break the
+ring and put on the feet.'.¬
+/25
+va al sur.¬
+/26
+va al este.¬
+/27
+va al norte.¬
+/28
+va al oeste.¬
+/29
+se te acerca rugiendo como un animal.¬
+/30
+furioso por las heridas se abalanza sobre ti y te mata.¬
+/31
+Un enorme ser surge de las sombras.¬
+/32
+En el interior de la mina las galerías se pierden tras la penumbra.¬
+/33
+está aquí.¬
+/34
+Es una pequeía tarjeta de plástico con una franja magnética.¬
+/35
+De plástico y metal.¬
+/36
+Al andar sobre los cristales rotos los flotfeets se pinchan.¬
+/37
+Están rotos.¬
+/38
+Está cerrada.¬
+/39
+Sobre esta ves un cartel que dice: 'LABORATORIO. Prohibida la entrada a personas
+ajenas a esta dependencia.'. Hay una pequeía ranura en la pared.¬
+/40
+La tarjeta encaja en la ranura y la puerta se abre automaticamente.¬
+/41
+¿Dónde?¬
+/42
+Sí, pero ¿cómo?¬
+/43
+Necesitas algo.¬
+/44
+Está abierta.¬
+/45
+Ya lo está, zoquete.¬
+/46
+Están todas abiertas excepto una que tiene un candado puesto.¬
+/47
+Necesitas algo fuerte.¬
+/48
+No tienes ninguna llave.¬
+/49
+Con un fuerte golpe de culata rompes el candado y la taquilla se abre.¬
+/50
+Están todas abiertas.¬
+/51
+Están todas abiertas excepto una.¬
+/52
+Deja esa caja, no te interesa lo que contenga.'.¬
+/53
+No puedes cogerlo, está cerrado.¬
+/54
+La bestia se resiente de los disparos y retrocede ligeramente, pero sigue
+viva.¬
+/55
+te muerde en el pescuezo y te degolla.¬
+/56
+Es como un enorme sapo bípedo de 3 metros de altura y tiene una gran fuerza.
+/57
+En la pared, tras una chapa, ves salir chispas.¬
+/58
+De una fuerte patada la puerta se abre.¬
+/59
+Te haces daío en el pie.¬
+/60
+Los trozos de cristales te producen cortes en las manos y te sangran. Instintivamente
+los vuelves a dejar caer.¬
+/61
+Los cortes en las manos te dificultan disparar.¬
+/62
+Es de CD ROM.¬
+/63
+Puedes leer la siguiente advertencia: 'PELIGRO, NO ACERCARSE AL PANTANO.'.
+/64
+Observas que tiene una mano cerrada.¬
+/65
+Ya lo estás, despistado.¬
+/66
+El cable pelado te suelta una descarga eléctrica y te deja achicharrado.
+/67
+Unes los extremos del cable y el ascensor vuelve a funcionar.¬
+/68
+Tiene un botón rojo para subir y otro azul para bajar.¬
+/69
+No puedo ir en esa dirección.'.¬
+/70
+No puedes ir en esa dirección.¬
+/71
+tu nave espacial.¬
+/72
+las oscuras galerías de la mina.¬
+/73
+Samil dice: "
+/74
+llega junto a ti.¬
+/75
+Samil¬
+/76
+El monstruo¬
+/77
+Veo que no me vas a ayudar. Lo siento por ti, nunca lograreis salir del
+planeta sin mi ayuda.'.¬
+/78
+De acuerdo.'.¬
+/79
+Hacia el este, tras la red metálica rota, ves el final del pantano.¬
+/80
+Samil coge _.
+/81
+Es joven y fuerte. Tiene un brazo escayolado.¬
+/82
+Pídeselo.¬
+/83
+Samil te entrega _.¬
+/84
+"Dámelo.', te dice.¬
+/85
+Samil deja _.¬
+/86
+"No lo tengo.', exclama.¬
+/87
+"No lo veo por aquí.', te responde.¬
+/88
+"No tengo nada.', te dice.¬
+/89
+"Agáchate tú a cogerlo.', aíade.¬
+/90
+No puedo llevar más cosas, recuerda que estoy herido.'.¬
+/91
+_ pesa demasiado y no puedo cogerlo con un solo brazo.'.¬
+/92
+No son de mi talla.'.¬
+/93
+Hacia el sur, medio sumergida en el cieno, ves una nave espacial con la
+puerta destrozada.¬
+/94
+Tiene cuatro tornillos que la fijan al ascensor.¬
+/95
+Al quitar los tornillos se cuelan por la rejilla del suelo.¬
+/96
+Está desconectado y medio pelado.¬
+/97
+En el hueco que tapaba la chapa de metal ves un cable desconectado.¬
+/98
+Es una paqueía chapa de fino metal.¬
+/99
+No tienes arma.¬
+/100
+Farmer¬
+/101
+Te sorprende oir un ligero sonido en el interior de la nueva estancia.¬
+/102
+Apoyado en la pared, con un cuchillo, hay un hombre herido.¬
+/103
+Es un CETME serie T 12. Dispone de un cargador de proyectiles explosivos.
+/104
+El hombre, visiblemente nervioso te dice: '¡Dime a que has venido antes
+de que te mate! ¡Si tienes intención de robar ya puedes largarte!'.¬
+/105
+El hombre, desconfiando de tus intenciones, se abalanza sobre ti y te mata.
+/106
+Anoche, una bestia del pantano que logró romper la red, se introdujo en
+las dependencias. Yo soy el único superviviente.'.¬
+/107
+
+/108
+Ese monstruo nos sorprendió y mató a todo el mundo. Mi mujer y mi hija
+han desaparecido. Creo que les mató también. Si me ayudas a matarle, te
+diré como reparar tu nave.'.¬
+/109
+Tienes que ayudarme a vengar la muerte de toda esta gente, yo no me valgo
+con un brazo roto.'.¬
+/110
+Creo que se esconde en el interior de la mina.'.¬
+/111
+Samil, al ver a Farmer le cuenta su historia y le pide ayuda.¬
+/112
+Samil, desde el otro lado de la red te dice: 'No deberías entrar en el pantano,
+es muy peligroso. Te espero aquí.'.¬
+/113
+Ese individuo sabe donde encontrar un conmutador, creo que deberíamos forzarle
+a hablar.'.¬
+/114
+Tus palabras se pierden en el viento.¬
+/115
+El monstruo te atrapa en tu intento de huida y te sumerge en el pantano.
+/116
+Samil se dirige _.¬
+/117
+Fallas el disparo y el monstruo te atrapa sumergiéndote en el pantano.
+/118
+Los guantes no evitan que te cortes.¬
+/119
+Es tu gruíón jefe, alto y fuerte como un venusiano.¬
+/120
+No necesito _.'. Y lo tira al suelo.¬
+/121
+No que me corto.'.¬¬
+/122
+Es de combustible líquido. Tiene un grifo.¬
+/123
+Cerrado.¬
+/124
+Abierto.¬
+/125
+En el suelo hay una mancha de combustible.¬
+/126
+La botella se llena de combustible.¬
+/127
+Un chorro de combustible sale del grifo.¬
+/128
+Está cerrada.'.¬
+/129
+No se me ha perdido nada en el pantano.'.¬
+/130
+Está llena de combustible.¬
+/131
+Está vacia.¬
+/132
+¿Que haces con esa caja?, no debes tocar lo que no te pertenece.'. Te quita
+la caja.¬
+/133
+Apalancando la tapa abres la caja.¬
+/134
+¿En qué piensas usar la botella llena de combustible?'.¬
+/135
+Farmer coge _.\n
+/136
+No te pertenece.'.¬
+/137
+Está fuertemente cerrada. Quizá apalancando con algo...¬
+/138
+De cocina, muy afilado.¬
+/139
+De goma.¬
+/140
+Está roto.¬
+/141
+¡Ya comprendo! Deja que yo lo haga, soy fuerte y puedo hacerlo aunque esté
+herido.'.¬
+/142
+No queda combustible en el bidón.¬
+/143
+Dime si me vas a ayudar o no, mi paciencia tiene un límite.'.¬
+/144
+`1992 Luis Sánchez Palacios.¬
+/145
+Es una debil rejilla metálica.¬
+/146
+Gracias, procuraré ayudarte en todo lo que pueda.'.¬
+/147
+Sin perder tiempo, Samil lanza la botella al monstruo, rompiéndose al alcanzarle.
+/148
+Samil te grita: '¡Dispara ahora!'.
+/149
+El monstruo, envuelto en llamas, se combulsiona entre horribles alaridos
+perdiéndose entre las galerías.¬
+/150
+¡Debemos salir corriendo, el fuego se va a extender rápidamente!'.¬
+/151
+Debemos tener cuidado con el fuego en la mina, hay en ella gases muy inflamables.'.
+/152
+Aún no.'.¬
+/153
+¡Tírale la botella!'.
+/154
+Lanzas la botella al monstruo, pero tus fuerzas te traicionan y cae al suelo
+sin romperse.¬
+/155
+Creo que la salida está hacia allá.', seíalándote hacia el oeste.¬
+/156
+El aire se empieza a llenar de un desagradable humo.¬
+/157
+El fuego se extiende rápidamente subiendo la temperatura.¬
+/158
+Una bocanada de fuego hace de vosotros una antorcha de fuego.¬
+/159
+Por la rejilla del suelo se eleva una ligera brisa.¬
+/160
+No cae una sola gota de agua.¬
+/161
+Pones tu mano derecha sobre el panel y oyes un ligero silvido.¬
+/162
+Farmer, desde la puerta de la nave, te dice: 'Te espero aquí, no pierdas
+tiempo.'.¬
+/163
+Junto a la puerta hay un panel luminoso con una mano dibujada.¬
+/164
+Es una pequeía y algo antigua nave de mensajero.¬
+/165
+La puerta se vuelve a cerrar.¬
+/166
+Tiene una mano dibujada.¬
+/167
+Samil, horrorizado por la visión, sale corriendo de la cámara dejándote
+solo.¬
+/168
+Samil, visiblemente afectado, exclama: 'He visto a mi hija y a mi mujer,
+ese monstruo las ha matado. ¡Dios mio, es horrible!'.¬
+/169
+No tengo fuerzas, déjame.'.¬
+/170
+La puerta de la nave se abre.¬
+/171
+Lo siento, yo no puedo entrar ahí.'.¬
+/172
+Hemos aterrizado en una mina, ve a buscar ayuda. ¡No comprendo porqué
+no contestaban a mis mensajes!'.¬
+/173
+Una enorme garra rompe la rejilla del suelo agarrando a Samil por una pierna.
+/174
+¡Corre, sal del ascensor, rápido!'.¬
+/175
+¡Dame el cuchillo!'.¬
+/176
+Samil logra soltarse del monstruo demasiado tarde. Una explosión del interior
+de la mina lo lanza hacia donde tú te encuentras. Samil ha muerto.¬
+/177
+El abrasador fuego te achicharra.¬
+/178
+Samil intenta separarse del monstruo con el cuchillo.¬
+/179
+Una bocanada de fuego emerge por el hueco del ascensor. Samil no logra salvarse
+y muere quemado.¬
+/180
+Está muerto.¬
+/181
+¡No pierdas tiempo y haz lo que te he dicho!'.¬
+/182
+Una reja metálica cierra la entrada del ascensor.¬
+/183
+La reja se eleva.¬
+/184
+La reja vuelve a bajarse.¬
+/185
+Prueba a levantarla.'.¬
+/186
+Rompes la anilla y los flotfeets se inflan como globos.¬
+/187
+Están inflados como globos. Parecen zapatos de payaso.¬
+/188
+En pantalla aparece la siguiente información: 'PLANETA DE ATMOSFERA RESPIRABLE.
+FORMAS DE VIDA POCO CONOCIDAS PERO PELIGROSAS. PRECAUCION.'.¬
+/189
+Al abrirle la mano un pequeío objeto cae al suelo.¬
+/190
+Junto a una entrada de disco ves un pequeío conmutador.¬
+/191
+Está incrustado en el panel.¬
+/192
+Al introducir el disco el panel de mandos se enciende.¬
+/193
+Es un pequeío objeto negro, con un piloto encendido.¬
+/194
+Está manchado de sangre.¬
+/195
+Farmer coge el conmutador y te dice: '¡Bravo, por fin lo has encontrado!'.
+/196
+Corriendo hacia la nave te grita: 'Vámonos de aquí rápido, ya hemos perdido
+mucho tiempo.'.¬
+/197
+Farmer coloca en conmutador en su sitio y tras breves segundos la nave despega
+alejándose del planeta. ¡Enhorabuena!¬
+/198
+¿A quién?¬
+/199
+De un disparo cae al suelo muerto.¬
+/200
+¡Has fallado el disparo por centímetros!¬
+/201
+Farmer amenaza a Samil con el fusil y le dice: 'Si yo no salgo de este planeta
+tú tampoco saldrás vivo.'.\n
+Farmer dispara a Samil y le mata.¬
+/202
+Golpeas a Farmer y este enfadado, de un puíetazo en la mandíbula, te tira
+al suelo.¬
+/203
+Te apunta con el fusil y dispara muriendo al instante.¬
+/204
+Entrégame el fusil.'.¬
+/205
+Golpeas a Samil y este, indignado, te dice: 'Maldito seas, nunca lograrás
+tu objetivo sin mi ayuda.'.¬
+/206
+Samil se avalanza sobre ti y de una certera puíalada te mata.¬
+/207
+¡Olvídame, no mereces mi confianza!'.¬
+/208
+Te abalanzas sobre él y le matas con el cuchillo.¬
+/209
+Si tienes alguna duda dirige tus cartas a:\n
+           Luis Sánchez Palacios\n
+           C Santa Brígida, 4\n
+           13400 Almadén\n
+           Ciudad Real\n
+\n
+O llama al 926 71 05 36. También FAX al mismo número.
+/210
+No le veo por aquí.¬
+/211
+Están horriblemente mutilados.¬
+/212
+Es una maltrecha puerta de poca consistencia.¬
+/213
+Dispone de un par de guias en su parte inferior.¬
+/214
+La red metálica te separa de camiones, hormigoneras, etc.¬
+/215
+Tiene el aspecto de ser bastante fuerte.¬
+/216
+Es de grueso cable. Al otro lado ves un pantano repleto de vegetación.
+/217
+Ha sido rota de una forma violenta.¬
+/218
+Múltiples teclas y luces adornan el panel.¬
+/219
+Son simples literas sin mayor interés.¬
+/220
+Son altos y frondosos.¬
+/221
+¿Otra vez con lo mismo?'.¬
+/222
+Las luces vibran amenazando apagarse de un momento a otro.¬
+/223
+Tirada en el suelo, entre dos camas, hay una manta.¬
+/224
+En lo alto de las endebles estanterías ves una botella.¬
+/225
+Dejas la manta en el suelo cubriendo los cadáveres.¬
+/226
+La estantería se mueve y la botella cae al suelo rompiéndose.¬
+/227
+La botella pierde el equilibrio y Samil, atento, la atrapa antes de que
+caiga al suelo.¬
+/228
+Es de cuadros escoceses y bastante amplia.¬
+/229
+Están cubiertos por la manta.¬
+/230
+Está demasiado alta y no alcanzas.¬
+/231
+Está repartida por el suelo en pequeñas partículas.¬
+/232
+Salpica el suelo y las paredes. Parece reciente.¬
+/233
+¿Cual de los dos?¬
+/234
+Son demasiado grandes y pesadas.¬
+/235
+Nada ocurre.¬
+/OTX
+/0
+La taquilla
+/1
+una chapa metálica
+/2
+un fusil automático
+/3
+una caja hermética
+/4
+un par de flotfeets
+/5
+una tarjeta de plástico
+/6
+un par de guantes
+/7
+un candado roto
+/8
+un cuchillo
+/9
+una botella llena de combustible
+/10
+al norte
+/11
+al sur
+/12
+al este
+/13
+al oeste
+/14
+arriba
+/15
+abajo
+/16
+Un bidón de combustible
+/17
+una botella vacia
+/18
+un destornillador
+/19
+un pendrive USB
+/20
+un conmutador de partí­culas
+/21
+una manta
+/22
+a Samil
+/23
+a Farmer
+/24
+al monstruo
+/25
+el cadaver de Samil
+/26
+El cadaver de Farmer
+/LTX
+/0
+        ESTACION ACUARIO\n
+\n
+\n
+\n
+\n
+GUION Y PROGRAMACION:\n
+\n
+         LUIS SANCHEZ PALACIOS\n
+\n
+\n
+PANTALLA DE PRESENTACION:\n
+\n
+         FRANK JONES\n
+\n
+\n
+COLABORACION ESPECIAL:\n
+\n
+         ALVARO MANGADO CRUZ\n
+/1
+Salid.¬
+/2
+Te encuentras en el interior de una nave espacial de carga. En los paneles
+de mando y el suelo ves rastros de sangre.¬
+/3
+
+/4
+
+/5
+
+/6
+
+/7
+
+/8
+
+/9
+
+/10
+
+/11
+
+/12
+
+/13
+Tras una red metálica rota de la que cuelga un cartel, hacia el oeste,
+ves un cenagoso pantano. Al norte ves tu nave espacial. Al sur, un camino
+en dirección a una colina horadada.¬
+/14
+Te encuentras en el interior de tu nave espacial. Múltiples monitores y
+mandos se presentan ante ti. Al sur, la puerta de salida te separa del exterior.
+/15
+La puerta de entrada a un gran edificio está destrozada. Puedes ver rastros
+de sangre y cieno.¬
+/16
+Estás en un gran almacén cuyas polvorientas estanterís están medio
+vacias. Puedes dirigirte al sur.¬
+/17
+El amplio laboratorio aparece desordenado y con multitud de utensilios destrozados.
+/18
+Grandes cajas de alimentos se apilan junto a las paredes. Al este ves la
+puerta de una cámara frigorífica.¬
+/19
+¡Es horrible, tirados en el suelo, al pie de altas estanterías, ves cadáveres
+destrozados! Sientes inevitables deseos de salir.¬
+/20
+Ante ti se presenta un sucio y desordenado pasillo. Al norte ves la puerta
+de un almacén, al sur los servicios. Esparcidos por el suelo hay cristales
+rotos.¬
+/21
+Al norte ves una puerta, al sur quedan los dormitorios. Ves un rastro de
+sangre en dirección al este, hacia la cocina.¬
+/22
+La sucia y desordenada cocina es testigo del drama vivido por sus habitantes.
+Al norte hay un pequeño almacén.¬
+/23
+Te encuentras en los servicios. Ves manchas de sangre en el suelo y las
+paredes. Puedes ir al norte y al este.¬
+/24
+Todo es desolación en este lugar. Las camas y taquillas aparecen desordenadas.
+/25
+Al sur, excavado en la roca de la alta colina, tras una reja, ves el hueco
+de un ascensor. A ambos lados la red metálica te separa de la máquinaria
+propia de una mina.¬
+/26
+Estás dentro del ascensor. El suelo es una debil rejilla metálica. Al
+norte puedes ver¬
+/27
+
+/28
+
+/29
+
+/30
+
+/31
+
+/32
+
+/33
+
+/34
+
+/35
+
+/36
+
+/37
+
+/38
+
+/39
+
+/40
+
+/41
+
+/42
+
+/43
+Objetos Samil.¬
+/44
+La sala de recreo aparece desordenada y triste. Puedes dirigirte al oeste.
+/CON
+/0
+/1
+/2
+	N	5
+/3
+/4
+/5
+	N	10
+	S	2
+	E	8
+	O	5
+/6
+	N	9
+	E	6
+	S	6
+	O	7
+/7
+	N	8
+	S	6
+	E	6
+	O	5
+/8
+	N	11
+	S	7
+	E	9
+	O	5
+/9
+	N	12
+	S	6
+	E	9
+	O	9
+/10
+	N	8
+	E	11
+	O	10
+	S	5
+/11
+	N	10
+	S	11
+	E	12
+	O	11
+/12
+	N	11
+	S	9
+	E	13
+	O	11
+/13
+	E	15
+	N	14
+	S	25
+	O	13
+/14
+	S	13
+/15
+	E	20
+	O	13
+/16
+	S	20
+/17
+	S	21
+/18
+	S	22
+	E	19
+/19
+	O	18
+/20
+	N	16
+	S	23
+	E	21
+	O	15
+/21
+	N	17
+	S	24
+	E	22
+	O	20
+/22
+	N	18
+	O	21
+/23
+	N	20
+	E	24
+/24
+	N	21
+	O	23
+	E	44
+/25
+	N	13
+/26
+	N	25
+/27
+	S	31
+/28
+	S	32
+	E	29
+/29
+	S	33
+	E	30
+	O	28
+/30
+	O	29
+/31
+	N	27
+	E	32
+/32
+	N	28
+	S	36
+	O	31
+/33
+	N	29
+	E	34
+/34
+	S	38
+	O	33
+/35
+	S	39
+	E	36
+/36
+	N	32
+	O	35
+/37
+	S	41
+	E	38
+/38
+	N	34
+	O	37
+	S	42
+/39
+	N	35
+	E	40
+/40
+	E	41
+	O	39
+/41
+	N	37
+	E	42
+	O	40
+/42
+	N	38
+	O	41
+/43
+/44
+	O	24
+/OBJ
+/0	252	15	TAQUILLA	_	10100000000000000000000000000000 00000000000000000000000000000000
+/1	252	1	CHAPA	_	00000000000000000000000000000000 00000000000000000000000000000000
+/2	3	4	RIFLE	_	00000000000000000000000000000000 00000000000000000000000000000000
+/3	14	5	CAJA	_	00100000000000000000000000000000 00000000000000000000000000000000
+/4	16	1	FLOTADOR	_	01000000000000000000000000000000 00000000000000000000000000000000
+/5	0	1	TARJETA	_	00000000000000000000000000000000 00000000000000000000000000000000
+/6	43	1	GUANTE	_	01000000000000000000000000000000 00000000000000000000000000000000
+/7	252	1	CANDADO	_	00000000000000000000000000000000 00000000000000000000000000000000
+/8	43	2	CUCHILLO	_	00000000000000000000000000000000 00000000000000000000000000000000
+/9	252	1	BOTELLA	BIEN	00000000000000000000000000000000 00000000000000000000000000000000
+/10	252	1	N	_	00000000000000000000000000000000 00000000000000000000000000000000
+/11	252	1	S	_	00000000000000000000000000000000 00000000000000000000000000000000
+/12	252	1	E	_	00000000000000000000000000000000 00000000000000000000000000000000
+/13	252	1	O	_	00000000000000000000000000000000 00000000000000000000000000000000
+/14	252	1	SUBE	_	00000000000000000000000000000000 00000000000000000000000000000000
+/15	252	1	BAJA	_	00000000000000000000000000000000 00000000000000000000000000000000
+/16	16	15	BIDON	_	00000000000000000000000000000000 00000000000000000000000000000000
+/17	252	1	BOTELLA	MAL	00000000000000000000000000000000 00000000000000000000000000000000
+/18	16	1	DESTORNILL	_	00000000000000000000000000000000 00000000000000000000000000000000
+/19	252	1	PENDRIVE	_	00000000000000000000000000000000 00000000000000000000000000000000
+/20	252	1	CONMUTADOR	_	00000000000000000000000000000000 00000000000000000000000000000000
+/21	252	1	MANTA	_	00000000000000000000000000000000 00000000000000000000000000000000
+/22	252	20	_	_	00000000000000000000000000000000 00000000000000000000000000000000
+/23	14	20	_	_	00000000000000000000000000000000 00000000000000000000000000000000
+/24	252	20	_	_	00000000000000000000000000000000 00000000000000000000000000000000
+/25	252	20	_	_	00000000000000000000000000000000 00000000000000000000000000000000
+/26	252	20	_	_	00000000000000000000000000000000 00000000000000000000000000000000
+; PROCESS_TABLE
+/PRO 0
+
+_	_	WHATO
+		WEIGHT 78
+
+_	PATADA	AT 20
+		NOUN2 REJA
+		ZERO 61
+		MESSAGE 58
+		SET 61
+		DONE
+
+_	PATADA	MESSAGE 59
+		DONE
+
+_	HOMBRE	EQ 33 68
+		PRESENT 25
+		PROCESS 8
+		DONE
+
+_	HOMBRE	NOTEQ 67 43
+		NOTSAME 67 38
+		MESSAGE 210
+		DONE
+
+_	HOMBRE	NOTEQ 67 43
+		ABSENT 22
+		MESSAGE 210
+		DONE
+
+_	JEFE	EQ 33 68
+		PRESENT 26
+		PROCESS 8
+		DONE
+
+_	JEFE	NOTSAME 24 38
+		MESSAGE 210
+		DONE
+
+_	REJA	AT 25
+		SAME 67 38
+		CHANCE 30
+		MES 73
+		MESSAGE 185
+		DONE
+
+_	_	NOTZERO 68
+		COPYFF 38 67
+
+_	_	NOUN2 INTERIOR
+		LET 44 114
+
+_	_	LT 33 15
+		ATGT 2
+		ATLT 12
+		SAME 24 38
+		MESSAGE 115
+		PROCESS 6
+
+S	_	AT 39
+		ZERO 91
+		MESSAGE 182
+		DONE
+
+S	_	AT 17
+		ZERO 27
+		MESSAGE 38
+		DONE
+
+S	_	AT 16
+		ZERO 61
+		MESSAGE 38
+		DONE
+
+S	_	AT 39
+		NOTZERO 68
+		CLEAR 68
+		SET 94
+
+S	_	AT 14
+		ZERO 6
+		MESSAGE 38
+		DONE
+
+S	_	AT 39
+		GOTO 26
+		DESC
+
+S	_	AT 25
+		ZERO 91
+		MESSAGE 182
+		DONE
+
+S	_	AT 25
+		CLEAR 68
+		SET 94
+		GOTO 26
+		DESC
+
+E	_	AT 18
+		NOTZERO 88
+		SET 94
+		CLEAR 68
+
+E	_	AT 18
+		ZERO 64
+		MESSAGE 38
+		DONE
+
+E	_	AT 12
+		CLEAR 23
+		NOTZERO 73
+		ZERO 90
+		LET 67 13
+		SET 68
+
+E	_	AT 12
+		ZERO 102
+		LET 24 14
+
+O	_	AT 19
+		ZERO 64
+		MESSAGE 38
+		DONE
+
+O	_	AT 13
+		LET 24 5
+		GOTO 12
+		CLEAR 68
+		DESC
+
+SUBE	_	EQ 34 112
+		LET 33 24
+
+SUBE	_	AT 26
+		LET 33 128
+		LET 34 124
+		LET 44 125
+		ZERO 102
+		LET 24 14
+
+BAJA	_	AT 26
+		LET 33 128
+		LET 34 124
+		LET 44 126
+
+BAJA	_	NOTAT 26
+		SYSMESS 5
+		DONE
+
+ENTRA	TARJETA	LET 33 76
+		LET 34 89
+
+ENTRA	_	MESSAGE 70
+		DONE
+
+SAL	_	AT 26
+		ZERO 66
+		GOTO 25
+		DESC
+
+SAL	_	AT 26
+		GOTO 39
+		DESC
+
+SAL	_	MESSAGE 70
+		DONE
+
+N	_	AT 21
+		ZERO 27
+		MESSAGE 38
+		DONE
+
+N	_	AT 20
+		ZERO 61
+		MESSAGE 38
+		DONE
+
+N	_	AT 26
+		NOTZERO 66
+		NOTZERO 91
+		CLEAR 68
+		SET 94
+		GOTO 39
+		DESC
+
+N	_	AT 21
+		EQ 67 43
+		LET 5 3
+
+N	_	AT 13
+		ZERO 6
+		MESSAGE 38
+		DONE
+
+N	_	AT 26
+		ZERO 91
+		MESSAGE 182
+		DONE
+
+N	_	AT 26
+		CLEAR 68
+		SET 94
+		GOTO 25
+		DESC
+
+LLEVA	_	CLEAR 44
+		PROCESS 18
+		NOTZERO 1
+		SYSMESS 9
+		LISTAT 254
+
+LLEVA	_	NOTZERO 97
+		SYSMESS 10
+		LISTAT 253
+
+LLEVA	_	ZERO 1
+		ZERO 97
+		SYSMESS 11
+
+LLEVA	_	NEWLINE
+		DONE
+
+SAVE	_	SAVE
+		OK
+
+LOAD	_	LOAD
+		DESC
+
+ELEVA	REJA	AT 39
+		SET 91
+		MESSAGE 183
+		DONE
+
+ELEVA	REJA	ATGT 24
+		ATLT 27
+		SET 91
+		MESSAGE 183
+		DONE
+
+DESATA	CHAPA	LET 33 83
+		LET 34 85
+
+SACA	TODO	AT 24
+		NOUN2 TAQUILLA
+		NOTZERO 28
+		DOALL 0
+
+SACA	TODO	PRESENT 3
+		NOTZERO 76
+		NOUN2 CAJA
+		DOALL 3
+
+SACA	_	NOUN2 CAJA
+		PRESENT 3
+		LET 33 60
+
+SACA	_	AT 24
+		NOUN2 TAQUILLA
+		LET 33 60
+
+SACA	_	NOTZERO 76
+		PRESENT 3
+		NOUN2 CAJA
+		AUTOT 3
+		DONE
+
+TAPAR	CADAVER	LET 33 61
+		LET 34 98
+
+ABRE	CANDADO	AT 24
+		MESSAGE 48
+		DONE
+
+ABRE	CAJA	SAME 24 38
+		LET 33 60
+
+ABRE	CAJA	PRESENT 3
+		NOUN2 DESTORNILL
+		CARRIED 18
+		ZERO 76
+		SET 76
+		MESSAGE 133
+		DONE
+
+ABRE	CAJA	NOTZERO 76
+		MESSAGE 45
+		DONE
+
+ABRE	CAJA	PRESENT 3
+		MESSAGE 137
+		DONE
+
+ABRE	REJA	AT 17
+		ZERO 27
+		SET 27
+		OK
+
+ABRE	REJA	AT 17
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	AT 21
+		MESSAGE 48
+		DONE
+
+ABRE	REJA	AT 20
+		ZERO 61
+		MESSAGE 48
+		DONE
+
+ABRE	REJA	AT 20
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	ATGT 17
+		ATLT 20
+		ZERO 64
+		SET 64
+		OK
+
+ABRE	REJA	ATGT 17
+		ATLT 20
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	AT 16
+		ZERO 61
+		SET 61
+		OK
+
+ABRE	REJA	AT 16
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	AT 13
+		ZERO 6
+		MESSAGE 42
+		DONE
+
+ABRE	REJA	AT 13
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	AT 14
+		ZERO 6
+		LET 6 3
+		DONE
+
+ABRE	REJA	AT 14
+		MESSAGE 45
+		DONE
+
+ABRE	REJA	ATGT 24
+		ATLT 27
+		ZERO 91
+		MESSAGE 42
+		DONE
+
+ABRE	REJA	AT 39
+		ZERO 91
+		MESSAGE 42
+		DONE
+
+ABRE	TAQUILLA	AT 24
+		ZERO 28
+		NOTZERO 60
+		SET 28
+		OK
+
+ABRE	TAQUILLA	AT 24
+		NOTZERO 28
+		MESSAGE 45
+		DONE
+
+ABRE	TAQUILLA	AT 24
+		LET 33 77
+		LET 34 91
+
+ABRE	GRIFO	AT 16
+		ZERO 75
+		MES 124
+		SET 75
+		MESSAGE 127
+		DONE
+
+ABRE	GRIFO	AT 16
+		MESSAGE 45
+		DONE
+
+ABRE	GRIFO	AT 23
+		MESSAGE 160
+		DONE
+
+ABRE	MANO	AT 25
+		NOUN2 HOMBRE
+		NOTZERO 90
+		ISAT 19 43
+		MESSAGE 189
+		CREATE 19
+		DONE
+
+CIERRA	CAJA	NOTZERO 76
+		CLEAR 76
+		OK
+
+CIERRA	CAJA	MESSAGE 45
+		DONE
+
+CIERRA	REJA	AT 21
+		NOTZERO 27
+		CLEAR 27
+		OK
+
+CIERRA	REJA	AT 17
+		NOTZERO 27
+		CLEAR 27
+		OK
+
+CIERRA	REJA	AT 21
+		ZERO 27
+		MESSAGE 45
+		DONE
+
+CIERRA	REJA	AT 17
+		ZERO 27
+		MESSAGE 45
+		DONE
+
+CIERRA	REJA	AT 20
+		NOTZERO 61
+		CLEAR 61
+		OK
+
+CIERRA	REJA	AT 20
+		MESSAGE 45
+		DONE
+
+CIERRA	REJA	ATGT 17
+		ATLT 20
+		NOTZERO 64
+		CLEAR 64
+		OK
+
+CIERRA	REJA	ATGT 17
+		ATLT 20
+		MESSAGE 45
+		DONE
+
+CIERRA	REJA	AT 16
+		NOTZERO 61
+		CLEAR 61
+		OK
+
+CIERRA	REJA	AT 16
+		MESSAGE 45
+		DONE
+
+CIERRA	REJA	NOTZERO 76
+		CLEAR 76
+		OK
+
+CIERRA	TAQUILLA	AT 24
+		NOTZERO 28
+		CLEAR 28
+		OK
+
+CIERRA	TAQUILLA	AT 24
+		MESSAGE 45
+		DONE
+
+CIERRA	GRIFO	AT 16
+		NOTZERO 75
+		MESSAGE 123
+		CLEAR 75
+		DONE
+
+CIERRA	GRIFO	AT 16
+		MESSAGE 45
+		DONE
+
+CIERRA	GRIFO	AT 23
+		OK
+
+COGE	_	AT 24
+		NOUN2 CHAPA
+		LET 44 114
+
+COGE	_	SAME 38 67
+		NOUN2 HOMBRE
+		EQ 54 43
+		MESSAGE 82
+		DONE
+
+COGE	_	NOUN2 TAQUILLA
+		AT 24
+		ZERO 28
+		MESSAGE 38
+		DONE
+
+COGE	TODO	SAME 38 67
+		NOUN2 HOMBRE
+		EQ 54 43
+		MESSAGE 62
+		DONE
+
+COGE	TODO	NOUN2 CAJA
+		PRESENT 3
+		NOTZERO 76
+		DOALL 3
+
+COGE	TODO	AT 24
+		NOUN2 TAQUILLA
+		DOALL 0
+
+COGE	TODO	DOALL 255
+
+COGE	CANDADO	AT 24
+		ZERO 29
+		MESSAGE 53
+		DONE
+
+COGE	BOTELLA	AT 19
+		ZERO 106
+		MESSAGE 230
+		DONE
+
+COGE	CAJA	SAME 24 38
+		PRESENT 3
+		MES 1
+		MESSAGE 52
+		DONE
+
+COGE	CAJA	AT 18
+		ABSENT 3
+		MESSAGE 234
+		DONE
+
+COGE	CONMUTADOR	WHATO
+		AT 2
+		ZERO 98
+		MESSAGE 191
+		DONE
+
+COGE	MANTA	AT 24
+		ZERO 105
+		SET 105
+		PLACE 21 254
+		SYSMESS 36
+		DONE
+
+COGE	MANTA	AT 19
+		PRESENT 21
+		CLEAR 107
+
+COGE	TAQUILLA	AT 24
+		SYSMESS 43
+		DONE
+
+COGE	CRISTAL	AT 20
+		WORN 6
+		MES 118
+
+COGE	CRISTAL	AT 20
+		MESSAGE 60
+		SET 62
+		DONE
+
+COGE	_	AT 24
+		NOTZERO 28
+		NOUN2 TAQUILLA
+		AUTOT 0
+		DONE
+
+COGE	_	PRESENT 3
+		NOTZERO 76
+		NOUN2 CAJA
+		AUTOT 3
+		DONE
+
+COGE	_	AUTOG
+		DONE
+
+DEJA	_	AT 24
+		NOUN2 TAQUILLA
+		LET 44 114
+
+DEJA	TODO	ZERO 1
+		SYSMESS 11
+		NEWLINE
+		DONE
+
+DEJA	TODO	DOALL 254
+		ATGT 3
+		ATLT 13
+		NOTEQ 51 4
+		MESSAGE 21
+		PUTO 252
+		DONE
+
+DEJA	TODO	DOALL 254
+
+DEJA	MANTA	AT 19
+		CARRIED 21
+		MESSAGE 225
+		PUTO 19
+		SET 107
+		DONE
+
+DEJA	REJA	NOTZERO 92
+		CLEAR 92
+		CLEAR 91
+		MESSAGE 184
+		DONE
+
+DEJA	_	NOUN2 CAJA
+		PRESENT 3
+		NOTZERO 76
+		LET 33 76
+
+DEJA	_	AT 24
+		NOUN2 TAQUILLA
+		LET 33 76
+
+DEJA	_	ATGT 3
+		ATLT 13
+		NOTEQ 34 88
+		EQ 54 254
+		MESSAGE 21
+		PUTO 252
+		DONE
+
+DEJA	_	AUTOD
+		DONE
+
+GRABA	_	SAVE
+
+CARGA	_	LOAD
+		DESC
+
+RSAVE	_	RAMSAVE
+		OK
+
+RLOAD	_	RAMLOAD 255
+		DESC
+
+X	CHAPA	AT 26
+		ZERO 71
+		MESSAGE 94
+		DONE
+
+X	CONMUTADOR	AT 2
+		ZERO 98
+		MESSAGE 191
+		DONE
+
+X	_	GT 34 100
+		PROCESS 8
+		DONE
+
+X	_	LT 34 85
+		PROCESS 8
+		DONE
+
+X	_	SAME 38 54
+		PROCESS 8
+		DONE
+
+X	_	EQ 54 254
+		PROCESS 8
+		DONE
+
+X	_	MESSAGE 22
+		DONE
+
+CLS	_	CLS
+		DONE
+
+LEE	CARTEL	AT 13
+		MESSAGE 63
+		DONE
+
+M	_	DESC
+
+IDIOTA	_	ZERO 11
+		MESSAGE 7
+		SET 11
+		DONE
+
+IDIOTA	_	MESSAGE 8
+		PROCESS 6
+
+METE	TODO	NOUN2 TAQUILLA
+		NOTZERO 28
+		AT 24
+		DOALL 254
+
+METE	TODO	PRESENT 3
+		NOTZERO 76
+		DOALL 254
+
+METE	TARJETA	AT 21
+		NOTZERO 27
+		MESSAGE 45
+		DONE
+
+METE	TARJETA	AT 21
+		CARRIED 5
+		NOUN2 RANURA
+		ZERO 27
+		SET 27
+		MESSAGE 40
+		ZERO 74
+		MESSAGE 101
+		SET 74
+		DONE
+
+METE	TARJETA	AT 21
+		CARRIED 5
+		ZERO 27
+		MESSAGE 41
+		DONE
+
+METE	TARJETA	AT 21
+		ZERO 74
+		CARRIED 5
+		MESSAGE 45
+		DONE
+
+METE	TARJETA	AT 21
+		CARRIED 5
+		NOTEQ 44 113
+		MESSAGE 41
+		DONE
+
+METE	TARJETA	AT 21
+		NOTCARR 5
+		SYSMESS 28
+		DONE
+
+METE	TARJETA	AT 21
+		DONE
+
+METE	PENDRIVE	AT 2
+		CARRIED 19
+		SET 98
+		CREATE 19
+		CREATE 20
+		MESSAGE 192
+		DONE
+
+METE	_	NOUN2 CAJA
+		PRESENT 3
+		NOTZERO 76
+		AUTOP 3
+		DONE
+
+METE	_	NOUN2 TAQUILLA
+		AT 24
+		NOTZERO 28
+		AUTOP 0
+		DONE
+
+PEGA	HOMBRE	MESSAGE 205
+		LET 7 0
+		CLEAR 68
+		SET 103
+		ISAT 8 43
+		MESSAGE 206
+		PROCESS 6
+		DONE
+
+PEGA	HOMBRE	DONE
+
+PEGA	JEFE	MESSAGE 202
+		ISAT 2 4
+		MESSAGE 203
+		PROCESS 6
+		DONE
+
+PEGA	JEFE	SAME 24 38
+		DONE
+
+PEGA	CANDADO	AT 24
+		ZERO 28
+		NOUN2 RIFLE
+		CARRIED 2
+		CREATE 7
+		SET 28
+		SET 60
+		MESSAGE 49
+		DONE
+
+PEGA	CANDADO	AT 24
+		MESSAGE 47
+		DONE
+
+PEGA	REJA	ATGT 19
+		ATLT 22
+		MESSAGE 42
+		DONE
+
+PEGA	ARO	PRESENT 4
+		ZERO 26
+		ZERO 95
+		SET 95
+		MESSAGE 186
+		DONE
+
+DISPARA	_	NOTCARR 2
+		MESSAGE 99
+		DONE
+
+DISPARA	_	NOTZERO 62
+		CHANCE 50
+		MESSAGE 61
+		DONE
+
+DISPARA	HOMBRE	SAME 38 67
+		CLEAR 68
+		SET 67
+		COPYFF 38 90
+		MESSAGE 199
+		DOALL 43
+		PUTO 255
+		DONE
+
+DISPARA	HOMBRE	AT 17
+		EQ 67 43
+		MESSAGE 200
+		LET 5 1
+		DONE
+
+DISPARA	JEFE	SAME 24 38
+		ATGT 12
+		ATLT 26
+		CLEAR 24
+		MESSAGE 199
+		COPYFF 38 102
+		DOALL 4
+		PUTO 255
+		DONE
+
+DISPARA	MONSTRUO	ATGT 27
+		ATLT 43
+		NOTZERO 84
+		SAME 24 38
+		MESSAGE 149
+		MES 73
+		MESSAGE 150
+		LET 8 16
+		SET 24
+		SET 89
+		DESTROY 24
+		ANYKEY
+		DONE
+
+DISPARA	MONSTRUO	EQ 24 255
+		DONE
+
+DISPARA	MONSTRUO	ATGT 4
+		ATLT 13
+		SAME 24 38
+		CHANCE 10
+		MESSAGE 117
+		PROCESS 6
+		DONE
+
+DISPARA	MONSTRUO	ATGT 27
+		ATLT 43
+		SAME 24 38
+		MESSAGE 54
+		SET 63
+		PROCESS 9
+		NOTSAME 24 38
+		ANYKEY
+		DONE
+
+DISPARA	MONSTRUO	EQ 63 255
+		DONE
+
+DISPARA	MONSTRUO	ATLT 12
+		ATGT 4
+		SAME 24 38
+		MESSAGE 15
+		CLEAR 87
+		NOTAT 5
+		LET 24 5
+		DESTROY 24
+		DONE
+
+DISPARA	MONSTRUO	AT 5
+		LET 24 10
+		ANYKEY
+		DONE
+
+DISPARA	_	MESSAGE 198
+		DONE
+
+RAM	SAVE	RAMSAVE
+		OK
+
+RAM	LOAD	RAMLOAD 255
+		DESC
+
+PON	TODO	CLEAR 23
+		DOALL 254
+
+PON	FLOTADOR	ZERO 95
+		NOTDONE
+
+PON	MANO	AT 13
+		NOUN2 PANEL
+		ZERO 6
+		MESSAGE 161
+		LET 6 3
+		DONE
+
+PON	MANO	AT 31
+		NOUN2 PANEL
+		OK
+
+PON	_	CLEAR 23
+		AUTOW
+		DONE
+
+QUITA	TODO	DOALL 253
+
+QUITA	CHAPA	AT 26
+		CARRIED 18
+		ZERO 71
+		SET 71
+		MESSAGE 95
+		CREATE 1
+		DONE
+
+QUITA	CHAPA	AT 26
+		NOTZERO 71
+		MESSAGE 45
+		DONE
+
+QUITA	CHAPA	AT 26
+		ZERO 71
+		MESSAGE 43
+		DONE
+
+QUITA	_	AUTOR
+		DONE
+
+FIN	_	QUIT
+		END
+
+UNE	ASCENSOR	AT 26
+		ZERO 65
+		MESSAGE 42
+		DONE
+
+UNE	ASCENSOR	AT 26
+		MESSAGE 45
+		DONE
+
+UNE	CABLE	AT 26
+		WORN 6
+		NOTZERO 71
+		ZERO 65
+		SET 65
+		MESSAGE 67
+		DONE
+
+UNE	CABLE	AT 26
+		NOTZERO 65
+		MESSAGE 45
+		DONE
+
+UNE	CABLE	AT 26
+		ZERO 65
+		NOTWORN 6
+		NOTZERO 71
+		MESSAGE 66
+		PROCESS 6
+
+PULSA	BOTON	AT 26
+		ZERO 102
+		LET 24 14
+
+PULSA	BOTON	AT 26
+		NOUN2 ROJO
+		NOTZERO 66
+		CLEAR 66
+		SET 101
+		LET 8 3
+		DESC
+
+PULSA	BOTON	AT 26
+		NOUN2 ROJO
+		MESSAGE 235
+		DONE
+
+PULSA	BOTON	AT 26
+		NOUN2 AZUL
+		ZERO 65
+		MESSAGE 23
+		DONE
+
+PULSA	BOTON	AT 26
+		NOUN2 AZUL
+		ZERO 66
+		SET 66
+		SET 101
+		LET 24 30
+		DESC
+
+PULSA	BOTON	AT 26
+		NOUN2 AZUL
+		MESSAGE 235
+		DONE
+
+PULSA	BOTON	AT 26
+		MESSAGE 233
+		DONE
+
+DI	HOMBRE	AT 17
+		EQ 67 43
+		PROCESS 7
+		DONE
+
+DI	HOMBRE	SAME 38 67
+		PROCESS 12
+		DONE
+
+DI	HOMBRE	MESSAGE 210
+		DONE
+
+DI	JEFE	NOTSAME 24 38
+		MESSAGE 210
+		DONE
+
+DI	JEFE	ATGT 12
+		ATLT 27
+		PROCESS 14
+		DONE
+
+DI	_	MESSAGE 114
+		DONE
+
+ESPERA	_	SYSMESS 64
+		ANYKEY
+		DONE
+
+DOY	_	NOUN2 JEFE
+		NOTSAME 24 38
+		MESSAGE 210
+		DONE
+
+DOY	_	NOUN2 HOMBRE
+		NOTSAME 38 67
+		MESSAGE 210
+		DONE
+
+DOY	_	GT 55 3
+		NOUN2 HOMBRE
+		MES 73
+		MESSAGE 91
+		DONE
+
+DOY	TODO	NOUN2 HOMBRE
+		DOALL 254
+
+DOY	TODO	ATGT 12
+		ATLT 27
+		NOUN2 JEFE
+		DOALL 254
+
+DOY	RIFLE	NOUN2 JEFE
+		CARRIED 2
+		PUTO 4
+		MESSAGE 135
+		PLUS 77 1
+		DONE
+
+DOY	CONMUTADOR	ATGT 12
+		CARRIED 20
+		NOUN2 JEFE
+		DESTROY 20
+		SET 99
+		MESSAGE 195
+		NOTAT 14
+		LET 24 14
+		MESSAGE 196
+		DONE
+
+DOY	CONMUTADOR	NOTZERO 99
+		NEWLINE
+		DONE
+
+DOY	_	NOUN2 HOMBRE
+		LT 70 3
+		NOTEQ 51 2
+		GT 54 252
+		LT 54 255
+		PUTO 43
+		PLUS 70 1
+		MESSAGE 80
+		DONE
+
+DOY	_	NOUN2 HOMBRE
+		GT 70 2
+		MES 73
+		MESSAGE 90
+		DONE
+
+DOY	_	NOUN2 HOMBRE
+		SYSMESS 28
+		DONE
+
+DOY	_	NOTEQ 51 20
+		NOUN2 JEFE
+		ATLT 27
+		ATGT 12
+		EQ 54 254
+		PUTO 255
+		MES 1
+		MESSAGE 120
+		DONE
+
+DOY	_	NOUN2 JEFE
+		SYSMESS 28
+		DONE
+
+LLENA	BOTELLA	AT 16
+		NOTZERO 75
+		ZERO 80
+		CARRIED 17
+		SWAP 9 17
+		MESSAGE 126
+		DONE
+
+LLENA	BOTELLA	AT 16
+		CARRIED 17
+		NOTZERO 75
+		MESSAGE 142
+		DONE
+
+VACIA	BOTELLA	CARRIED 9
+		SWAP 9 17
+		COPYFF 38 80
+		SYSMESS 15
+		MESSAGE 125
+		DONE
+
+TIRA	BOTELLA	NOUN2 MONSTRUO
+		SAME 24 38
+		ATGT 26
+		ATLT 43
+		CARRIED 9
+		CREATE 9
+		MESSAGE 154
+		DONE
+
+TIRA	BOTELLA	SAME 24 38
+		ATGT 27
+		ATLT 43
+		NOUN2 MONSTRUO
+		CARRIED 17
+		CREATE 17
+		MESSAGE 154
+		DONE
+
+SUJETA	REJA	NOTZERO 91
+		SET 92
+		OK
+
+SUJETA	REJA	AT 39
+		NOTZERO 91
+		SET 92
+		OK
+
+MATA	HOMBRE	CARRIED 8
+		MESSAGE 208
+		CLEAR 68
+		SET 67
+		SWAP 22 25
+		DOALL 43
+		PUTO 255
+		DONE
+
+MATA	JEFE	ATGT 12
+		ATLT 26
+		CARRIED 8
+		SET 24
+		MESSAGE 208
+		SWAP 23 26
+		DONE
+
+MUEVE	ESTANQUE	AT 19
+		SET 106
+		SAME 38 67
+		MESSAGE 227
+		PLACE 17 43
+		DONE
+
+MUEVE	ESTANQUE	AT 19
+		MESSAGE 226
+		DONE
+
+_	_	LT 33 14
+		GT 78 3
+		MOVE 38
+		CLEAR 25
+		SET 69
+		CLEAR 87
+		DESC
+
+_	_	LT 33 14
+		MOVE 38
+		CLEAR 23
+		CLEAR 25
+		SET 69
+		CLEAR 87
+		DESC
+
+_	AYUDA	MESSAGE 209
+		DONE
+
+_	_	GT 33 15
+		CHANCE 40
+		SYSMESS 2
+		DONE
+
+_	_	LT 33 14
+		SYSMESS 5
+		DONE
+
+_	_	NOTDONE
+
+/PRO 1
+
+_	_	AT 0
+		LET 24 14
+		LET 67 43
+		LET 70 2
+		MODE 3
+		PROMPT 3
+		MES 144
+		ANYKEY
+                CLS
+		GOTO 14
+		DESC
+
+_	_	PROCESS 17
+
+_	_	ATGT 26
+		ATLT 43
+		MES 32
+
+_	_	ATLT 13
+		ATGT 4
+		MES 16
+
+_	BOTELLA	SAME 38 80
+		MES 125
+
+_	ASCENSOR	AT 26
+		ZERO 65
+		NOTZERO 71
+		MES 97
+
+_	ASCENSOR	AT 26
+		NOTZERO 66
+		MES 72
+
+_	ASCENSOR	AT 26
+		ZERO 66
+		MES 71
+
+_	ASCENSOR	AT 39
+		SYSMESS 59
+		SAME 38 67
+		SET 68
+
+_	SUELO	AT 26
+		ZERO 89
+		ZERO 66
+		CHANCE 30
+		MES 159
+
+_	_	LET 53 64
+		LISTOBJ
+
+_	_	AT 20
+		WORN 4
+		ZERO 26
+		MESSAGE 36
+		SET 26
+		CLEAR 95
+
+DEJA	REJA	NOTSAME 38 93
+		COPYFF 38 93
+		NOTZERO 91
+		MES 184
+		CLEAR 91
+		CLEAR 92
+		CLEAR 101
+
+_	_	AT 12
+		MES 79
+
+_	_	AT 5
+		MES 93
+
+_	HOMBRE	AT 17
+		EQ 67 43
+		MES 102
+
+_	HOMBRE	ATGT 13
+		CLEAR 73
+
+_	HOMBRE	AT 25
+		EQ 90 25
+		SYSMESS 61
+
+_	HOMBRE	PRESENT 25
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 44
+		NOTAT 26
+
+_	JEFE	PRESENT 26
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	_	NEWLINE
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+		PROCESS 3
+
+_	_	NOTZERO 68
+		NOTZERO 69
+		CLEAR 69
+		NOTAT 19
+		MES 75
+		MESSAGE 74
+
+_	_	AT 41
+		EQ 24 255
+		CHANCE 50
+		MES 73
+		MESSAGE 155
+
+_	_	TIME 30 1
+
+/PRO 2
+
+_	_	ATGT 4
+		ATLT 13
+		PROCESS 5
+
+_	_	EQ 24 12
+		LET 24 2
+
+_	_	EQ 24 2
+		LET 24 7
+
+_	_	AT 13
+		LT 31 21
+		CHANCE 15
+		ZERO 6
+		LET 6 2
+		MESSAGE 170
+		MESSAGE 162
+
+_	HOMBRE	NOTZERO 88
+		NOTZERO 85
+		MINUS 85 15
+		ZERO 85
+		NOTSAME 38 67
+		NOTAT 19
+		ATGT 12
+		ATLT 26
+		LT 67 100
+		COPYFO 67 22
+		SET 68
+		MES 75
+		MESSAGE 74
+		MESSAGE 168
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	HOMBRE	SAME 67 38
+		COPYFO 38 22
+		NOTZERO 94
+		CLEAR 94
+		SET 68
+
+_	HOMBRE	AT 25
+		ISNOTAT 8 43
+		NOTZERO 89
+		ZERO 90
+		MESSAGE 179
+		SET 90
+		SET 67
+
+_	HOMBRE	NOTZERO 68
+		COPYFF 38 67
+
+_	JEFE	GT 31 20
+		ATGT 12
+		ATLT 26
+		SAME 24 38
+		CREATE 23
+		ZERO 99
+		SET 25
+		PROCESS 4
+		NOTSAME 24 38
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	JEFE	GT 31 20
+		ATGT 12
+		ATLT 27
+		NOTSAME 24 38
+		LT 24 54
+		COPYFO 24 23
+		ZERO 25
+		ZERO 99
+		PROCESS 10
+		SAME 24 38
+		MES 100
+		MESSAGE 74
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	JEFE	CLEAR 25
+
+_	JEFE	SAME 24 38
+		ATLT 26
+		ATGT 12
+		CARRIED 2
+		CHANCE 20
+		MES 1
+		MESSAGE 204
+
+_	RIFLE	COPYOF 2 104
+		SAME 24 104
+		CHANCE 50
+		PUTO 4
+		PLUS 77 1
+		SET 204
+		SAME 24 38
+		MES 135
+
+_	CONMUTADOR	AT 14
+		NOTZERO 99
+		ANYKEY
+		CLS
+		MESSAGE 197
+		END
+
+_	REJA	ATGT 12
+		ATLT 15
+		EQ 6 3
+		MESSAGE 170
+
+_	REJA	ATGT 24
+		ATLT 27
+		ZERO 92
+		NOTZERO 91
+		MINUS 91 200
+		ZERO 91
+		MESSAGE 184
+
+_	REJA	AT 39
+		ZERO 92
+		NOTZERO 91
+		MINUS 91 200
+		ZERO 91
+		MESSAGE 184
+
+_	MONSTRUO	ATGT 26
+		ATLT 43
+		PROCESS 16
+
+_	MONSTRUO	ATGT 26
+		ATLT 44
+		SAME 38 24
+		COPYFO 24 24
+
+_	ASCENSOR	ZERO 66
+		ZERO 101
+		NOTZERO 94
+		AT 26
+		EQ 67 25
+		SYSMESS 62
+		SET 101
+
+_	ASCENSOR	AT 26
+		NOTZERO 66
+		ZERO 101
+		NOTZERO 94
+		AT 26
+		EQ 67 39
+		SYSMESS 62
+		SET 101
+
+_	ARBOL	AT 13
+		SAME 38 67
+		NOTZERO 73
+		SET 68
+		CLEAR 73
+
+_	_	NOTSAME 24 38
+		ATGT 3
+		ATLT 12
+		PROCESS 10
+
+_	_	ATLT 12
+		ATGT 3
+		SAME 24 38
+		PLUS 87 1
+		PROCESS 13
+
+_	_	ZERO 72
+		NOTZERO 68
+		SAME 24 38
+		ATLT 27
+		SET 72
+		MESSAGE 111
+
+_	_	AT 12
+		ZERO 73
+		EQ 67 13
+		MESSAGE 112
+		SET 73
+
+_	HOMBRE	NOTZERO 68
+		CREATE 22
+		PROCESS 15
+
+_	HOMBRE	AT 17
+		EQ 67 43
+		GT 5 1
+		MESSAGE 104
+
+_	HOMBRE	NOTAT 17
+		LET 5 2
+
+_	HOMBRE	AT 19
+		ZERO 107
+		ZERO 88
+		NOTZERO 68
+		LET 67 24
+		CLEAR 68
+		SET 85
+		SET 88
+		MESSAGE 167
+
+_	HOMBRE	LT 67 25
+		ZERO 68
+		NOTSAME 67 38
+		ZERO 7
+		NOTAT 17
+		CHANCE 30
+		LET 67 17
+
+_	HOMBRE	EQ 67 17
+		NOTAT 13
+		NOTAT 17
+		ZERO 7
+		CHANCE 30
+		LET 67 13
+
+_	HOMBRE	EQ 67 13
+		NOTAT 13
+		NOTAT 24
+		ZERO 7
+		CHANCE 30
+		LET 67 24
+
+_	HOMBRE	AT 25
+		ZERO 90
+		NOTZERO 89
+		ISAT 8 43
+		SET 67
+		CLEAR 68
+		MESSAGE 176
+		LET 90 25
+		DOALL 43
+		PUTO 255
+		PLACE 19 43
+		NOTEQ 40 1
+		CREATE 25
+
+_	HOMBRE	EQ 31 1
+		AT 14
+		MES 1
+		MESSAGE 172
+
+_	JEFE	AT 14
+		SAME 24 38
+		ZERO 72
+		LT 31 25
+		GT 31 1
+		CHANCE 20
+		MES 1
+		MESSAGE 2
+
+_	JEFE	AT 14
+		SAME 24 38
+		EQ 31 25
+		MES 1
+		MESSAGE 6
+
+_	JEFE	NOTZERO 72
+		SAME 24 38
+		NOTSAME 38 67
+		ZERO 90
+		ZERO 68
+		ATLT 27
+		ATGT 12
+		CHANCE 20
+		MES 1
+		MESSAGE 113
+
+_	RIFLE	SAME 24 67
+		SAME 24 38
+		ISAT 2 4
+		NOTZERO 72
+		CLEAR 68
+		SET 67
+		COPYFF 24 90
+		CLEAR 72
+		MESSAGE 201
+		DOALL 43
+		PUTO 255
+
+_	CAJA	SAME 24 38
+		ATGT 12
+		ATLT 27
+		CARRIED 3
+		MES 1
+		MESSAGE 132
+		PLACE 3 4
+		CLEAR 76
+		PLUS 77 1
+
+_	CAJA	EQ 24 14
+		ISAT 3 4
+		PLACE 3 14
+		MINUS 77 1
+
+_	REJA	EQ 6 1
+		ATGT 12
+		ATLT 15
+		MESSAGE 165
+
+_	ASCENSOR	AT 26
+		ZERO 8
+		NOTZERO 89
+		MESSAGE 177
+		PROCESS 6
+
+_	ASCENSOR	AT 26
+		EQ 8 3
+		NOTZERO 89
+		ZERO 66
+		MESSAGE 173
+		CARRIED 8
+		MES 73
+		MESSAGE 175
+		DONE
+
+_	ASCENSOR	AT 26
+		NOTZERO 89
+		NOTZERO 8
+		ZERO 66
+		ISAT 8 43
+		MESSAGE 178
+
+_	ASCENSOR	AT 26
+		NOTZERO 89
+		NOTZERO 8
+		ZERO 66
+		PRESENT 8
+		NOTCARR 8
+		PLACE 8 43
+		MESSAGE 178
+
+_	ASCENSOR	AT 26
+		NOTZERO 89
+		NOTZERO 8
+		ZERO 66
+		ZERO 91
+		MES 73
+		MESSAGE 174
+
+_	_	AT 17
+		EQ 67 43
+		EQ 5 1
+		MESSAGE 105
+		PROCESS 6
+
+/PRO 3
+
+_	_	COPYFF 38 100
+		LET 33 13
+		MOVE 100
+		NOTZERO 100
+		PLACE 10 1
+
+_	_	COPYFF 38 100
+		LET 33 2
+		MOVE 100
+		NOTZERO 100
+		PLACE 11 1
+
+_	_	COPYFF 38 100
+		LET 33 3
+		MOVE 100
+		NOTZERO 100
+		PLACE 12 1
+
+_	_	COPYFF 38 100
+		LET 33 4
+		MOVE 100
+		NOTZERO 100
+		PLACE 13 1
+
+_	_	COPYFF 38 100
+		LET 33 9
+		MOVE 100
+		NOTZERO 100
+
+_	_	COPYFF 38 100
+		LET 33 10
+		MOVE 100
+		NOTZERO 100
+
+_	_	ATGT 26
+		ATLT 43
+		ISAT 13 1
+
+_	_	ATGT 26
+		ATLT 43
+		ISAT 10 1
+
+_	_	ATGT 26
+		ATLT 43
+		ISAT 12 1
+
+_	_	ATGT 26
+		ATLT 43
+
+_	_	DESTROY 10
+		DESTROY 11
+		DESTROY 12
+		DESTROY 13
+
+/PRO 4
+
+S	_	CHANCE 10
+		LET 33 2
+		MOVE 24
+		LET 86 2
+		EQ 24 13
+		ZERO 6
+		LET 6 2
+		MESSAGE 170
+
+S	_	EQ 86 2
+		CLEAR 86
+		MES 100
+		MESSAGE 25
+		DONE
+
+E	_	CHANCE 10
+		NOTEQ 24 18
+		LET 33 3
+		MOVE 24
+		MES 100
+		MESSAGE 26
+		DONE
+
+O	_	NOTEQ 24 13
+		CHANCE 20
+		LET 33 4
+		MOVE 24
+		MES 100
+		MESSAGE 28
+		DONE
+
+N	_	CHANCE 20
+		NOTEQ 24 20
+		NOTEQ 24 21
+		LET 33 13
+		MOVE 24
+		LET 86 13
+		EQ 24 14
+		ZERO 6
+		LET 6 2
+		MESSAGE 170
+
+N	_	EQ 86 13
+		CLEAR 86
+		MES 100
+		MESSAGE 27
+		DONE
+
+_	_	DONE
+
+/PRO 5
+
+_	_	GT 78 4
+		WORN 4
+		NOTZERO 26
+		NOTEQ 23 255
+		MESSAGE 20
+
+_	_	GT 78 4
+		NOTWORN 4
+		NOTEQ 23 255
+		MESSAGE 20
+
+_	_	NOTZERO 26
+		NOTEQ 23 255
+		PLUS 23 1
+		LT 78 5
+		GT 23 1
+		LT 23 3
+		MESSAGE 17
+
+_	_	NOTWORN 4
+		NOTEQ 23 255
+		PLUS 23 1
+		LT 78 5
+		GT 23 1
+		LT 23 3
+		MESSAGE 17
+
+_	_	EQ 23 3
+		MESSAGE 19
+
+_	_	EQ 23 4
+		MESSAGE 18
+		PROCESS 6
+
+/PRO 6
+
+_	_	ANYKEY
+		SYSMESS 55
+		END
+
+/PRO 7
+
+_	_	PARSE
+		DONE
+
+_	AYUDA	LET 34 97
+		LET 33 134
+
+NECESITAR	CONMUTADOR	MESSAGE 10
+		CLEAR 5
+		LET 67 17
+		LET 7 35
+		PLACE 8 43
+		SET 68
+		CREATE 22
+		DONE
+
+/PRO 8
+
+X	HOMBRE	PRESENT 25
+		MES 180
+		ISAT 19 43
+		MESSAGE 64
+		DONE
+
+X	HOMBRE	AT 17
+		EQ 67 43
+		MESSAGE 81
+		DONE
+
+X	HOMBRE	SAME 38 67
+		MES 81
+		NOTZERO 70
+		SYSMESS 56
+		LISTAT 43
+
+X	HOMBRE	NEWLINE
+		DONE
+
+X	JEFE	PRESENT 26
+		MESSAGE 180
+		DONE
+
+X	JEFE	ATGT 12
+		ATLT 27
+		MES 119
+		NOTZERO 77
+		SYSMESS 56
+		LISTAT 4
+
+X	JEFE	NEWLINE
+		DONE
+
+X	CHAPA	MESSAGE 98
+		DONE
+
+X	RIFLE	MESSAGE 103
+		DONE
+
+X	DESTORNILL	MESSAGE 35
+		DONE
+
+X	FLOTADOR	NOTZERO 95
+		MESSAGE 187
+
+X	FLOTADOR	ZERO 95
+		MES 24
+		NOTZERO 26
+		MESSAGE 37
+		DONE
+
+X	FLOTADOR	NEWLINE
+		DONE
+
+X	TARJETA	MESSAGE 34
+		DONE
+
+X	GUANTE	MESSAGE 139
+		DONE
+
+X	CANDADO	MESSAGE 140
+		DONE
+
+X	CUCHILLO	MESSAGE 138
+		DONE
+
+X	BOTELLA	PRESENT 17
+		MESSAGE 131
+		DONE
+
+X	BOTELLA	PRESENT 9
+		MESSAGE 130
+		DONE
+
+X	BOTELLA	AT 19
+		ZERO 106
+		MESSAGE 22
+		DONE
+
+X	BOTELLA	AT 19
+		NOTZERO 106
+		ISAT 9 252
+		ISAT 17 252
+		MESSAGE 231
+		DONE
+
+X	CAJA	MES 215
+		ZERO 76
+		MESSAGE 38
+		DONE
+
+X	CAJA	MESSAGE 44
+		DONE
+
+X	PENDRIVE	MESSAGE 62
+		DONE
+
+X	CONMUTADOR	MESSAGE 193
+		DONE
+
+X	MANTA	AT 24
+		ZERO 105
+		MESSAGE 228
+		DONE
+
+X	MANTA	MESSAGE 228
+		DONE
+
+X	REJA	AT 21
+		MES 39
+		ZERO 27
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 21
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 17
+		ZERO 27
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 17
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 20
+		MES 212
+		ZERO 61
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 20
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 16
+		MES 212
+		ZERO 61
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 16
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 13
+		MES 163
+		ZERO 6
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 13
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 14
+		ZERO 6
+		MESSAGE 38
+		DONE
+
+X	REJA	AT 14
+		NOTZERO 6
+		MESSAGE 44
+		DONE
+
+X	REJA	ATGT 24
+		ATLT 27
+		MES 213
+		ZERO 91
+		MESSAGE 38
+		DONE
+
+X	REJA	ATGT 24
+		ATLT 27
+		MESSAGE 44
+		DONE
+
+X	REJA	AT 15
+		MESSAGE 217
+		DONE
+
+X	TAQUILLA	AT 24
+		ZERO 28
+		NOTZERO 60
+		MESSAGE 51
+		DONE
+
+X	TAQUILLA	AT 24
+		NOTZERO 28
+		MESSAGE 50
+		DONE
+
+X	TAQUILLA	AT 24
+		MESSAGE 46
+		DONE
+
+X	MONSTRUO	PRESENT 24
+		MESSAGE 56
+		DONE
+
+X	ASCENSOR	AT 26
+		MESSAGE 68
+		ZERO 71
+		MESSAGE 57
+		DONE
+
+X	ASCENSOR	AT 26
+		NOTZERO 71
+		ZERO 65
+		MESSAGE 97
+		DONE
+
+X	ASCENSOR	AT 26
+		DONE
+
+X	CRISTAL	AT 20
+		MESSAGE 37
+		DONE
+
+X	ARBOL	ATLT 13
+		ATGT 3
+		MESSAGE 220
+		DONE
+
+X	NAVE	AT 13
+		MES 164
+		MESSAGE 163
+		DONE
+
+X	NAVE	AT 14
+		MESSAGE 164
+		DONE
+
+X	CABLE	AT 26
+		NOTZERO 71
+		ZERO 65
+		MESSAGE 96
+		DONE
+
+X	INTERIOR	AT 24
+		NOUN2 TAQUILLA
+		WHATO
+		NOTZERO 28
+		SYSMESS 58
+		LISTAT 0
+		NEWLINE
+		DONE
+
+X	INTERIOR	AT 24
+		NOUN2 TAQUILLA
+		ZERO 28
+		MESSAGE 38
+		DONE
+
+X	INTERIOR	PRESENT 3
+		NOUN2 CAJA
+		NOTZERO 76
+		SYSMESS 58
+		LISTAT 3
+		NEWLINE
+		DONE
+
+X	BIDON	AT 16
+		MESSAGE 122
+		DONE
+
+X	GRIFO	AT 16
+		ZERO 75
+		MESSAGE 123
+		DONE
+
+X	GRIFO	AT 16
+		NOTZERO 75
+		MES 124
+		ZERO 80
+		MESSAGE 127
+		DONE
+
+X	GRIFO	AT 16
+		NOTZERO 75
+		NOTZERO 80
+		MESSAGE 142
+		DONE
+
+X	SUELO	AT 26
+		MESSAGE 145
+		DONE
+
+X	PANEL	AT 13
+		MESSAGE 166
+		DONE
+
+X	PANEL	AT 2
+		ZERO 98
+		MES 190
+
+X	PANEL	AT 2
+		NOTZERO 98
+		SYSMESS 63
+
+X	PANEL	AT 2
+		MESSAGE 194
+		DONE
+
+X	PANEL	AT 14
+		MESSAGE 218
+		DONE
+
+X	ORDENADOR	AT 14
+		MESSAGE 188
+		DONE
+
+X	CARTEL	AT 13
+		MESSAGE 63
+		DONE
+
+X	CADAVER	SAME 38 90
+		MESSAGE 180
+		DONE
+
+X	CADAVER	AT 19
+		ZERO 107
+		MESSAGE 211
+		DONE
+
+X	CADAVER	AT 19
+		MESSAGE 229
+		DONE
+
+X	RED	AT 25
+		MESSAGE 214
+		DONE
+
+X	RED	ATGT 11
+		ATLT 14
+		MESSAGE 216
+		DONE
+
+X	CAMA	AT 24
+		MESSAGE 219
+		ZERO 105
+		MESSAGE 223
+		DONE
+
+X	CAMA	AT 24
+		DONE
+
+X	ESTANQUE	AT 19
+		ZERO 106
+		MESSAGE 224
+		DONE
+
+X	ESTANQUE	AT 19
+		MESSAGE 22
+		DONE
+
+X	SANGRE	AT 15
+		MESSAGE 232
+		DONE
+
+X	SANGRE	AT 21
+		MESSAGE 232
+		DONE
+
+_	_	MESSAGE 22
+		DONE
+
+/PRO 9
+
+_	_	CHANCE 15
+		NOTAT 25
+		LET 33 2
+		MOVE 24
+		MES 76
+		MESSAGE 25
+		DONE
+
+_	_	CHANCE 15
+		LET 33 3
+		MOVE 24
+		MES 76
+		MESSAGE 26
+		DONE
+
+_	_	CHANCE 15
+		LET 33 13
+		MOVE 24
+		MES 76
+		MESSAGE 27
+		DONE
+
+_	_	CHANCE 15
+		NOTAT 13
+		LET 33 4
+		MOVE 24
+		MES 76
+		MESSAGE 28
+		DONE
+
+/PRO 10
+
+S	_	CHANCE 20
+		LET 33 2
+		MOVE 24
+		AT 13
+		EQ 24 13
+		ZERO 6
+		LET 6 2
+		MESSAGE 170
+		DONE
+
+E	_	CHANCE 20
+		LET 33 3
+		MOVE 24
+		DONE
+
+O	_	CHANCE 20
+		LET 33 4
+		MOVE 24
+		DONE
+
+N	_	CHANCE 20
+		LET 33 13
+		MOVE 24
+		AT 13
+		EQ 24 14
+		ZERO 6
+		LET 6 2
+		MESSAGE 170
+		DONE
+
+N	_	AT 14
+		EQ 24 14
+		LET 6 2
+		MESSAGE 170
+		DONE
+
+_	_	DONE
+
+/PRO 11
+
+_	_	MES 76
+
+_	_	GT 87 0
+		LT 87 2
+		MESSAGE 29
+
+_	_	NOTZERO 63
+		EQ 87 2
+		MESSAGE 30
+		PROCESS 6
+
+_	_	EQ 87 2
+		MESSAGE 55
+		PROCESS 6
+
+/PRO 12
+
+_	_	PARSE
+		MES 73
+		MESSAGE 12
+		DONE
+
+_	_	NOTZERO 103
+		MES 73
+		MESSAGE 206
+		MINUS 200 50
+		DONE
+
+_	_	GT 85 200
+		MINUS 85 150
+		MESSAGE 168
+		DONE
+
+_	_	NOTZERO 85
+		MINUS 85 50
+		MES 73
+		MESSAGE 169
+		DONE
+
+_	_	AT 26
+		NOTZERO 89
+		MES 73
+		MESSAGE 181
+		DONE
+
+_	_	LT 34 14
+		LET 33 137
+
+_	NO	ZERO 83
+		CLEAR 68
+		MES 73
+		MESSAGE 77
+		DONE
+
+O	_	AT 13
+		MES 73
+		MESSAGE 129
+		DONE
+
+ENTRA	_	AT 25
+		LET 33 137
+		LET 34 2
+
+ENTRA	_	AT 39
+		LET 33 137
+		LET 34 2
+
+SAL	_	AT 26
+		LET 33 137
+		LET 34 13
+
+COGE	_	WHATO
+		GT 54 252
+		MESSAGE 84
+		DONE
+
+COGE	_	GT 55 3
+		MES 73
+		MESSAGE 91
+		DONE
+
+COGE	TODO	DOALL 255
+
+COGE	CRISTAL	AT 20
+		MES 73
+		MESSAGE 121
+		DONE
+
+COGE	_	WHATO
+		LT 55 4
+		SAME 38 54
+		NOTEQ 51 2
+		LT 70 3
+		MESSAGE 80
+		PUTO 43
+		PLUS 70 1
+		DONE
+
+COGE	_	NOTSAME 54 38
+		MESSAGE 87
+		DONE
+
+COGE	_	GT 70 2
+		MES 73
+		MESSAGE 90
+		DONE
+
+DEJA	TODO	ZERO 70
+		MESSAGE 88
+		DONE
+
+DEJA	TODO	DOALL 43
+
+DEJA	_	WHATO
+		EQ 54 43
+		MESSAGE 85
+		PUTO 255
+		GT 70 0
+		MINUS 70 1
+		DONE
+
+DEJA	_	NOTEQ 54 43
+		MESSAGE 86
+		DONE
+
+USA	FLOTADOR	MES 73
+		MESSAGE 9
+		DONE
+
+USA	_	WHATO
+		GT 34 84
+		LT 34 105
+		MES 73
+		MESSAGE 11
+		DONE
+
+USA	_	MES 73
+		MESSAGE 12
+		DONE
+
+PON	FLOTADOR	ISAT 4 43
+		MES 73
+		MESSAGE 92
+		DONE
+
+PON	GUANTE	ISAT 6 43
+		MES 73
+		MESSAGE 92
+		DONE
+
+PON	_	MESSAGE 86
+		DONE
+
+ESPERA	_	ZERO 84
+		ATLT 26
+		MES 73
+		MESSAGE 78
+		CLEAR 68
+		DONE
+
+DOY	TODO	ZERO 70
+		MESSAGE 88
+		DONE
+
+DOY	TODO	DOALL 43
+
+DOY	BOTELLA	ISAT 17 43
+		LET 35 159
+
+DOY	BOTELLA	ISAT 9 43
+		LET 35 158
+
+DOY	_	EQ 1 4
+		SYSMESS 27
+		DONE
+
+DOY	_	WHATO
+		EQ 54 43
+		MESSAGE 83
+		PUTO 254
+		NOTZERO 70
+		MINUS 70 1
+		DONE
+
+DOY	_	NOTEQ 54 43
+		MES 86
+		SAME 54 38
+		MESSAGE 89
+		DONE
+
+DOY	_	NEWLINE
+		DONE
+
+ESTA	MONSTRUO	MES 73
+		MESSAGE 110
+		DONE
+
+VEN	_	SET 68
+		MES 73
+		MESSAGE 78
+		LET 7 20
+		DONE
+
+VE	_	WHATO
+		SET 94
+		CLEAR 68
+
+VE	S	AT 39
+		NOTZERO 91
+		LET 67 26
+		MES 75
+		MESSAGE 25
+		DONE
+
+VE	S	AT 39
+		ZERO 91
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	S	AT 25
+		ZERO 91
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	S	AT 25
+		NOTZERO 91
+		LET 67 26
+		MES 75
+		MESSAGE 25
+		DONE
+
+VE	S	AT 14
+		ZERO 6
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	S	AT 16
+		ZERO 61
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	S	AT 17
+		ZERO 27
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	S	LET 33 2
+		MOVE 67
+		MESSAGE 116
+		NOTAT 16
+		DONE
+
+VE	E	AT 18
+		NOTZERO 64
+		NOTZERO 88
+		MES 73
+		MESSAGE 171
+		DONE
+
+VE	E	AT 18
+		NOTZERO 64
+		ZERO 107
+		SET 85
+		SET 88
+		MESSAGE 167
+		LET 67 24
+		DONE
+
+VE	E	AT 18
+		ZERO 64
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	E	LET 33 3
+		MOVE 67
+		MESSAGE 116
+		NOTAT 23
+		DONE
+
+VE	O	LET 33 4
+		MOVE 67
+		MESSAGE 116
+		NOTAT 44
+		DONE
+
+VE	N	AT 26
+		ZERO 91
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	N	AT 26
+		SET 101
+		ZERO 66
+		CLEAR 68
+
+VE	N	AT 26
+		NOTZERO 66
+		LET 67 39
+		MES 75
+		MESSAGE 27
+		DONE
+
+VE	N	AT 20
+		ZERO 61
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	N	AT 21
+		ZERO 27
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	N	AT 13
+		ZERO 6
+		MES 73
+		MESSAGE 128
+		DONE
+
+VE	N	LET 33 13
+		MOVE 67
+		MESSAGE 116
+		NOTAT 22
+		NOTAT 23
+		DONE
+
+TIRA	MONSTRUO	LET 44 115
+		LET 34 93
+
+TIRA	_	ISNOTAT 9 252
+		ZERO 79
+		NOUN2 MONSTRUO
+		SET 79
+		SET 83
+		MES 73
+		MESSAGE 141
+		DONE
+
+TIRA	_	ISAT 9 43
+		NOTZERO 79
+		MES 73
+		MESSAGE 152
+		DONE
+
+_	SI	LT 7 33
+		ZERO 83
+		SET 83
+		MES 73
+		MESSAGE 146
+		SET 68
+		DONE
+
+_	_	SAME 33 110
+		SAME 34 106
+		MES 73
+		MESSAGE 221
+		CLEAR 110
+		CLEAR 106
+		DONE
+
+_	_	COPYFF 33 110
+		COPYFF 34 106
+
+_	_	LT 33 14
+		SAME 38 67
+		MES 73
+		MESSAGE 69
+		DONE
+
+_	_	CLEAR 101
+		GT 33 14
+		MES 73
+		MESSAGE 12
+		DONE
+
+/PRO 13
+
+_	_	EQ 87 1
+		MESSAGE 14
+
+_	_	GT 87 1
+		MES 76
+		MESSAGE 55
+		PROCESS 6
+
+/PRO 14
+
+_	_	MES 1
+
+_	_	PARSE
+		MESSAGE 3
+		DONE
+
+COGE	_	MESSAGE 13
+		DONE
+
+DOY	RIFLE	ISAT 2 4
+		MESSAGE 13
+		DONE
+
+DOY	CAJA	ISAT 3 4
+		MESSAGE 136
+		DONE
+
+VEN	_	MESSAGE 13
+		DONE
+
+VE	_	MESSAGE 13
+		DONE
+
+_	_	ZERO 72
+		NOUN2 MONSTRUO
+		MESSAGE 4
+		DONE
+
+_	_	NOUN2 MONSTRUO
+		MESSAGE 5
+		DONE
+
+_	MONSTRUO	ZERO 72
+		MESSAGE 4
+		DONE
+
+_	MONSTRUO	MESSAGE 5
+		DONE
+
+_	_	SAME 33 110
+		SAME 34 106
+		MESSAGE 221
+		CLEAR 33
+		CLEAR 34
+		DONE
+
+_	_	COPYFF 33 110
+		COPYFF 34 106
+
+_	_	MESSAGE 3
+		DONE
+
+/PRO 15
+
+_	_	NOTZERO 85
+		DONE
+
+_	HOMBRE	CHANCE 10
+		NOTSAME 24 38
+		ISAT 9 43
+		ZERO 79
+		MES 73
+		MESSAGE 134
+
+_	HOMBRE	CHANCE 10
+		CARRIED 9
+		ZERO 79
+		NOTSAME 24 38
+		MES 73
+		MESSAGE 134
+
+_	HOMBRE	NOTZERO 79
+		ZERO 89
+		CHANCE 5
+		MES 73
+		MESSAGE 151
+
+_	HOMBRE	NOTZERO 89
+		ATGT 26
+		ATLT 43
+		LT 8 14
+		CHANCE 10
+		MES 73
+		MESSAGE 150
+
+_	HOMBRE	ZERO 84
+		SAME 24 38
+		ATGT 26
+		ISAT 9 43
+		NOTZERO 79
+		SET 84
+		MESSAGE 147
+
+_	HOMBRE	CARRIED 9
+		ATGT 26
+		SAME 24 38
+		NOTZERO 79
+		MES 73
+		MESSAGE 153
+
+_	HOMBRE	SAME 24 38
+		ATGT 26
+		CARRIED 2
+		MESSAGE 148
+
+_	HOMBRE	LT 7 20
+		ZERO 83
+		CHANCE 10
+		CLEAR 68
+		MES 73
+		MESSAGE 77
+
+_	HOMBRE	EQ 7 34
+		MES 73
+		MESSAGE 106
+
+_	HOMBRE	EQ 7 33
+		MES 73
+		MESSAGE 108
+
+_	HOMBRE	EQ 7 21
+		ZERO 83
+		MES 73
+		MESSAGE 77
+		CLEAR 68
+
+_	HOMBRE	ATLT 27
+		LT 7 33
+		CHANCE 5
+		NOTZERO 82
+		ZERO 83
+		MES 73
+		MESSAGE 109
+		CLEAR 82
+
+_	HOMBRE	LT 7 33
+		ATLT 27
+		ZERO 82
+		ZERO 83
+		CHANCE 5
+		MES 73
+		MESSAGE 143
+		SET 82
+
+_	HOMBRE	ATLT 26
+		NOTZERO 83
+		CHANCE 4
+		MES 73
+		MESSAGE 110
+
+/PRO 16
+
+_	_	ZERO 89
+		CHANCE 2
+		MESSAGE 222
+
+_	_	ZERO 89
+		CHANCE 3
+		SYSMESS 65
+
+_	MONSTRUO	SAME 24 38
+		PLUS 87 1
+		PROCESS 11
+
+_	MONSTRUO	ZERO 25
+		NOTSAME 24 38
+		PROCESS 10
+		SAME 24 38
+		MESSAGE 31
+
+_	_	NOTZERO 89
+		CHANCE 10
+		MESSAGE 157
+
+_	_	NOTZERO 89
+		CHANCE 10
+		MESSAGE 156
+
+_	MONSTRUO	EQ 8 1
+		MESSAGE 158
+		PROCESS 6
+
+/PRO 17
+
+_	_	ATGT 26
+		ATLT 43
+
+_	_	ATLT 13
+		ATGT 3
+
+_	S	AT 25
+
+_	S	AT 39
+
+_	HOMBRE	NOTZERO 68
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	HOMBRE	SAME 38 67
+		ZERO 68
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+
+_	JEFE	ATLT 27
+		ATGT 12
+		NOTAT 16
+		NOTAT 22
+		NOTAT 23
+		NOTAT 26
+		NOTAT 44
+		SAME 24 38
+
+/PRO 18
+
+LLEVA	_	CLEAR 97
+		DOALL 253
+
+LLEVA	_	PLUS 97 1
+		DONE
+

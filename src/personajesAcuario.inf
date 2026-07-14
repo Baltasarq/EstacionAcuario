@@ -1,0 +1,552 @@
+Character Mason "Mason" limbo
+with
+	number 0, ! I6Sp lib requisito.
+	short_name "Mason",
+	name 'mason',
+	description "La cosa no está nada mal.",
+	react_before [;
+		Salidas:
+			if ( location ofclass SwampLabyrinth ) {
+				player.think( "No veo diferencia en ninguna dirección." );
+				rtrue;
+			}
+		Go:
+			if ( location ofclass SwampLabyrinth ) {
+				if ( objFlotFeets notin player
+				  || objFlotFeets hasnt worn
+				  || objFlotFeets hasnt open )
+				{
+					Pantano.warningSinking();
+					print "Vagas por el pantano, tratando de encontrar rápidamente
+						el lugar del que partiste.^";
+
+					playerTo( locPantano, 2 );
+					rtrue;
+				}
+			}
+	],
+	react_after [;
+		Examine:
+			if ( noun == d_obj ) {
+				if ( location == locPuertaEntrada
+						or locPasillo
+						or locPasillo2
+						or locCocina
+						or locLaboratorio
+						or locAlmacen2
+						or locFrigo )
+				{
+					<Examine objSangre>;
+					rfalse;
+				}
+			}
+		Drop:
+			if ( location ofclass SwampLabyrinth ) {
+				if ( noun == objFlotfeets or objCD ) {
+					player.think( "De eso nada, podría perderlo..." );
+				}
+				else {
+					print (_El) noun, " se hunde rápidamente en el fango...
+						sabes que aunque quisieras, no podrías encontrarlo
+						ya ahora.^";
+					move noun to limbo;
+				}
+
+				rtrue;
+			}
+
+		Go:
+			if ( location ofclass Room ) {
+				if ( location == locPasillo
+				  && noun == n_obj )
+				{
+					rfalse;
+				}
+				else
+				if ( location == locPasillo
+				  && noun == s_obj ) {
+					rfalse;
+				}
+				else
+				if ( location == locNaveCarga )
+				{
+					rfalse;
+				}
+				else
+				if ( location == locPasillo2
+				  && noun == n_obj
+				  && objPuertaLabo hasnt open )
+				{
+					rfalse;
+				}
+
+				SMW.play( SMW.chan1, sndDoor );
+			}
+	],
+has proper;
+
+Thing objMano "mano"
+with
+	name 'mano',
+	name_fp 'manos',
+	description "Un poco machacadas por el trabajo, pero en forma.",
+	found_in [;
+		rtrue;
+	],
+	react_before [;
+		if ( noun == self ) {
+			if ( action == ##Examine or ##PutOn ) {
+				rfalse;
+			} else {
+				player.think( "¿Para qué?" );
+				rtrue;
+			}
+		}
+	],
+	before [;
+		PutOn: <<PutOn second>>;
+	],
+has female concealed;
+
+Character Farmer "Farmer"
+with
+	short_name "Farmer",
+	name 'Farmer' 'jefe',
+	orders [;
+		print (s_note) "Usa ~hablar con ";
+		print (string) self.short_name;
+		print (s_note) "~ para hablar con él.^";
+		rtrue;
+	],
+	description [;
+		if ( self hasnt visited ) {
+			print "Capitán de la nave, Farmer es un tanto estirado.
+				Fisicamente, por otra parte, es más bien rechoncho, conjuntando
+				con un carácter irascible. En todos estos años de servicio juntos,
+				no habéis llegado a confraternizar, realmente.^";
+			give self visited;
+		} else {
+			print "Tu capitán, tan irascible como siempre.^";
+		}
+
+		rtrue;
+	],
+	ponModoIrse [;
+		move self to locNaveCarga;
+		self.status = 4;
+	],
+	conversation [;
+
+		if ( location == locNaveCarga
+		  && objPiezaRepuesto in player or location )
+		{
+			doEnd();
+			rtrue;
+		}
+
+		if ( Samil in location
+		  && location == locNaveCarga )
+		{
+			self.status = 2;
+		}
+
+		if ( self.getStatus() == 0 ) {
+			self.say( "Hemos aterrizado en el planeta de la estación minera...
+			           Acuario. ¡No entiendo por qué no contestan a mis mensajes!
+				   Ve a buscar ayuda, necesitamos ese conmutador." );
+			print "Farmer ya te ha vuelto la espalda, y trata desesperadamente de conseguir
+				que los instrumentos funcionen de nuevo.^";
+			self.status = 1;
+		}
+		else
+		if ( self.getStatus() == 1 ) {
+			print "Hace un gesto de impaciencia hacia ti.^";
+			self.say( "Mason, necesitamos encontrar un nuevo conmutador de presión,
+			           no pierdas el tiempo." );
+			print "Farmer ya te ha vuelto la espalda, y trata desesperadamente de conseguir
+				que los instrumentos funcionen de nuevo.";
+
+			if ( locFrigo has visited ) {
+				print " Es desalentador. Parece que le importa todo muy poco,
+					excepto salir de aquí. No es que se lo eches en cara, pero
+					es obvio que ni siquiera está dispuesto a escuchar la
+					descripción del macabro espectáculo que has visto.^";
+				player.say( "Está bien." );
+			}
+		}
+		else
+		if ( self.getStatus() == 2 ) {
+			self.say( "Ah, ya veo que has encontrado a un colono..." );
+			print "Aunque ninguno de los dos abrís la boca, Farmer nota que algo va mal...^";
+			self.say( "¿Qué sucede?" );
+			player.say( "Están todos muertos... todos menos él." );
+			print "Abre mucho los ojos.^";
+			self.say( "¿Cómo es posible?" );
+			player.say( "No sé muy bien... Algo acabó con ellos, y..." );
+			print "Como activado por un resorte, parece que Samil encuentra el pie que esperaba
+				para hablar.^";
+			Samil.say( "¡Fue la bestia, la bestia acabó con ellos!" );
+			self.say( "¿La bestia?¿Qué bestia?" );
+			print "Sus ojos se tornan, desconfiado. No puedes imaginar
+				lo que está pasando por su cabeza.^";
+			Samil.say( "Vino en aquella nave. Debemos acabar con ella." );
+			print "Ahora sus ojos están abiertos de par en par.^";
+			Farmer.say( "Acabar con... ¿qué?" );
+			print "Lanzando un hondo suspiro, te dispones a explicarle todo lo que ha pasado,
+				lo que has aprendido en este tiempo. Sin embargo, descubres que es
+				del todo inútil. A Farmer todo este embrollo no le interesa. Y menos la solución
+				propuesta por Samil. Aunque en este último punto no puedes negar que tenga
+				razón, no parece haber otra salida.^";
+
+			self.say( "Mientras vosotros jugáis a los soldados, yo buscaré la
+				   maldita pieza en los almacenes." );
+			print "Farmer se va, haciendo aspamientos. Es obvio que no servirá de nada
+				hablar con él.^";
+
+			Samil.ponJefeNoAyuda();
+			move self to locSotanoAlmacen;
+			self.status = 3;
+		}
+		else
+		if ( self.getStatus() == 3 ) {
+			print "Farmer hace un gesto de impaciencia, sin siquiera mirarte.^";
+			self.say( "No me molestes. Buscaré la pieza, y nos largaremos de aquí." );
+			player.think( "Está airado, intratable. Es mejor no insistir." );
+		}
+		else
+		if ( self.getStatus() == 4 ) {
+			print "Farmer no te dirige la mirada.^";
+			self.say( "¿Podemos irnos ya?" );
+			player.say( "No, aún no lo tengo." );
+			self.say( "Pues venga, date prisa." );
+			print "Te da la espalda, examinando los controles con atención.^";
+			player.think( "Como si hubiera algo que controlar ahora mismo..." );
+		}
+	],
+
+has proper;
+
+Character Samil "científico"
+with
+	short_name "científico",
+	name 'Samil' 'cientifico' 'hombre',
+	initial "Un hombre vestido con bata blanca blande un cuchillo, que agita en
+	         tu dirección, recostado en una de las paredes.",
+	description [;
+		if ( self hasnt visited ) {
+			print "Samil no parece un minero, sino algún tipo de científico.
+				Delgado y pálido, se agarra un costado con la mano.^";
+			give self visited;
+		} else {
+			print "Firmemente determinado, aún convaleciente de su herida.^";
+		}
+
+		rtrue;
+	],
+	ponTraumatizado [;
+		self.status = 99;
+	],
+	ponJefeNoAyuda [;
+		self.status = 3;
+	],
+	estaMuerto [;
+		return ( self.status == 100 );
+	],
+	ponMuerto [;
+		self.status = 100;
+
+		Samil.initial = "El cadáver de Samil está aquí.";
+		Samil.description = "Está muerto.";
+		Samil.before = "Está muerto.";
+	],
+	conversation [;
+		if ( self.estaMuerto() ) {
+			player.think( "Samil está muerto." );
+			rtrue;
+		}
+
+		if ( self in locAscensor
+		  && objGuantes in self )
+		{
+			print "Samil observa las chispas saliendo de detrás de la placa
+				de la botonera... te mira con gesto divertido y te alarga
+				unos guantes.^";
+			self.say( "Lo siento, yo nunca he sido demasiado bueno con los
+					asuntos relacionados con la electricidad..." );
+			print "Sin poder creer tu buena suerte, te los pones.^";
+
+			move objGuantes to player;
+			give objGuantes worn;
+			rtrue;
+		}
+
+		if ( self in locCave4
+		  && objBotella in player or location )
+		{
+			self.tirarBotella();
+			rtrue;
+		}
+
+		if ( self.getStatus() == 0 ) {
+			print "Un desconocido blande un cuchillo, que apunta hacia ti.^";
+			self.say( "¡Atrás! ¡¿Quién eres!? ¡¿Qué quieres!?" );
+			self.status = 1;
+		}
+		else
+		if ( self.getStatus() == 1 ) {
+			player.say( "Me llamo Mason, he aterrizado en una pequeña
+				   nave carguera. Necesito un conmutador, y..." );
+			self.say( "¿Otra nave de fuera? ¡¿Es que no habéis
+				tenido suficiente con lo que habéis hecho, malditos!?" );
+			player.say( "¿Otra nave? Yo no sé nada de otra nave, yo..." );
+			print "Sus ojos están ahora dilatados, un escalofrío parece
+			       recorrer su cuerpo.^";
+			self.say( "La que trajo a la bestia..." );
+			player.say( "¿La bestia? Yo no..." );
+			print "El científico se levanta hacia ti con esfuerzo...
+			       Con el cuchillo en alto.^";
+			self.say( "¡No me mientas, maldita sea!" );
+			print "Repentinamente, te sientes harto de la actitud amenazante
+			       del científico. Tu quejido suena airado y amenazante, aún
+			       sin blandir ningún arma.^";
+			player.say( "¡Basta! Sólo necesito un conmutador, y me iré de este
+				     inmundo planeta." );
+			print "El científico clava tu vista en ti, como si te viera por
+			       primera vez, a la vez que hace descender lentamente el
+			       cuchillo.^";
+			self.say( "Yo... lo siento. No pretendía asustarte..." );
+			print "Su rostro sólo expresa ahora arrepentimiento y dolor. ";
+			print "Consigues relajarte, ahora que parece arrebatado de su trance.^";
+			player.say( "Bien, yo... sólo necesito ayuda." );
+			print "Diriges tu mirada hacia el torso del científico.^";
+			player.say( "Pero antes, habrá que curar esa herida, y... creo
+				que deberías contarme en detalle lo que ha pasado aquí." );
+			print "Lentamente, la actitud defensiva de Samil desaparece ante tus
+				ojos, para ser sustituido por un cansancio infinito, y una
+				abrumadora melancolía.^";
+			self.say( "Me llamo Samil." );
+			self.toProperName( "Samil" );
+			self.say( "Soy... era un científico más de esta estación, con un
+				  trabajo rutinario. Velábamos por la pureza del mineral
+				  extraído, y poco más: tan solo algunas tareas rutinarias
+				  como cuidar la potabilidad del agua, por ejemplo." );
+			print "Mientras Samil continúa su relato, vendas lo mejor que puedes
+			       sus heridas con el botiquín de emergencia de la pared.
+				   Debido a la necesidad de vendar la totalidad
+			       del torso, pronto no queda venda ni medicamento alguno en él.^";
+			self.say( "La vida era tranquila y monótona para nosotros, más enérgica
+				   y cansada para los mineros. Aún así, este planeta, con una
+				   gravedad ligeramente inferior a la de la Tierra, y un porcentaje
+				   de oxígeno mayor que allí, hace que el trabajo sea también
+				   vigorizante." );
+			print "Samil te dirige la mirada, con un asomo de satisfacción en su rostro.^";
+			self.say( "Una pequeña, feliz y bien avenida comunidad." );
+			print "Sin saber muy bien qué decir, asientes en silencio.^";
+			self.say( "Todo se torció un buen día, hace unas semanas. Por la noche,
+			           algunos decían haber visto un destello y un sonido como el de
+				   una nave aterrizando, pero más allá de la mina, en el pantano." );
+			self.say( "Al principio, pensábamos que eran neurosis de los típicos insomnes." );
+			self.say( "Pero pronto empezó a desaparecer gente." );
+			print "Samil pareció tragar saliva.^";
+			self.say( "Estábamos aterrorizados." );
+			print "El científico cierra los ojos.^";
+			self.say( "Hasta hace dos días. Fue terrible. La bestia vino del
+			           pantano, y acabó con las vidas de todos los mineros..." );
+			self.say( "De todo el mundo." );
+			print "Suspira hondamente.^";
+			self.say( "Ayer me atreví a salir de aquí. Apilé los cadáveres como pude." );
+			self.say( "Cuando vi vuestra nave, me asusté." );
+			print "Samil se incorpora con dificultad, y se guarda el cuchillo.^";
+			self.say( "Pensé que otra calamidad se avecinaba..." );
+			self.say( "Afortunadamente, aquí estáis." );
+			self.say( "Ahora, con vuestra ayuda, acabaremos con la bestia." );
+			print "Sus ojos, encendidos y febriles, no te permiten dudar de que
+			       dice la verdad.^";
+			player.say( "Quizás no es los más adecuado ahora, podríamos..." );
+			self.say( "¡¿Adecuado?! La bestia ha de morir." );
+			print "Ahora te mira, sus pupilas dilatadas, los dientes apretados...^";
+			self.say( "No sé, yo... debemos hablar con mi jefe." );
+
+			self.status = 2;
+			self.initial = "Samil está aquí.";
+			give objBotiquin open;
+			move self to locNaveCarga;
+			move self to locLaboratorio;
+		}
+		else
+		if ( self.getStatus() == 2 ) {
+			self.say( "Ayúdadme a acabar con esa bestia. Si habéis sobrevivido
+ 				   hasta ahora, debe de estar en la mina."
+			);
+			print "Los ojos de Samil brillan con odio. Lo dice muy en serio.
+			       Tus razonadas protestas no le detendrán.^";
+			player.say( "Debo hablar con mi jefe." );
+		}
+		else
+		if ( self.getStatus() == 3 ) {
+			self.say( "Tu jefe no encontrará lo que busca.
+					Yo te diré dónde encontrar la pieza de repuesto
+					si eliminamos a la bestia." );
+			print "Suspiras, aterrado. No tiene ningún sentido.^";
+			player.say( "De acuerdo." );
+		}
+		else
+		if ( self.getStatus() == 99 ) {
+			print "Samil parece enfocar sus ojos vidriosos en ti...^";
+			self.say( "Yo... creía que podría, pero... no puedo." );
+			self.say( "... no puedo..." );
+			print "Tratas de reconfortarlo como puedes.^";
+			player.say( "Está bien, está bien, iremos poco a poco." );
+			player.say( "Pero no puedes quedarte aquí eternamente." );
+			player.say( "Ni nosotros tampoco. Sólo necesitamos ese repuesto para la nave." );
+
+			print "Samil parece recuperar el aplomo, preocupado repentinamente por
+				cosas mundanas, como repuestos y naves.^";
+			player.say( "¿Vamos?" );
+			print "Samil vuelve a mirarte, aparentemente reforzado.^";
+			self.say( "¡Vamos!" );
+
+			if ( Farmer in locSotanoAlmacen ) {
+				self.status = 3;
+			} else {
+				self.status = 2;
+			}
+		}
+	],
+
+	orders [;
+		print (s_note) "Usa ~hablar con ";
+		print (string) self.short_name;
+		print (s_note) "~ para hablar con él.^";
+		rtrue;
+	],
+
+	before [;
+		Attack:
+			player.think( "Eso no tendría sentido, no tengo en contra de él." );
+			rtrue;
+		Enter:
+			print "Apoyas ambas manos en los hombros de Samil,
+					mientras tratas de pensar dónde colocar el pie,
+					y este te mira de arriba a abajo.^";
+			wait();
+			print "^Te habla con voz estridente.^";
+			Samil.say( "¿Pero qué haces?" );
+			player.say( "Yo, bueno, quería apoyarme en ti para subirme y..." );
+			Samil.say( "¡Pero bueno! ¿Me has visto cara de escalera?" );
+			Samil.say( "Piensa en otra forma." );
+			rtrue;
+	],
+
+	daemon [;
+		if ( self.getStatus() > 1
+		  && self.getStatus() < 99 )
+		{
+			if ( location == locFrigo ) {
+				if ( ~~objCadaveres.estanTapados() ) {
+					print "Samil empieza a moverse adelante y atrás, balanceándose
+					       sobre si mismo. Musita un apagado y aterrado ~no, no, no~
+					       mientras abre sus ojos demudados en terror.^";
+					wait();
+					print "De repente, abandona la estancia, a la carrera.^";
+
+					move self to locDormitorios;
+					self.ponTraumatizado();
+					rtrue;
+				}
+			}
+
+			if ( location ~= parent( self ) ) {
+				if ( location == locPantano
+				  && self notin locDormitorios )
+				{
+					print "^Samil se mueve repentinamente nervioso. Algo le pasa.^";
+					Samil.say( "Mejor te espero en los dormitorios." );
+				}
+
+				if ( self notin locDormitorios
+				  && ( location ofclass Swamp
+					|| location == locNaveAbandonada ) )
+				{
+					move self to locDormitorios;
+					self.ponTraumatizado();
+					rtrue;
+				}
+
+				move self to location;
+				print "^Samil te observa.";
+
+				if ( location == locFrigo
+				  && objCadaveres.estanTapados() )
+				{
+					print " La visión de la sangre, manando hacia el sumidero, le horroriza,
+						pero la manta, que oculta la mayor parte de la macabra escena,
+						le alivia. Aún así, procura no mirar hacia la pila de cadáveres.";
+				}
+
+				"^";
+			}
+		}
+
+		rtrue;
+	],
+
+	tirarBotella [;
+
+		if ( ~~objBotella.isFilled() ) {
+			player.think( "¡No hay combustible en la botella!¡Así no sirve!" );
+			rtrue;
+		}
+
+		move objBotella to limbo;
+		Monstruo.ponMojado();
+
+		print "Le das la botella a Samil, quien te mira sin poder entenderte.";
+		player.say( "¡Tírasela!" );
+		print "Mientras Samil asiente, comprendiendo por fin, apuntas con el
+			fusil al monstruo, esperando acabar con él en cuanto sea posible.
+			Por el rabillo del ojo ves cómo Samil lanza la botella, para estrellarse
+			en la dura piel de la bestia, haciéndose añicos, e impregnándola
+			con el inflamable líquido.^";
+	],
+
+;
+
+Character Monstruo "monstruo"
+private
+	mojado false,
+with
+	name_m 'monstruo',
+	name_f 'bestia' 'criatura',
+	initial "Una criatura monstruosa te observa, amenazante, en cuanto entras en la galería.",
+	description [;
+		print "Una especie de cruce entre murciélago y lagarto gigante.^";
+		player.think( "¡Qué curioso!, no sabes de dónde te surge
+						este humor tan histérico."
+		);
+		rtrue;
+	],
+	ponMojado [;
+		self.mojado = true;
+	],
+	estaMojado [;
+		return self.mojado;
+	],
+	conversation [;
+		print "Incomprensiblemente, no atiende a tus razonamientos.^";
+		player.think( "¡Qué decepción!" );
+		rtrue;
+	],
+	orders [;
+		print "No hace caso.^";
+		player.think( "Qué curioso, no es como una mascota." );
+		rtrue;
+	],
+	before [;
+		Kiss:
+			player.think( "¡Esto sí que es una locura repentina!" );
+			rtrue;
+		Dispara:
+			<<Dispara objFusil self>>;
+	],
+;

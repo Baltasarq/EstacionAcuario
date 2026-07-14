@@ -1,0 +1,53 @@
+
+Para entrar en el labo:
+- La tarjeta del laboratorio está en la taquilla
+- Para romper el candado de la taquilla, es necesario el fusil
+- El fusil está en la caja hermética de Farmer
+- La caja hermética de farmer se abre con el destornillador
+
+Resolver lo del hombre amenazante:
+- En el laboratorio hay un hombre que te amenaza con un cuchillo
+- Se llama Samil
+- Si le pides ayuda, no te mata. DECIR A SAMIL "AYUDA"
+- Ponte de acuerdo con él: DECIR A SAMIL "SI"
+
+
+Resolver el ascensor:
+- Necesitas desatornillar la chapa
+- El destornillador está en el almacén, al norte del pasillo
+- Se abre el almacén de una patada
+- Hay un cable pelado y roto
+- Para unirlo, necesitas un guante
+- El guante lo tiene Samil
+- Levanta la reja y dile a samil que entre en el ascensor
+- Pedirle a Samil sus guantes
+
+Matar al monstruo:
+- Ve al ascensor, y empalma el cable con los guantes de Samil
+- Bajar
+- Merodear por las galerías
+- Samil debe lanzar botella con combustible a monstruo (tú no serás capaz)
+- Disparar
+- Volver al ascensor, y salir
+
+Conseguir la botella:
+- Está en la cámara frigorífica.
+- Samil debe ayudarte
+- Mueve la estanteria
+- Samil coge la botella antes de que se rompa.
+- Llenar la botella con el bidón de combustible (abrir grifo, llenar botella, cerrar grifo).
+- Dar botella a Samil
+- Cuando te pregunte, di a samil "lanzar botella a monstruo"
+
+Salir de las galerías:
+- Debes abandonar a Samil
+- Levanta la reja, y sal del ascensor
+
+Obtener conmutador:
+- Una vez el monstruo ha muerto, así como Samil, abrir la mano de Samil y coger el disco
+- En la localidad de la nave, deja todo menos los flotfeets y el disco
+- rompe la anilla e infla los flotfeets, póntelos.
+- Merodea por el pantano hasta encontrar una nave destrozada.
+- Entra la nave, mete el CD en la ranura y coge el conmutador.
+- Sal de la nave y merodea hasta encontrar la apertura en la reja
+- Dale el conmutador a farmer
